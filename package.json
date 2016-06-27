@@ -1,0 +1,45 @@
+{
+  "name": "catreact-examples",
+  "version": "1.0.0",
+  "main": "./catavolt-client/bundle.js",
+  "typings": "./typings/index.d.ts",
+  "description": "Catavolt React Examples",
+  "author": "Rob Burson <rob.burson@catavolt.com>",
+  "license": "Apache-2.0",
+  "keywords": [
+    "catavolt",
+    "javascript",
+    "react"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://git.catavolt.com/javascript/catreact-examples.git"
+  },
+  "dependencies": {
+    "babelify": "^7.2.0",
+    "catavolt-sdk": "^1.0.1",
+    "catreact": "^1.0.0",
+    "react": "^0.14.3",
+    "react-bootstrap-datetimepicker": "0.0.22",
+    "react-dom": "^0.14.3",
+    "react-google-maps": "^4.10.1",
+    "recharts": "^0.10.10"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "react-router": "^2.0.0",
+    "jasmine": "^2.4.1",
+    "jasmine-core": "^2.4.1",
+    "phantomjs": "^1.9.19",
+    "watchify": "^3.6.1",
+    "webpack": "^1.12.12"
+  },
+  "scripts": {
+    "start": "./node_modules/.bin/watchify -v -t [ babelify --presets [ es2015 react ] ] catavolt-client/src/catavolt_ext.jsx -o catavolt-client/bundle.js",
+    "build-buzz": "./node_modules/.bin/watchify -v -t [ babelify --presets [ es2015 react ] ] demo-buzz-feed/src/comp_buzz.jsx -o demo-buzz-feed/bundle.js"
+  }
+}

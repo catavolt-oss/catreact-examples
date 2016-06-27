@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "module": "es6",
+        "jsx": "preserve",
+        "sourceMap": false,
+        "moduleResolution": "node"
+    },
+    "files": [
+        "typings/react/react.d.ts",
+        "typings/react/react-dom.d.ts",
+        "typings/jquery/jquery.d.ts",
+        "typings/react-router/react-router.d.ts",
+        "index.ts"
+    ]
+
+}
