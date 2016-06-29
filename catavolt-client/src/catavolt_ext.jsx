@@ -65,7 +65,7 @@ const CvReactLogin = React.createClass({
         return <div>
             <div className="cv-login-wrapper">
                 <div className="cv-login-logo"/>
-                <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={'solarsource'} defaultUserId={'manufacturing'} defaultPassword={'manufacturing1'} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
+                <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={'solarsourcez'} defaultUserId={'sales'} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
                 const windowId = event.resourceId; //get the session (window) from the LoginEvent
                 this.context.router.replace('/workbench/' + windowId + '/' + '0');
             }]}/>
@@ -74,18 +74,6 @@ const CvReactLogin = React.createClass({
        </div>;
     }
 });
-/*
-defaultTenantId={'catavolt-qa'}
-defaultUserId={'qatester'}
-defaultPassword={'qatester-1'}
-defaultTenantId={'solarsourcez'}
-defaultUserId={'sales'}
-defaultPassword={'sales-1'}
- defaultTenantId={'ozinga'}
- showTenantId={false}
- defaultUserId={'pharrigan'}
- defaultPassword={'catavolt1234'}
-*/
 /**
  * *********************************************************
  * Create a 'window' top-level container, with a logout button

@@ -112,9 +112,8 @@ const CvReactLogin = React.createClass({
                 <div className="cv-login-logo"/>
                 <CvLoginPanel
                     defaultGatewayUrl={'gw.catavolt.net'}
-                    defaultTenantId={'solarsource'}
-                    defaultUserId={'manufacturing'}
-                    defaultPassword={'manufacturing1'}
+                    defaultTenantId={'solarsourcez'}
+                    defaultUserId={'sales'}
                     showGatewayUrl={false}
                     showClientType={false}
                     loginListeners={[(event:CvEvent<CvLoginResult>)=>{
@@ -128,19 +127,6 @@ const CvReactLogin = React.createClass({
     }
 
 });
-/*
-defaultTenantId={'catavolt-qa'}
-defaultUserId={'qatester'}
-defaultPassword={'qatester-1'}
-defaultTenantId={'solarsourcez'}
-defaultUserId={'sales'}
-defaultPassword={'sales-1'}
- defaultTenantId={'ozinga'}
- showTenantId={false}
- defaultUserId={'pharrigan'}
- defaultPassword={'catavolt1234'}
-*/
-
 
 /**
  * *********************************************************
