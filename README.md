@@ -25,6 +25,8 @@ These examples use the Catavolt React Libraries (Core + Extended)
 
 * Open the index.html in 'catavolt-client' (or 'launch' it from your ide)
 
+# API docs can be found [here](docs/catavolt-sdk/index.html)
+
 
 # Configuring WebStorm for Typescript:
 
