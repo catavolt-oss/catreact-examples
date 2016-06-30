@@ -1,0 +1,197 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;core/CvProp&quot; | catreact</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">catreact</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_core_cvprop_.html">&quot;core/CvProp&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;core/CvProp&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_core_cvprop_.cvpropprops.html" class="tsd-kind-icon">Cv<wbr>Prop<wbr>Props</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_core_cvprop_.cvpropstate.html" class="tsd-kind-icon">Cv<wbr>Prop<wbr>State</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_core_cvprop_.html#cvprop" class="tsd-kind-icon">Cv<wbr>Prop</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+					<a name="cvprop" class="tsd-anchor"></a>
+					<h3>Cv<wbr>Prop</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Prop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvPropProps, CvPropState&gt;({mixins: [CvBaseMixin],componentWillUpdate: function(nextProps, nextState, nextContext) {Log.debug(&quot;updating CvProps&quot;)},componentDidMount: function () {Log.debug(&quot;mounting CvProps&quot;);this.refresh();},componentWillReceiveProps: function (nextProps) {Log.debug(&quot;receive props CvProps&quot;)this.refresh(nextProps);},entityRec: function (nextProps) {return (nextProps &amp;&amp; nextProps.entityRec) || this.findEntityRec();},entityRecDef: function (nextProps) {return this.paneContext(nextProps).entityRecDef;},getChildContext: function () {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.prop();return ctx;},getDefaultProps: function () {return {propName: null,defaultValue: null,handler: null,isVisible: null,entityRec: null,wrapperElemName: &#x27;span&#x27;,wrapperElemProps: null,overrideValue: null,currencySymbol: &#x27;$&#x27;,percentageSymbol: &#x27;%&#x27;,boolTrueClassName:&#x27;cv-icon cv-bool-true&#x27;,boolFalseClassName: &#x27;cv-icon cv-bool-false&#x27;,imageClassName: null,imageStyle: null}},getInitialState: function () {return {binary: null};},paneContext: function (nextProps) {return (nextProps &amp;&amp; nextProps.paneContext) ? nextProps.paneContext: this.findPaneContext();},prop: function (nextProps) {return this.entityRec(nextProps).propAtName(this.props.propName)},propDef: function (nextProps) {return this.entityRecDef(nextProps).propDefAtName(this.props.propName);},render: function () {const prop &#x3D; this.prop();if (!prop || (this.props.isVisible &amp;&amp; !this.props.isVisible(prop))) {return null;}if (this.props.handler) {return this.props.handler(prop);} else {if (React.Children.count(this.props.children) &gt; 0) {return this.props.children} else {if (this.props.overrideValue) {const props &#x3D; this.props.wrapperElemProps || {style: this.props.style,className: this.props.className};return React.createElement(this.props.wrapperElemName, props, this.props.overrideValue);} else if (prop.value &#x3D;&#x3D;&#x3D; null || prop.value &#x3D;&#x3D;&#x3D; undefined) {const props &#x3D; this.props.wrapperElemProps || {style: this.props.style,className: this.props.className};return this.props.defaultValue !&#x3D;&#x3D; null ?React.createElement(this.props.wrapperElemName, props, this.props.defaultValue) : null;} else {const propDef &#x3D; this.propDef();if (propDef &amp;&amp; propDef.isBinaryType) {return this.state.binary ? &lt;img style&#x3D;{this.props.imageStyle} src&#x3D;{this.state.binary.toUrl()}className&#x3D;{this.props.imageClassName}/&gt; : null;} else if (propDef &amp;&amp; propDef.isBooleanType) {return prop.value ? &lt;span className&#x3D;{this.props.boolTrueClassName}/&gt; : &lt;span className&#x3D;{this.props.boolFalseClassName}/&gt;} else {const props &#x3D; this.props.wrapperElemProps || {style: this.props.style,className: this.props.className};return React.createElement(this.props.wrapperElemName, props, DefaultLocale.getAssociatedSymbol(CvProp.formatDataType(prop, propDef), propDef));}}}}},refresh: function (nextProps) {const prop &#x3D; this.prop(nextProps);if(prop) {const propDef &#x3D; this.propDef(nextProps);if (propDef &amp;&amp; propDef.isBinaryType) {//if this is an update and the propName hasn&#x27;t changed, don&#x27;t reload the binaryif(nextProps &amp;&amp; nextProps.propName &#x3D;&#x3D;&#x3D; this.props.propName) {return;}const paneContext &#x3D; this.paneContext(nextProps);paneContext.binaryAt(this.props.propName, this.entityRec(nextProps)).onComplete((binaryTry:Try&lt;Binary&gt;) &#x3D;&gt; {if (binaryTry.isSuccess) {if (this.isMounted()) {this.setState({binary: binaryTry.success});}} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message:&#x27;Could not load binary property: &#x27; + prop.name, messageObj: binaryTry.failure, type: CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}});}}},statics : {formatDataType: function (prop:Prop, propDef:PropDef):string {if(propDef) {if (propDef.isDateTimeType) {return (prop.value as Date).toString();} else if (propDef.isDateType) {return (prop.value as Date).toLocaleDateString();} else if (propDef.isTimeType) {const timeValue:TimeValue &#x3D; prop.value as TimeValue;return timeValue.toString();} else if (propDef.isCodeRefType) {return (prop.value as CodeRef).description;} else if (propDef.isObjRefType) {return (prop.value as ObjectRef).description;} else if (propDef.isPasswordType) {return (prop.value as string).replace(/./g, &quot;*&quot;);} else {return PropFormatter.formatForRead(prop.value, propDef);}} else {return String(prop.value);}}}})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in core/CvProp.tsx:35</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module tsd-is-external">
+						<a href="_core_cvprop_.html">"core/<wbr>CvProp"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_core_cvprop_.cvpropprops.html" class="tsd-kind-icon">Cv<wbr>Prop<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_core_cvprop_.cvpropstate.html" class="tsd-kind-icon">Cv<wbr>Prop<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+						<a href="_core_cvprop_.html#cvprop" class="tsd-kind-icon">Cv<wbr>Prop</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>&quot;ext/CvListPanel&quot; | catreact</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script src="../assets/js/modernizr.js"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">catreact</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_ext_cvlistpanel_.html">&quot;ext/CvListPanel&quot;</a>
+				</li>
+			</ul>
+			<h1>External module &quot;ext/CvListPanel&quot;</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Interfaces</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvlistpanel_.cvlistpanelprops.html" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel<wbr>Props</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvlistpanel_.cvlistpanelstate.html" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel<wbr>State</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_ext_cvlistpanel_.html#cvlistpanel" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+					<a name="cvlistpanel" class="tsd-anchor"></a>
+					<h3>Cv<wbr>List<wbr>Panel</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>List<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvlistpanel_.cvlistpanelprops.html" class="tsd-signature-type">CvListPanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvListPanelProps, CvListPanelState&gt;({mixins: [CvBaseMixin],getDefaultProps: function () {return {paneRef: null,formContext: null,listContext: null,navigationListeners: [],selectionListener: null,stateChangeListeners: [],actionProvider:null}},getInitialState: function () {return {selectedItems: []}},render: function () {/* We can&#x27;t do ES7 style rest destructuring in Typescript yet... */const listPaneProps &#x3D; {paneRef: this.props.paneRef,formContext: this.props.formContext,queryContext: this.props.listContext,stateChangeListeners: this.props.stateChangeListeners,actionProvider: this.props.actionProvider}return (&lt;CvListPane {...listPaneProps} recordPageSize&#x3D;{50} queryRenderer&#x3D;{(cvContext:CvContext, callback:CvQueryPaneCallback)&#x3D;&gt;{const listContext:ListContext &#x3D; cvContext.scopeCtx.scopeObj;return(&lt;div className&#x3D;&quot;cv-list-container&quot; onScroll&#x3D;{this._magicScroll.bind(this, callback)}&gt;&lt;table className&#x3D;&quot;table table-striped&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;/th&gt;{listContext.listDef.activeColumnDefs.map((colDef, index) &#x3D;&gt; { return &lt;thkey&#x3D;{index}&gt;{colDef.heading}&lt;/th&gt; })}&lt;/tr&gt;&lt;/thead&gt;&lt;CvRecordList queryContext&#x3D;{listContext} wrapperElemName&#x3D;{&#x27;tbody&#x27;}rowRenderer&#x3D;{(cvContext, record)&#x3D;&gt;{return (&lt;CvRecord entityRec&#x3D;{record} key&#x3D;{record.objectId} renderer&#x3D;{(cvContext:CvContext)&#x3D;&gt;{const renderPropNames &#x3D; listContext.listDef.activeColumnDefs.map((colDef:ColumnDef)&#x3D;&gt;{return colDef.name});return (&lt;CvDataAnno entityRec&#x3D;{record}paneContext&#x3D;{listContext}wrapperElem&#x3D;&quot;tr&quot;&gt;&lt;td className&#x3D;&quot;cv-list-cell&quot;&gt;&lt;input type&#x3D;&quot;checkbox&quot; onChange&#x3D;{this._itemClicked.bind(this, record.objectId)}/&gt;&lt;/td&gt;{renderPropNames.map((name:string)&#x3D;&gt; {//select &quot;this record&quot; so that the action can find the target via the selectionProviderconst selectionAdapter:CvValueAdapter&lt;Array&lt;string&gt;&gt; &#x3D; new CvValueAdapter&lt;Array&lt;string&gt;&gt;();selectionAdapter.createValueListener()([record.objectId]);const prop:Prop &#x3D; record.propAtName(name);return (&lt;CvAction actionId&#x3D;{listContext.listDef.defaultActionId}paneContext&#x3D;{listContext}navigationListeners&#x3D;{this.props.navigationListeners}actionListeners&#x3D;{this.props.actionListeners}stateChangeListeners&#x3D;{this.props.stateChangeListeners}selectionProvider&#x3D;{selectionAdapter}key&#x3D;{prop.name} renderer&#x3D;{(cvContext:CvContext, callback?:CvActionCallback)&#x3D;&gt;{const styleInfo:CvDataAnnoStyle &#x3D; (CvDataAnno as any).generateStyleInfo(prop);return(&lt;CvDataAnno dataAnnoStyle&#x3D;{styleInfo}paneContext&#x3D;{listContext}wrapperElem&#x3D;&quot;td&quot;wrapperElemProps&#x3D;{{className:&quot;cv-list-cell cv-target&quot;, onClick:callback.fireAction}}&gt;&lt;CvProp propName&#x3D;{prop.name}entityRec&#x3D;{record}paneContext&#x3D;{listContext}imageClassName&#x3D;&quot;cv-image-list-item-max-size&quot;overrideValue&#x3D;{styleInfo.overrideText}/&gt;&lt;/CvDataAnno&gt;);}}/&gt;)})}&lt;/CvDataAnno&gt;);}}/&gt;);}}/&gt;&lt;/table&gt;&lt;/div&gt;);{/*manual paging&lt;div className&#x3D;&quot;cv-paging-controls&quot;&gt;&lt;div&gt;{(()&#x3D;&gt;{ if(callback.hasMoreBackward()){ return (&lt;button type&#x3D;&quot;button&quot; className&#x3D;&quot;btn btn-default btn-sm&quot; onClick&#x3D;{(()&#x3D;&gt;{callback.pageBackward((num)&#x3D;&gt;{})})}&gt;&lt;span className&#x3D;&quot;glyphicon glyphicon-menu-left&quot; aria-hidden&#x3D;&quot;true&quot;/&gt;&lt;span&gt;Prev&lt;/span&gt;&lt;/button&gt;);}})()}&lt;/div&gt;&lt;div className&#x3D;&quot;pull-right&quot;&gt;{(()&#x3D;&gt;{ if(callback.hasMoreForward()){ return (&lt;button type&#x3D;&quot;button&quot; className&#x3D;&quot;btn btn-default btn-sm&quot; onClick&#x3D;{()&#x3D;&gt;{callback.pageForward((num)&#x3D;&gt;{})}}&gt;&lt;span&gt;Next&lt;/span&gt;&lt;span className&#x3D;&quot;glyphicon glyphicon-menu-right&quot; aria-hidden&#x3D;&quot;true&quot;/&gt;&lt;/button&gt;);}})()}&lt;/div&gt;&lt;/div&gt;*/}}}/&gt;);},_isSelected: function (oid:string) {return this.state.selectedItems.indexOf(oid) &gt; -1;},_itemClicked: function (oid:string) {const selectedItems:Array&lt;string&gt; &#x3D; this.state.selectedItems;const index &#x3D; selectedItems.indexOf(oid);if (index &gt; -1) {selectedItems.splice(index, 1);} else {selectedItems.push(oid);}this.setState({selectedItems: selectedItems});if (this.props.selectionListener) this.props.selectionListener(selectedItems);},_magicScroll: function (callback:CvQueryPaneCallback, e:any) {var elem:any &#x3D; e.currentTarget;if (elem.scrollTop / (elem.scrollHeight - elem.clientHeight) &gt; .95) {if(callback.hasMoreForward()) {callback.pageForward((num)&#x3D;&gt; {});}}}})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvListPanel.tsx:51</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-external-module tsd-is-external">
+						<a href="_ext_cvlistpanel_.html">"ext/<wbr>CvList<wbr>Panel"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvlistpanel_.cvlistpanelprops.html" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvlistpanel_.cvlistpanelstate.html" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+						<a href="_ext_cvlistpanel_.html#cvlistpanel" class="tsd-kind-icon">Cv<wbr>List<wbr>Panel</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
