@@ -95,9 +95,14 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Workbench<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvworkbench_.cvworkbenchprops.html" class="tsd-signature-type">CvWorkbenchProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvWorkbenchProps, CvWorkbenchState&gt;({mixins: [CvBaseMixin],appWinDef: function() {return this.props.appWinDef || this.firstInScope(AppWinDef);},getDefaultProps: function() {return {appWinDef: null, workbenchId:null, workbench:null}},getChildContext: function() {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.workbench();return ctx;},render: function () {const workbench &#x3D; this.workbench();if (workbench) {if(this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext);} else if(React.Children.count(this.props.children) &gt; 0) {return this.props.children} else {return null;}} else {return null;}},workbench: function() {if(this.props.workbench) {return this.props.workbench;} else {const appWinDef &#x3D; this.appWinDef();let workbench &#x3D; null;appWinDef.workbenches.some((wb)&#x3D;&gt; {if (wb.workbenchId &#x3D;&#x3D; this.props.workbenchId) {workbench &#x3D; wb;return true;} else {return false;}});return workbench;}}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvWorkbench.tsx:24</li>
+							<li>Defined in core/CvWorkbench.tsx:32</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Render an sdk {Workbench}</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

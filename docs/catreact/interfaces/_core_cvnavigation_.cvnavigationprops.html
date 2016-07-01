@@ -116,7 +116,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p> The Catavolt SDK entry point, an instance of the sdk class {AppContext} which is always available to components.
+							<p> The Catavolt SDK entry point, an instance of the sdk {AppContext} which is always available to components.
 							A singleton instance is used by the underlying components to interact with the sdk.</p>
 						</div>
 					</div>
@@ -144,9 +144,14 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvNavigation.tsx:27</li>
+							<li>Defined in core/CvNavigation.tsx:31</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The cache identifier of the result of a Navigation. Should not be used if the navigationResult is provided.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="navigationresult" class="tsd-anchor"></a>
@@ -154,9 +159,14 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Result<span class="tsd-signature-symbol">:</span> <a href="_core_cvreact_.cvnavigationresult.html" class="tsd-signature-type">CvNavigationResult</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvNavigation.tsx:26</li>
+							<li>Defined in core/CvNavigation.tsx:27</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The result of a navigation.  Should not be used if the navigationId property is provided</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="persistent" class="tsd-anchor"></a>
@@ -164,9 +174,15 @@
 					<div class="tsd-signature tsd-kind-icon">persistent<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvNavigation.tsx:24</li>
+							<li>Defined in core/CvNavigation.tsx:36</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Setting persistent true, allows this component to remain visible, even after another, new Navigation has
+							taken place.  This is useful for single page apps where components may be coresident.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
 					<a name="renderer" class="tsd-anchor"></a>
@@ -219,9 +235,14 @@
 					<div class="tsd-signature tsd-kind-icon">target<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvNavigation.tsx:25</li>
+							<li>Defined in core/CvNavigation.tsx:40</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allows for one Navigation component to target another, when coresident on the page.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
