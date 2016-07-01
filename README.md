@@ -9,11 +9,7 @@ These examples use the Catavolt React Libraries (Core + Extended)
 
 * Install [Node.js](https://nodejs.org/en/) (5+ recommended) directly or use [nvm](https://github.com/creationix/nvm#installation) to easily manage installations
   
-* From this project's root directory (catreact-examples), run 'npm install'
-
-**Note:** *When build the examples, the typescript compiler may complain about 'Type assignability'.  This can be ignored.  There is currently a Typescript compiler bug realted to using more than one set of the same definition files and private members.  This will hopefully be fixed with Typescript 2.0*  
-See https://github.com/Microsoft/TypeScript/issues/8346 and https://github.com/Microsoft/TypeScript/issues/6496
-
+* From this project's root directory (catreact-examples), run 'npm install'  
 
 # To run the example
 
@@ -30,6 +26,11 @@ See https://github.com/Microsoft/TypeScript/issues/8346 and https://github.com/M
 
 # React Component docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catreact/index.html)
 # SDK API docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catavolt-sdk/index.html)
+
+
+**Note:** *When compiling the Typescript examples, the Typescript compiler may complain about 'Type assignability'.  This can be ignored.  There is currently a Typescript compiler bug realted to using more than one set of the same definition files and private members.  This will hopefully be fixed with Typescript 2.0*  
+See https://github.com/Microsoft/TypeScript/issues/8346 and https://github.com/Microsoft/TypeScript/issues/6496
+
 
 # Configuring WebStorm for Typescript:
 
