@@ -74,7 +74,6 @@
 					<li><strong>The Catavolt Extended React Components</strong> - A set of components that provide default styling, include some html markup, but still allow for customization and the application of a custom style.  The components are also built so that any single component could be replaced (or wrapped) with a custom component if desired.     </li>
 				</ol>
 				<h3 id="catavolt-core-react-components-core-package-">Catavolt ‘Core’ React Components (‘core’ package)</h3>
-				<p><strong>CvReact</strong><br>Base, common components.  BaseMixin definition, EventRegistry, Event definitions, utility functions.  </p>
 				<p><strong>&lt;CatavoltPane/&gt;</strong><br>Required root component. Initializes the SDK and supplies the ‘context’ with support objects    </p>
 				<p><strong>&lt;CvLogin/&gt;</strong><br>Allows for declarative access to Catavolt’s login service. Publishes the Login Event to the EventRegistry for other components to consume.    </p>
 				<p><strong>&lt;CvAppWindow/&gt;</strong><br>Analogous to the Catavolt AppWinDef object. Exposes the AppWinDef to the context scope and makes multi-window apps possible.    </p>
@@ -97,7 +96,8 @@
 				<p><strong>&lt;CvMessagePane/&gt;</strong><br>Allows for the rendering of CvMessage events</p>
 				<p><strong>&lt;CvLogout/&gt;</strong><br>Handle end session  </p>
 				<p>Additional Mixins/Helpers
-				<strong>QueryBase</strong></p>
+				<strong>QueryBase</strong> (module)<br>Base Mixin for CvQuery and CvList  </p>
+				<p><strong>CvReact</strong> (module)<br>Base, common components.  BaseMixin definition, EventRegistry, Event definitions, utility functions.  </p>
 				<h3 id="catavolt-extended-react-components-ext-package-">Catavolt ‘Extended’ React Components (‘ext’ package)</h3>
 				<p><strong>&lt;CvLoginPanel/&gt;</strong><br>Basic styled, configurable Login Component  </p>
 				<p><strong>&lt;CvWorkbenchManager/&gt;</strong><br>Basic Workbench ‘switcher’ composed of a CvDropdownWorkbenchMenu and CvGraphicalWorkbench by default.  ‘Pluggable’ with other implementations of these.  </p>

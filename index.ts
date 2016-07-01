@@ -3,3 +3,4 @@
  */
 
 export * from './catavolt-client/src/catavolt_ext'
+export * from './demo-buzz-feed/src/comp_buzz'

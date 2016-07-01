@@ -99,16 +99,13 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#actionprovider" class="tsd-kind-icon">action<wbr>Provider</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#catavolt" class="tsd-kind-icon">catavolt</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#classname" class="tsd-kind-icon">class<wbr>Name</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#detailscontext" class="tsd-kind-icon">details<wbr>Context</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#eventregistry" class="tsd-kind-icon">event<wbr>Registry</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#formcontext" class="tsd-kind-icon">form<wbr>Context</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#key" class="tsd-kind-icon">key</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#navigationlisteners" class="tsd-kind-icon">navigation<wbr>Listeners</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#paneref" class="tsd-kind-icon">pane<wbr>Ref</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#renderer" class="tsd-kind-icon">renderer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#statechangelisteners" class="tsd-kind-icon">state<wbr>Change<wbr>Listeners</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#style" class="tsd-kind-icon">style</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,7 +119,7 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_core_cvreact_.cvvalueprovider.html" class="tsd-signature-type">CvValueProvider</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvaction_.cvactionhandlerparams.html" class="tsd-signature-type">CvActionHandlerParams</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:48</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:43</li>
 						</ul>
 					</aside>
 				</section>
@@ -133,20 +130,15 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#catavolt">catavolt</a></p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:40</li>
+							<li>Defined in core/CvReact.tsx:39</li>
 						</ul>
 					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-					<a name="classname" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> class<wbr>Name</h3>
-					<div class="tsd-signature tsd-kind-icon">class<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#classname">className</a></p>
-						<ul>
-							<li>Defined in core/CvReact.tsx:35</li>
-						</ul>
-					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p> The Catavolt SDK entry point, an instance of the sdk class {AppContext} which is always available to components.
+							A singleton instance is used by the underlying components to interact with the sdk.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="detailscontext" class="tsd-anchor"></a>
@@ -154,7 +146,7 @@
 					<div class="tsd-signature tsd-kind-icon">details<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">DetailsContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:45</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:40</li>
 						</ul>
 					</aside>
 				</section>
@@ -165,9 +157,15 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#eventregistry">eventRegistry</a></p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:43</li>
+							<li>Defined in core/CvReact.tsx:45</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p> The <a href="../classes/_core_cvreact_.cveventregistry.html">CvEventRegistry</a> handles decoupled communication between components.  Any component may subscribe to and publish
+							<a href="_core_cvreact_.cvevent.html">CvEvent</a>s.  See also <a href="_core_cvreact_.cvlistener.html">CvListener</a> and <a href="../enums/_core_cvreact_.cveventtype.html">CvEventType</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="formcontext" class="tsd-anchor"></a>
@@ -175,18 +173,7 @@
 					<div class="tsd-signature tsd-kind-icon">form<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:43</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-					<a name="key" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> key</h3>
-					<div class="tsd-signature tsd-kind-icon">key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#key">key</a></p>
-						<ul>
-							<li>Defined in core/CvReact.tsx:37</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:38</li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +183,7 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:46</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:41</li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +193,7 @@
 					<div class="tsd-signature tsd-kind-icon">pane<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:44</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:39</li>
 						</ul>
 					</aside>
 				</section>
@@ -217,9 +204,17 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#renderer">renderer</a></p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:47</li>
+							<li>Defined in core/CvReact.tsx:53</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allows for a component&#39;s rendering logic to be overridden and completely customized.
+								The first argument, the <a href="_core_cvreact_.cvcontext.html">CvContext</a>, exposes the <a href="_core_cvreact_.cvscopecontext.html">CvScopeContext</a> which provides the relevant SDK object
+								for use by the renderer.  <a href="_core_cvreact_.cvscopecontext.html#scopeobj">CvScopeContext.scopeObj</a> will always be an SDK object exposing the data related to
+							the current component.</p>
+						</div>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -253,18 +248,7 @@
 					<div class="tsd-signature tsd-kind-icon">state<wbr>Change<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvDetailsPanel.tsx:47</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-					<a name="style" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> style</h3>
-					<div class="tsd-signature tsd-kind-icon">style<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
-					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#style">style</a></p>
-						<ul>
-							<li>Defined in core/CvReact.tsx:36</li>
+							<li>Defined in ext/CvDetailsPanel.tsx:42</li>
 						</ul>
 					</aside>
 				</section>
@@ -294,9 +278,6 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
 								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#catavolt" class="tsd-kind-icon">catavolt</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#classname" class="tsd-kind-icon">class<wbr>Name</a>
-							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#detailscontext" class="tsd-kind-icon">details<wbr>Context</a>
 							</li>
@@ -305,9 +286,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#formcontext" class="tsd-kind-icon">form<wbr>Context</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#key" class="tsd-kind-icon">key</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#navigationlisteners" class="tsd-kind-icon">navigation<wbr>Listeners</a>
@@ -320,9 +298,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#statechangelisteners" class="tsd-kind-icon">state<wbr>Change<wbr>Listeners</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
-								<a href="_ext_cvdetailspanel_.cvdetailspanelprops.html#style" class="tsd-kind-icon">style</a>
 							</li>
 						</ul>
 					</li>

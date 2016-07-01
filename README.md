@@ -11,6 +11,9 @@ These examples use the Catavolt React Libraries (Core + Extended)
   
 * From this project's root directory (catreact-examples), run 'npm install'
 
+**Note:** *When build the examples, the typescript compiler may complain about 'Type assignability'.  This can be ignored.  There is currently a Typescript compiler bug realted to using more than one set of the same definition files and private members.  This will hopefully be fixed with Typescript 2.0*  
+See https://github.com/Microsoft/TypeScript/issues/8346 and https://github.com/Microsoft/TypeScript/issues/6496
+
 
 # To run the example
 
