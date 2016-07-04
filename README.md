@@ -10,7 +10,7 @@ These examples use the Catavolt React Libraries (Core + Extended)
 **Catavolt Default Client**
 The canonical implementation of a Catavolot Client Application.   Good example of how to use Catavolt Extended Components.  It also uses the React Router for history and navigation.
 
-**Humana Buzz**
+**Buzz Feed**
 Use React Router and the ‘Core’ Catavolt React Components.  A good example of a completely custom application.
                                                 
 
