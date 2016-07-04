@@ -75,54 +75,52 @@
 				</ol>
 				<p>The Catavolt React Component hierarchy mimics the Catavolt Extender (server model) as well as the object model used in the Catvolt SDK. Please see <a href="../componentOverview.pdf">this document</a>.</p>
 				<h3 id="catavolt-core-react-components-core-package-">Catavolt ‘Core’ React Components (‘core’ package)</h3>
-				<p><strong>&lt;CatavoltPane/&gt;</strong><br>Required root component. Initializes the SDK and supplies the ‘context’ with support objects    </p>
-				<p><strong>&lt;CvLogin/&gt;</strong><br>Allows for declarative access to Catavolt’s login service. Publishes the Login Event to the EventRegistry for other components to consume.    </p>
-				<p><strong>&lt;CvAppWindow/&gt;</strong><br>Analogous to the Catavolt AppWinDef object. Exposes the AppWinDef to the context scope and makes multi-window apps possible.    </p>
-				<p><strong>&lt;CvWorkbench/&gt;</strong><br>Provides access to the workbench via workbenchId.    </p>
-				<p><strong>&lt;CvWorkbenchMenu/&gt;</strong><br>Allows for the construction of ‘menu’ of the current workbenches in the current AppWindow scope.    </p>
-				<p><strong>&lt;CvLauncher/&gt;</strong><br>Provides a mechanism to custom render a launcher and handle a ‘click’ action.    </p>
-				<p><strong>&lt;CvNavigation/&gt;</strong><br>Represents a ‘target’ for a navigation action.  Also ‘subscribes’ to all Navigation Events, and handles those that match its ‘target’ value.  </p>
-				<p><strong>&lt;CvForm/&gt;</strong><br>Handles the ‘logical’ rendering of a Form definition, hosting pluggable ‘component’ renderers for each type of ‘pane’ that may be a ‘child’ of a Form.  </p>
-				<p><strong>&lt;CvListPane/&gt;</strong><br>Provides access to a ‘ListContext’, it’s associated data, and list paging controls.  </p>
-				<p><strong>&lt;CvQueryPane/&gt;</strong><br>Provides access to a ‘QueryContext’ subtypes and their associated data</p>
-				<p><strong>&lt;CvDetailsPane/&gt;</strong><br>Provides rendering of a ‘DetailsContext’ a data editing controls.  </p>
-				<p><strong>&lt;CvMapPane/&gt;</strong><br>Provides data for basic map support  </p>
-				<p><strong>&lt;CvChartPane/&gt;</strong><br>Provides data for basic chart support  </p>
-				<p><strong>&lt;CvRecordList/&gt;</strong><br>Should be used as a child of ‘CvListPane’. Allows for the specification of a rendering function to render the ‘EntityRecords’ supplied by a parent ListPane.  </p>
-				<p><strong>&lt;CvRecord/&gt;</strong><br>Corresponds to an ‘EntityRecord’.  Provides a context for accessing the ‘Properties’ of a record.  Also provides a default click handler for a record.  Publishes Navigation Events.  </p>
-				<p><strong>&lt;CvAction/&gt;</strong><br>Allows for the direct creation of a Catavolt ‘Action’.  Provides ‘click’ handling options as well as the base logic for ‘CvMenuItem’.  Publishes Navigation Events.  </p>
-				<p><strong>&lt;CvMenuItem/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.  </p>
-				<p><strong>&lt;CvResource/&gt;</strong><br>Provides access to remote resources.  (Currently images via the GMLAssetsURL)  </p>
-				<p><strong>&lt;CvProp/&gt;</strong><br>Should be used as a child of ‘CvRecord’.  Allows for accessing or custom rendering a ‘property’.  Renders binary properties as responsive images.  </p>
-				<p><strong>&lt;CvMessagePane/&gt;</strong><br>Allows for the rendering of CvMessage events</p>
-				<p><strong>&lt;CvLogout/&gt;</strong><br>Handle end session  </p>
+				<p><strong>&lt;<a href="modules/_core_catavoltpane_.html#catavoltpane">CatavoltPane</a>/&gt;</strong><br>Required root component. Initializes the SDK and supplies the ‘context’ with support objects<br>Accepts <a href="interfaces/_core_catavoltpane_.catavoltpaneprops.html">CatavoltPaneProps</a>  </p>
+				<p><strong>&lt;<a href="modules/_core_cvlogin_.html#cvlogin">CvLogin</a>/&gt;</strong><br>Allows for declarative access to Catavolt’s login service. Publishes the Login Event to the EventRegistry for other components to consume.<br>Accepts <a href="interfaces/_core_cvlogin_.cvloginprops.html">CvLoginProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvappwindow_.html#cvappwindow">CvAppWindow</a>/&gt;</strong><br>Analogous to the Catavolt AppWinDef object. Exposes the AppWinDef to the context scope and makes multi-window apps possible.<br>Accepts <a href="interfaces/_core_cvappwindow_.cvappwindowprops.html">CvAppWindowProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvworkbench_.html#cvworkbench">CvWorkbench</a>/&gt;</strong><br>Provides access to the workbench via workbenchId.<br>Accepts <a href="interfaces/_core_cvworkbench_.cvworkbenchprops.html">CvWorkbenchProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvworkbenchmenu_.html#cvworkbenchmenu">CvWorkbenchMenu</a>/&gt;</strong><br>Allows for the construction of ‘menu’ of the current workbenches in the current AppWindow scope.<br>Accepts <a href="interfaces/_core_cvworkbenchmenu_.cvworkbenchmenuprops.html">CvWorkbenchMenuProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvlauncher_.html#cvlauncher">CvLauncher</a>/&gt;</strong><br>Provides a mechanism to custom render a launcher and handle a ‘click’ action.<br>Accepts <a href="interfaces/_core_cvlauncher_.cvlauncherprops.html">CvLauncherProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvnavigation_.html#cvnavigation">CvNavigation</a>/&gt;</strong><br>Represents a ‘target’ for a navigation action.  Also ‘subscribes’ to all Navigation Events, and handles those that match its ‘target’ value.<br>Accepts <a href="interfaces/_core_cvnavigation_.cvnavigationprops.html">CvNavigationProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvform_.html#cvform">CvForm</a>/&gt;</strong><br>Handles the ‘logical’ rendering of a Form definition, hosting pluggable ‘component’ renderers for each type of ‘pane’ that may be a ‘child’ of a Form.<br>Accepts <a href="interfaces/_core_cvform_.cvformprops.html">CvFormProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a>/&gt;</strong><br>Provides access to a ‘ListContext’, it’s associated data, and list paging controls.<br>Accepts <a href="interfaces/_core_cvlistpane_.cvlistpaneprops.html">CvListPaneProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvquerypane_.html#cvquerypane">CvQueryPane</a>/&gt;</strong><br>Provides access to a ‘QueryContext’ subtypes and their associated data
+				Accepts <a href="interfaces/_core_cvquerybase_.cvquerypaneprops.html">CvQueryPaneProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvdetailspane_.html#cvdetailspane">CvDetailsPane</a>/&gt;</strong><br>Provides rendering of a ‘DetailsContext’ a data editing controls.<br>Accepts <a href="interfaces/_core_cvdetailspane_.cvdetailspaneprops.html">CvDetailsPaneProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvrecordlist_.html#cvrecordlist">CvRecordList</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a>’. Allows for the specification of a rendering function to render the ‘EntityRecords’ supplied by a parent ListPane.<br>Accepts <a href="interfaces/_core_cvrecordlist_.cvrecordlistprops.html">CvRecordListProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>/&gt;</strong><br>Corresponds to an ‘EntityRecord’.  Provides a context for accessing the ‘Properties’ of a record.  Also provides a default click handler for a record.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvrecord_.cvrecordprops.html">CvRecordProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvaction_.html#cvaction">CvAction</a>/&gt;</strong><br>Allows for the direct creation of a Catavolt ‘Action’.  Provides ‘click’ handling options as well as the base logic for ‘<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>’.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvaction_.cvactionbaseprops.html">CvActionBaseProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html">CvMenuItemProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvresource_.html#cvresource">CvResource</a>/&gt;</strong><br>Provides access to remote resources.  (Currently images via the GMLAssetsURL)<br>Accepts <a href="interfaces/_core_cvresource_.cvresourceprops.html">CvResourceProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvprop_.html#cvprop">CvProp</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>’.  Allows for accessing or custom rendering a ‘property’.  Renders binary properties as responsive images.<br>Accepts <a href="interfaces/_core_cvprop_.cvpropprops.html">CvPropProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvmessagepane_.html#cvmessagepane">CvMessagePane</a>/&gt;</strong><br>Allows for the rendering of <a href="interfaces/_core_cvreact_.cvmessage.html">CvMessage</a> events<br>Accepts <a href="interfaces/_core_cvmessagepane_.cvmessagepaneprops.html">CvMessagePaneProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvlogout_.html#cvlogout">CvLogout</a>/&gt;</strong><br>Handle end session<br>Accepts <a href="interfaces/_core_cvlogout_.cvlogoutprops.html">CvLogoutProps</a></p>
 				<p>Additional Mixins/Helpers
-				<strong>QueryBase</strong> (module)<br>Base Mixin for CvQuery and CvList  </p>
-				<p><strong>CvReact</strong> (module)<br>Base, common components.  BaseMixin definition, EventRegistry, Event definitions, utility functions.  </p>
+				<a href="modules/_core_cvquerybase_.html#cvquerybase">CvQueryBase</a> (module)<br>Base Mixin for <a href="modules/_core_cvquerypane_.html#cvquerypane">CvQueryPane</a> and <a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a></p>
+				<p><strong>CvReact</strong> (module}<br>Base, common components.<br><a href="modules/_core_cvreact_.html#cvbasemixin">CvBaseMixin</a>, <a href="classes/_core_cvreact_.cveventregistry.html">CvEventRegistry</a>, <a href="interfaces/_core_cvreact_.cvevent.html">CvEvent</a> and <a href="enums/_core_cvreact_.cveventtype.html">CvEventType</a>  definitions and utility functions.  </p>
 				<h3 id="catavolt-extended-react-components-ext-package-">Catavolt ‘Extended’ React Components (‘ext’ package)</h3>
-				<p><strong>&lt;CvLoginPanel/&gt;</strong><br>Basic styled, configurable Login Component  </p>
-				<p><strong>&lt;CvWorkbenchManager/&gt;</strong><br>Basic Workbench ‘switcher’ composed of a CvDropdownWorkbenchMenu and CvGraphicalWorkbench by default.  ‘Pluggable’ with other implementations of these.  </p>
-				<p><strong>&lt;CvGraphicalWorkbench/&gt;</strong><br>Provides a styled, ‘icon-based’ view of a workbench and launchers, with configurable number of columns.  </p>
-				<p><strong>&lt;CvGraphicalWorkbenchMenu/&gt;</strong><br>Provides ‘Workbench selection’ menu implementations for selecting an active workbench.   Currently a basic ‘drop-down’ menu  and a ‘Tabbed’ menu are available.  </p>
-				<p><strong>&lt;CvNavigator/&gt;</strong><br>Renders a ‘Navigation Request’ using a default, Catavolt styled CvFormPanel  </p>
-				<p><strong>&lt;CvWebNavigator/&gt;</strong><br>Renders a ‘Web Navigation Request’ by opening the url in a browser</p>
-				<p><strong>&lt;CvFormPanel/&gt;</strong><br>Builds ‘styled’ subtypes of Form layouts (tabbed, 3-pane, ordered, etc.).  Provides pluggable access for new or custom form layouts.  </p>
-				<p><strong>&lt;CvListPanel/&gt;</strong><br>Default tabular list renderer.  </p>
-				<p><strong>&lt;CvDetailsPanel/&gt;</strong><br>Default ‘cell’ based detail renderer.  Provides editing/saving support.  Uses CvCellValueDef’s to render cells.  </p>
-				<p><strong>&lt;CvCellValueDef/&gt;</strong><br>Render’s a Catavolt ‘Cell Value Definition’.   AttributeCellValueDef, LabelCellValueDef, etc.  </p>
-				<p><strong>&lt;CvDataAnno/&gt;</strong><br>Applies default style to a properties and records, based on the Data Annotations attached to the entities (if any).  </p>
-				<p><strong>&lt;CvHeroHeader/&gt;</strong><br>Convenience component to add a logo or company header  </p>
-				<p><strong>&lt;CvMenu/&gt;</strong><br>Renders MenuDef’s as a basic ‘Dropdown’ menu  </p>
+				<p><strong>&lt;<a href="modules/_ext_cvloginpanel_.html#cvloginpanel">CvLoginPanel</a>/&gt;</strong><br>Basic styled, configurable Login Component<br><a href="interfaces/_ext_cvloginpanel_.cvloginpanelprops.html">CvLoginPanelProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvworkbenchmanager_.html#cvworkbenchmanager">CvWorkbenchManager</a>/&gt;</strong><br>Basic Workbench ‘switcher’ composed of a <a href="modules/_ext_cvgraphicalworkbenchmenu_.html#cvdropdownworkbenchmenu">CvDropdownWorkbenchMenu</a> and <a href="modules/_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench">CvGraphicalWorkbench</a> by default.  ‘Pluggable’ with other implementations of these.<br><a href="interfaces/_ext_cvworkbenchmanager_.cvworkbenchmanagerprops.html">CvWorkbenchManagerProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench">CvGraphicalWorkbench</a>/&gt;</strong><br>Provides a styled, ‘icon-based’ view of a workbench and launchers, with configurable number of columns.<br><a href="interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html">CvGraphicalWorkbenchProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvgraphicalworkbenchmenu_.html#cvdropdownworkbenchmenu">CvDropdownWorkbenchMenu</a>/&gt;</strong><br>Provides ‘Workbench selection’ menu implementations for selecting an active workbench.   Currently a basic ‘drop-down’ menu  and a ‘Tabbed’ menu are available.<br><a href="interfaces/_ext_cvgraphicalworkbenchmenu_.cvgraphicalworkbenchmenuprops.html">CvGraphicalWorkbenchMenuProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvnavigator_.html#cvnavigator">CvNavigator</a>/&gt;</strong><br>Renders a ‘Navigation Request’ using a default, Catavolt styled <a href="modules/_ext_cvformpanel_.html#cvformpanel">CvFormPanel</a><br><a href="interfaces/_ext_cvnavigator_.cvnavigatorprops.html">CvNavigatorProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvwebnavigator_.html#cvwebnavigator">CvWebNavigator</a>/&gt;</strong><br>Renders a ‘Web Navigation Request’ by opening the url in a browser<br><a href="interfaces/_ext_cvwebnavigator_.cvwebnavigatorprops.html">CvWebNavigatorProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvformpanel_.html#cvformpanel">CvFormPanel</a>/&gt;</strong><br>Builds ‘styled’ subtypes of Form layouts (tabbed, 3-pane, ordered, etc.).  Provides pluggable access for new or custom form layouts.<br><a href="modules/_ext_cvformpanel_.html#cvformpanel">CvFormPanel</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvlistpanel_.html#cvlistpanel">CvListPanel</a>/&gt;</strong><br>Default tabular list renderer.<br><a href="interfaces/_ext_cvlistpanel_.cvlistpanelprops.html">CvListPanelProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvdetailspanel_.html#cvdetailspanel">CvDetailsPanel</a>/&gt;</strong><br>Default ‘cell’ based detail renderer.  Provides editing/saving support.  Uses <a href="modules/_ext_cvcellvaluedef_.html#cvcellvaluedef">CvCellValueDef</a>’s to render cells.<br><a href="interfaces/_ext_cvdetailspanel_.cvdetailspanelprops.html">CvDetailsPanelProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvcellvaluedef_.html#cvcellvaluedef">CvCellValueDef</a>/&gt;</strong><br>Render’s a Catavolt ‘Cell Value Definition’.   AttributeCellValueDef, LabelCellValueDef, etc.<br><a href="interfaces/_ext_cvcellvaluedef_.cvcellvaluedefprops.html">CvCellValueDefProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvdataanno_.html#cvdataanno">CvDataAnno</a>/&gt;</strong><br>Applies default style to a properties and records, based on the Data Annotations attached to the entities (if any).<br><a href="interfaces/_ext_cvdataanno_.cvdataannoprops.html">CvDataAnnoProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvheroheader_.html#cvheroheader">CvHeroHeader</a>/&gt;</strong><br>Convenience component to add a logo or company header<br><a href="interfaces/_ext_cvheroheader_.cvheroheaderprops.html">CvHeroHeaderProps</a></p>
+				<p><strong>&lt;<a href="modules/_ext_cvmenu_.html#cvdropdownmenu">CvDropdownMenu</a>/&gt;</strong><br>Renders MenuDef’s as a basic ‘Dropdown’ menu<br><a href="interfaces/_ext_cvmenu_.cvmenuprops.html">CvMenuProps</a></p>
 				<p><strong>&lt;CvBarcodeScanPanel/&gt;</strong><br>Render a default, styled barcode scan detail panel  </p>
 				<p><strong>&lt;CvGeoInfoPanel/&gt;</strong><br>Render a default, styled geo location or geofix detail panel  </p>
-				<p><strong>&lt;CvMapPanel/&gt;</strong><br>Render a default, styled map panel  </p>
+				<p><strong>&lt;<a href="modules/_ext_cvmappanel_.html#cvmappanel">CvMapPanel</a>/&gt;</strong><br>Render a default, styled map panel<br><a href="interfaces/_ext_cvmappanel_.cvmappanelprops.html">CvMapPanelProps</a></p>
 				<p><strong>&lt;CvCalendarPanel/&gt;</strong><br>(pending implementation) Render a default, styled calendar  </p>
-				<p><strong>&lt;CvGraphPanel/&gt;</strong><br>Render a default, styled graph</p>
+				<p><strong>&lt;<a href="modules/_ext_cvgraphpanel_.html#cvgraphpanel">CvGraphPanel</a>/&gt;</strong><br>Render a default, styled graph
+				<a href="interfaces/_ext_cvgraphpanel_.cvgraphpanelprops.html">CvGraphPanelProps</a></p>
 				<p><strong>&lt;CvImagePickerPanel/&gt;</strong><br>(pending implementation) Render a default, styled image picker panel  </p>
-				<p><strong>&lt;CvMessagePanel/&gt;</strong><br>Uses a CvMessagePane to display a &quot;toast-like&quot; notification of messages (based on toast.js)</p>
-				<h4 id="example-apps">Example Apps</h4>
-				<p><strong>Catavolt Default Client</strong><br>The canonical implementation of a Catavolot Client Application.   Good example of how to use Catavolt Extended Components.  It also uses the React Router for history and navigation.  </p>
-				<p><strong>Humana Buzz</strong><br>Use React Router and the ‘Core’ Catavolt React Components.  A good example of a completely custom application.  </p>
+				<p><strong>&lt;<a href="modules/_ext_cvmessagepanel_.html#cvmessagepanel">CvMessagePanel</a>/&gt;</strong><br>Uses a <a href="modules/_core_cvmessagepane_.html#cvmessagepane">CvMessagePane</a> to display a &quot;toast-like&quot; notification of messages (based on toast.js)
+				<a href="interfaces/_ext_cvmessagepanel_.cvmessagepanelprops.html">CvMessagePanelProps</a>  </p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">

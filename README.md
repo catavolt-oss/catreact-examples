@@ -3,6 +3,17 @@ catreact-examples
 
 These examples use the Catavolt React Libraries (Core + Extended)
 
+
+
+## Example Apps
+
+**Catavolt Default Client**
+The canonical implementation of a Catavolot Client Application.   Good example of how to use Catavolt Extended Components.  It also uses the React Router for history and navigation.
+
+**Humana Buzz**
+Use React Router and the ‘Core’ Catavolt React Components.  A good example of a completely custom application.
+                                                
+
 # Project Setup
 
 * If using Typescript (recommended), [WebStorm](https://www.jetbrains.com/webstorm/) is recommended as an ide, as it has very good Typescript support
