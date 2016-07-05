@@ -24,7 +24,7 @@ Use React Router and the ‘Core’ Catavolt React Components.  A good example 
 
 # To run the example
 
-* Open the index.html in 'catavolt-client' (or 'launch' it from your ide)
+* Open the index.html in one of the examples (catavolt-client, demo-buzz-feed, etc.) (or 'launch' it from your ide)
 
 
 # To build the web bundle in catavolt-client
