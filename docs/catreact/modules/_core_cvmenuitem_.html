@@ -101,9 +101,25 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-signature-type">CvMenuItemProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMenuItemProps, CvMenuItemState&gt;({mixins: [CvBaseMixin, CvActionBase, CvMenuItemBase],getDefaultProps: function () {return {actionId: null,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners:[],parentMenuItem: null,subMenuItemRenderer: null,selectionProvider: null,renderer:null,wrapperElemName:&#x27;span&#x27;,wrapperElemProps:{},actionHandler:null}},parentMenuDef: function() {return this.props.parentMenuItem || this.firstInScope(MenuDef);},render: function() {const menuDef &#x3D; this.menuDef();if(menuDef) {/* render me (this.menuDef) */if(this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj());/* render child menuDefs (this.menuDef.menuDefs) */} else if (this.props.subMenuItemRenderer) {let newChildren &#x3D; [];menuDef.menuDefs.forEach((md:MenuDef)&#x3D;&gt; {newChildren.push(React.cloneElement(this.props.subMenuItemRenderer(this.getChildContext().cvContext, md), {key:md.name}));});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);/* render the markup with a &#x27;click&#x27; wrapper */} else if(React.Children.count(this.props.children) &gt; 0) {const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[&#x27;onClick&#x27;] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);} else {return null;}//render all menuDefs of my parent (i.e. wildcard)}else if(!this.props.actionId &amp;&amp; this.props.renderer) {const parentMenuDef:MenuDef &#x3D; this.parentMenuDef();if(parentMenuDef &amp;&amp; parentMenuDef.menuDefs &amp;&amp; parentMenuDef.menuDefs.length &gt; 0) {let newChildren &#x3D; [];parentMenuDef.menuDefs.forEach((md:MenuDef)&#x3D;&gt; {newChildren.push(&lt;CvMenuItem {...this.props} menuDef&#x3D;{md} key&#x3D;{md.actionId}/&gt;);});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}} else {return null;}},})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvMenuItem.tsx:34</li>
+							<li>Defined in core/CvMenuItem.tsx:59</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>There are several ways to use CvMenuItem</p>
+						</div>
+						<ol>
+							<li>Simple wrapper - Provide an actionId OR menuItem and (optionally) a wrapperElem and wrapperElemProps.
+							This will render your child tags wrapped in wrapperElem with an onClick that fires &#39;this&#39; action</li>
+							<li>Function for submenus - Provide an actionId OR menuItem and a subMenuItemRenderer
+								see <a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html#submenuitemrenderer">CvMenuItemProps.subMenuItemRenderer</a>.
+								Providing this function will allow you to render all &#39;child&#39; MenuDefs (but not &#39;this&#39; MenuDef).
+							The result will be wrapped in wrapperElem (if provided)</li>
+							<li>Recursive rendering of child menus - Omit both an actionId and menuItem and (optionally) specify a parentMenuItem
+								The render method will render each child of the parentMenuItem (provided or found in scope) passing along all
+							additional properties to new child <a href="_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>s</li>
+						</ol>
+					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">

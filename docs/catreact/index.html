@@ -90,7 +90,18 @@
 				<p><strong>&lt;<a href="modules/_core_cvrecordlist_.html#cvrecordlist">CvRecordList</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a>’. Allows for the specification of a rendering function to render the ‘EntityRecords’ supplied by a parent ListPane.<br>Accepts <a href="interfaces/_core_cvrecordlist_.cvrecordlistprops.html">CvRecordListProps</a></p>
 				<p><strong>&lt;<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>/&gt;</strong><br>Corresponds to an ‘EntityRecord’.  Provides a context for accessing the ‘Properties’ of a record.  Also provides a default click handler for a record.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvrecord_.cvrecordprops.html">CvRecordProps</a></p>
 				<p><strong>&lt;<a href="modules/_core_cvaction_.html#cvaction">CvAction</a>/&gt;</strong><br>Allows for the direct creation of a Catavolt ‘Action’.  Provides ‘click’ handling options as well as the base logic for ‘<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>’.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvaction_.cvactionbaseprops.html">CvActionBaseProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html">CvMenuItemProps</a></p>
+				<p><strong>&lt;<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html">CvMenuItemProps</a>  </p>
+				<p>There are several ways to use CvMenuItem  </p>
+				<ol>
+					<li>Simple wrapper - Provide an actionId OR menuItem and (optionally) a wrapperElem and wrapperElemProps.<br>This will render your child tags wrapped in wrapperElem with an onClick that fires &#39;this&#39; action  </li>
+					<li>Function for submenus - Provide an actionId OR menuItem and a subMenuItemRenderer
+						see <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html#submenuitemrenderer">CvMenuItemProps.subMenuItemRenderer</a>.
+						Providing this function will allow you to render all &#39;child&#39; MenuDefs (but not &#39;this&#39; MenuDef).
+					The result will be wrapped in wrapperElem (if provided)</li>
+					<li>Recursive rendering of child menus - Omit both an actionId and menuItem and (optionally) specify a parentMenuItem
+						The render method will render each child of the parentMenuItem (provided or found in scope) passing along all
+					additional properties to new child <a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>s</li>
+				</ol>
 				<p><strong>&lt;<a href="modules/_core_cvresource_.html#cvresource">CvResource</a>/&gt;</strong><br>Provides access to remote resources.  (Currently images via the GMLAssetsURL)<br>Accepts <a href="interfaces/_core_cvresource_.cvresourceprops.html">CvResourceProps</a></p>
 				<p><strong>&lt;<a href="modules/_core_cvprop_.html#cvprop">CvProp</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>’.  Allows for accessing or custom rendering a ‘property’.  Renders binary properties as responsive images.<br>Accepts <a href="interfaces/_core_cvprop_.cvpropprops.html">CvPropProps</a></p>
 				<p><strong>&lt;<a href="modules/_core_cvmessagepane_.html#cvmessagepane">CvMessagePane</a>/&gt;</strong><br>Allows for the rendering of <a href="interfaces/_core_cvreact_.cvmessage.html">CvMessage</a> events<br>Accepts <a href="interfaces/_core_cvmessagepane_.cvmessagepaneprops.html">CvMessagePaneProps</a></p>

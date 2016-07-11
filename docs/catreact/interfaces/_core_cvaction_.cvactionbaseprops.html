@@ -125,9 +125,15 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Handler<span class="tsd-signature-symbol">:</span> <a href="_core_cvreact_.cvvaluelistener.html" class="tsd-signature-type">CvValueListener</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvaction_.cvactionhandlerparams.html" class="tsd-signature-type">CvActionHandlerParams</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:60</li>
+							<li>Defined in core/CvAction.tsx:104</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Allows the specification of a handler for &#39;client&#39; side actions.  This is a special class of actions
+							that require some type of special processing by the client. (i.e. #search, #refresh, #calulateStatistics, etc.)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="actionid" class="tsd-anchor"></a>
@@ -135,9 +141,14 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:49</li>
+							<li>Defined in core/CvAction.tsx:52</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The actionId of this action</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="actionlisteners" class="tsd-anchor"></a>
@@ -145,9 +156,14 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:50</li>
+							<li>Defined in core/CvAction.tsx:56</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Array of <a href="_core_cvreact_.cvlistener.html">CvListener</a>s that will be notified of any actions fired</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
 					<a name="catavolt" class="tsd-anchor"></a>
@@ -189,9 +205,15 @@
 					<div class="tsd-signature tsd-kind-icon">menu<wbr>Def<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">MenuDef</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:51</li>
+							<li>Defined in core/CvAction.tsx:61</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The sdk {MenuDef} that points to this action. If not specified the containing sdk {PaneContext} will
+							be searched for the matching MenuDef</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="navtarget" class="tsd-anchor"></a>
@@ -199,9 +221,16 @@
 					<div class="tsd-signature tsd-kind-icon">nav<wbr>Target<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:53</li>
+							<li>Defined in core/CvAction.tsx:71</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provide a target for any navigations that originate from this action.  The navTarget should
+								correspond to the &#39;targetId&#39; value of the coresident <a href="../modules/_core_cvnavigation_.html#cvnavigation">CvNavigation</a> or <a href="../modules/_ext_cvnavigator_.html#cvnavigator">CvNavigator</a>.
+							This is useful for single page apps where components may be coresident.</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="navigationlisteners" class="tsd-anchor"></a>
@@ -209,9 +238,14 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:52</li>
+							<li>Defined in core/CvAction.tsx:65</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Register to receive <a href="_core_cvreact_.cvevent.html">CvEvent</a>s of type <a href="_core_cvreact_.cvnavigationresult.html">CvNavigationResult</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="panecontext" class="tsd-anchor"></a>
@@ -219,9 +253,15 @@
 					<div class="tsd-signature tsd-kind-icon">pane<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">PaneContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:54</li>
+							<li>Defined in core/CvAction.tsx:76</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The sdk {PaneContext} associated with this action.  If not specified, the context chain will be upwardly
+							searched to find a component with a containing sdk {PaneContext} scopeObj</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-overwrite tsd-is-external">
 					<a name="renderer" class="tsd-anchor"></a>
@@ -230,9 +270,22 @@
 					<aside class="tsd-sources">
 						<p>Overwrites <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#renderer">renderer</a></p>
 						<ul>
-							<li>Defined in core/CvAction.tsx:56</li>
+							<li>Defined in core/CvAction.tsx:86</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Render override function.  It should accept the following params:</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The current cvContext.  The cvContext.cvScope.scopeObj will be the sdk {MenuDef} object</p>
+							</dd>
+							<dt>param</dt>
+							<dd><p>A callback for firing the action</p>
+							</dd>
+						</dl>
+					</div>
 					<div class="tsd-type-declaration">
 						<h4>Type declaration</h4>
 						<ul class="tsd-parameters">
@@ -266,9 +319,14 @@
 					<div class="tsd-signature tsd-kind-icon">selection<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_core_cvreact_.cvvalueprovider.html" class="tsd-signature-type">CvValueProvider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:55</li>
+							<li>Defined in core/CvAction.tsx:80</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Provides any target values that may have been &#39;selected&#39; when firing this action</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="statechangelisteners" class="tsd-anchor"></a>
@@ -276,9 +334,14 @@
 					<div class="tsd-signature tsd-kind-icon">state<wbr>Change<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:59</li>
+							<li>Defined in core/CvAction.tsx:99</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Register to receive <a href="_core_cvreact_.cvevent.html">CvEvent</a>s of type <a href="_core_cvreact_.cvstatechangeresult.html">CvStateChangeResult</a></p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="wrapperelemname" class="tsd-anchor"></a>
@@ -286,9 +349,14 @@
 					<div class="tsd-signature tsd-kind-icon">wrapper<wbr>Elem<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:57</li>
+							<li>Defined in core/CvAction.tsx:90</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Name of the wrapping element (should be html tag)</p>
+						</div>
+					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="wrapperelemprops" class="tsd-anchor"></a>
@@ -296,9 +364,14 @@
 					<div class="tsd-signature tsd-kind-icon">wrapper<wbr>Elem<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:58</li>
+							<li>Defined in core/CvAction.tsx:94</li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Props for the wrapping element</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>

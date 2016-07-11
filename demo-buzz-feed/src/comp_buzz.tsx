@@ -149,7 +149,7 @@ const BuzzStream = React.createClass({
                                 <div style={{maxHeight: '800px', overflow: 'auto'}}>
                                     <ul className={'list-group'}>
                                         <CvListPane paneRef={0}>
-                                            <CvRecordList wrapperElemName={'span'} rowRenderer={(cvContext, record)=>{
+                                            <CvRecordList wrapperElemName={'span'} rowRenderer={(cvContext:CvContext, record:EntityRec)=>{
                                                 const listContext:ListContext = cvContext.scopeCtx.scopeObj;
                                                 //select "this record" so that the action can find the target via the selectionProvider
                                                 const selectionAdapter:CvValueAdapter<Array<string>> = new CvValueAdapter<Array<string>>();
