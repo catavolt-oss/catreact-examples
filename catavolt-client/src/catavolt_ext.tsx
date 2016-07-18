@@ -255,7 +255,7 @@ const CvReactWorkbench = React.createClass({
         return(
             <div>
                 {workbenchEl}
-                <CvWaitPopup dataProvider={this.waitProvider}/>
+                <CvWaitPopup paramProvider={this.waitProvider}/>
             </div>
         );
                     
@@ -321,8 +321,8 @@ const CvReactNavigator = React.createClass({
                     }
                 }]}
             />
-            <CvPopupNavigator dataProvider={this.navPopupProvider}/>
-            <CvWaitPopup dataProvider={this.waitProvider}/>
+            <CvPopupNavigator paramProvider={this.navPopupProvider}/>
+            <CvWaitPopup paramProvider={this.waitProvider}/>
         </div>
     },
 });
@@ -330,16 +330,16 @@ const CvReactNavigator = React.createClass({
 /**
     Component that overlays a 'wait' spinner, shown between navigations
  */
-const CvWaitPopup = React.createClass<{dataProvider:CvValueProvider<boolean>}, {visible:boolean}>({
+const CvWaitPopup = React.createClass<{paramProvider:CvValueProvider<boolean>}, {visible:boolean}>({
     
     componentWillMount: function() {
-       if(this.props.dataProvider) {
-           this.props.dataProvider.subscribe(this._handleDataChange);
+       if(this.props.paramProvider) {
+           this.props.paramProvider.subscribe(this._handleParamChange);
        } 
     },
     
     getDefaultProps: function () {
-        return {dataProvider:null}
+        return {paramProvider:null}
     },
     
     getInitialState: function() {
@@ -369,22 +369,22 @@ const CvWaitPopup = React.createClass<{dataProvider:CvValueProvider<boolean>}, {
         );
     },
     
-    _handleDataChange: function(visible:boolean) {
+    _handleParamChange: function(visible:boolean) {
         this.setState({visible: visible});
     },
 
 });
 
-const CvPopupNavigator = React.createClass<{dataProvider:CvValueProvider<string>}, {navigationId:string}>({
+const CvPopupNavigator = React.createClass<{paramProvider:CvValueProvider<string>}, {navigationId:string}>({
     
     componentWillMount: function() {
-        if(this.props.dataProvider) {
-            this.props.dataProvider.subscribe(this._handleDataChange);
+        if(this.props.paramProvider) {
+            this.props.paramProvider.subscribe(this._handleParamChange);
         }
     },
 
     getDefaultProps: function () {
-        return {dataProvider:null};
+        return {paramProvider:null};
     },
     
     getInitialState: function() {
@@ -420,9 +420,9 @@ const CvPopupNavigator = React.createClass<{dataProvider:CvValueProvider<string>
                                              }]}
                                              actionListeners={[]}
                                              stateChangeListeners={[(event:CvEvent<CvStateChangeResult>)=>{
-                                                if(event.eventObj.type === CvStateChangeType.DESTROYED) {
+                                                    //right now, any sort of state change closes the modal
+                                                    //we could customize this more with delegate actions
                                                     this.setState({navigationId: null});
-                                                 } 
                                              }]}
                                 />
                             : null}
@@ -433,7 +433,7 @@ const CvPopupNavigator = React.createClass<{dataProvider:CvValueProvider<string>
         );
     },
     
-    _handleDataChange: function(navigationId:string) {
+    _handleParamChange: function(navigationId:string) {
         this.setState({navigationId: navigationId})
     }
 });

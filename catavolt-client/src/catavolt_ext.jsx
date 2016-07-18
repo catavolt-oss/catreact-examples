@@ -180,7 +180,7 @@ const CvReactWorkbench = React.createClass({
          */
         return (<div>
                 {workbenchEl}
-                <CvWaitPopup dataProvider={this.waitProvider}/>
+                <CvWaitPopup paramProvider={this.waitProvider}/>
             </div>);
     },
 });
@@ -233,8 +233,8 @@ const CvReactNavigator = React.createClass({
                     router.goBack();
                 }
             }]}/>
-            <CvPopupNavigator dataProvider={this.navPopupProvider}/>
-            <CvWaitPopup dataProvider={this.waitProvider}/>
+            <CvPopupNavigator paramProvider={this.navPopupProvider}/>
+            <CvWaitPopup paramProvider={this.waitProvider}/>
         </div>;
     },
 });
@@ -243,12 +243,12 @@ const CvReactNavigator = React.createClass({
  */
 const CvWaitPopup = React.createClass({
     componentWillMount: function () {
-        if (this.props.dataProvider) {
-            this.props.dataProvider.subscribe(this._handleDataChange);
+        if (this.props.paramProvider) {
+            this.props.paramProvider.subscribe(this._handleParamChange);
         }
     },
     getDefaultProps: function () {
-        return { dataProvider: null };
+        return { paramProvider: null };
     },
     getInitialState: function () {
         return { visible: false };
@@ -277,18 +277,18 @@ const CvWaitPopup = React.createClass({
                 </div>
             </div>);
     },
-    _handleDataChange: function (visible) {
+    _handleParamChange: function (visible) {
         this.setState({ visible: visible });
     },
 });
 const CvPopupNavigator = React.createClass({
     componentWillMount: function () {
-        if (this.props.dataProvider) {
-            this.props.dataProvider.subscribe(this._handleDataChange);
+        if (this.props.paramProvider) {
+            this.props.paramProvider.subscribe(this._handleParamChange);
         }
     },
     getDefaultProps: function () {
-        return { dataProvider: null };
+        return { paramProvider: null };
     },
     getInitialState: function () {
         return { navigationId: null };
@@ -323,9 +323,9 @@ const CvPopupNavigator = React.createClass({
                         }
                     }
                 }]} actionListeners={[]} stateChangeListeners={[(event) => {
-                    if (event.eventObj.type === CvStateChangeType.DESTROYED) {
-                        this.setState({ navigationId: null });
-                    }
+                    //right now, any sort of state change closes the modal
+                    //we could customize this more with delegate actions
+                    this.setState({ navigationId: null });
                 }]}/>
             : null}
                         </div>
@@ -333,7 +333,7 @@ const CvPopupNavigator = React.createClass({
                 </div>
             </div>);
     },
-    _handleDataChange: function (navigationId) {
+    _handleParamChange: function (navigationId) {
         this.setState({ navigationId: navigationId });
     }
 });

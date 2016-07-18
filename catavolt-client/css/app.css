@@ -194,7 +194,11 @@ body {
 /* list panel */
 
 .cv-list-container {
-    max-height:750px;
+}
+
+
+.cv-list-scrollpane {
+    max-height:720px;
     overflow: auto;
 }
 
