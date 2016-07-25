@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;core/CvMenuItem&quot; | catreact</title>
+	<title>CvSearchPaneState | catreact</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -57,100 +57,31 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="_core_cvmenuitem_.html">&quot;core/CvMenuItem&quot;</a>
+					<a href="../modules/_core_cvsearchpane_.html">&quot;core/CvSearchPane&quot;</a>
+				</li>
+				<li>
+					<a href="_core_cvsearchpane_.cvsearchpanestate.html">CvSearchPaneState</a>
 				</li>
 			</ul>
-			<h1>External module &quot;core/CvMenuItem&quot;</h1>
+			<h1>Interface CvSearchPaneState</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Interfaces</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Props</a></li>
-								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_core_cvmenuitem_.cvmenuitemstate.html" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>State</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Variables</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_core_cvmenuitem_.html#cvmenuitem" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item</a></li>
-							</ul>
-						</section>
-						<section class="tsd-index-section tsd-is-external">
-							<h3>Object literals</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external"><a href="_core_cvmenuitem_.html#cvmenuitembase" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Base</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Variables</h2>
-				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
-					<a name="cvmenuitem" class="tsd-anchor"></a>
-					<h3>Cv<wbr>Menu<wbr>Item</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-signature-type">CvMenuItemProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMenuItemProps, CvMenuItemState&gt;({mixins: [CvBaseMixin, CvActionBase, CvMenuItemBase],getDefaultProps: function () {return {actionId: null,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners:[],parentMenuItem: null,subMenuItemRenderer: null,selectionProvider: null,renderer:null,wrapperElemName:&#x27;span&#x27;,wrapperElemProps:{},actionHandler:null}},parentMenuDef: function() {return this.props.parentMenuItem || this.firstInScope(MenuDef);},render: function() {const menuDef &#x3D; this.menuDef();if(menuDef) {/* render me (this.menuDef) */if(this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj());/* render child menuDefs (this.menuDef.menuDefs) */} else if (this.props.subMenuItemRenderer) {let newChildren &#x3D; [];menuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(React.cloneElement(this.props.subMenuItemRenderer(this.getChildContext().cvContext, md), {key:md.name + i}));});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);/* render the markup with a &#x27;click&#x27; wrapper */} else if(React.Children.count(this.props.children) &gt; 0) {const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[&#x27;onClick&#x27;] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);} else {return null;}//render all menuDefs of my parent (i.e. wildcard)}else if(!this.props.actionId &amp;&amp; this.props.renderer) {const parentMenuDef:MenuDef &#x3D; this.parentMenuDef();if(parentMenuDef &amp;&amp; parentMenuDef.menuDefs &amp;&amp; parentMenuDef.menuDefs.length &gt; 0) {let newChildren &#x3D; [];parentMenuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(&lt;CvMenuItem {...this.props} menuDef&#x3D;{md} key&#x3D;{md.actionId + i}/&gt;);});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}} else {return null;}},})</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in core/CvMenuItem.tsx:59</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>There are several ways to use CvMenuItem</p>
-						</div>
-						<ol>
-							<li>Simple wrapper - Provide an actionId OR menuItem and (optionally) a wrapperElem and wrapperElemProps.
-							This will render your child tags wrapped in wrapperElem with an onClick that fires &#39;this&#39; action</li>
-							<li>Function for submenus - Provide an actionId OR menuItem and a subMenuItemRenderer
-								see <a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html#submenuitemrenderer">CvMenuItemProps.subMenuItemRenderer</a>.
-								Providing this function will allow you to render all &#39;child&#39; MenuDefs (but not &#39;this&#39; MenuDef).
-							The result will be wrapped in wrapperElem (if provided)</li>
-							<li>Recursive rendering of child menus - Omit both an actionId and menuItem and (optionally) specify a parentMenuItem
-								The render method will render each child of the parentMenuItem (provided or found in scope) passing along all
-							additional properties to new child <a href="_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>s</li>
-						</ol>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group tsd-is-external">
-				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external">
-					<a name="cvmenuitembase" class="tsd-anchor"></a>
-					<h3>Cv<wbr>Menu<wbr>Item<wbr>Base</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in core/CvMenuItem.tsx:10</li>
-						</ul>
-					</aside>
-					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
-						<a name="cvmenuitembase.getchildcontext" class="tsd-anchor"></a>
-						<h3>get<wbr>Child<wbr>Context</h3>
-						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
-							<li class="tsd-signature tsd-kind-icon">get<wbr>Child<wbr>Context<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></li>
-						</ul>
-						<ul class="tsd-descriptions">
-							<li class="tsd-description">
-								<aside class="tsd-sources">
-									<ul>
-										<li>Defined in core/CvMenuItem.tsx:12</li>
-									</ul>
-								</aside>
-								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<a href="_core_cveditorbase_.cveditorbasestate.html" class="tsd-signature-type">CvEditorBaseState</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">CvSearchPaneState</span>
 							</li>
 						</ul>
-					</section>
-				</section>
+					</li>
+				</ul>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -160,23 +91,45 @@
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
-						<a href="_core_cvmenuitem_.html">"core/<wbr>CvMenu<wbr>Item"</a>
+						<a href="../modules/_core_cvsearchpane_.html">"core/<wbr>CvSearch<wbr>Pane"</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Props</a>
+						<a href="_core_cvsearchpane_.cvsearchpanecallback.html" class="tsd-kind-icon">Cv<wbr>Search<wbr>Pane<wbr>Callback</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
-						<a href="../interfaces/_core_cvmenuitem_.cvmenuitemstate.html" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>State</a>
+						<a href="_core_cvsearchpane_.cvsearchpaneprops.html" class="tsd-kind-icon">Cv<wbr>Search<wbr>Pane<wbr>Props</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="_core_cvsearchpane_.cvsearchpanestate.html" class="tsd-kind-icon">Cv<wbr>Search<wbr>Pane<wbr>State</a>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+						<a href="../modules/_core_cvsearchpane_.html#cvsearchvalueoperator" class="tsd-kind-icon">Cv<wbr>Search<wbr>Value<wbr>Operator</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-external-module tsd-is-external">
+						<a href="../modules/_core_cvsearchpane_.html#cvsortdirection" class="tsd-kind-icon">Cv<wbr>Sort<wbr>Direction</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
-						<a href="_core_cvmenuitem_.html#cvmenuitem" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item</a>
+						<a href="../modules/_core_cvsearchpane_.html#cvsearchpane" class="tsd-kind-icon">Cv<wbr>Search<wbr>Pane</a>
 					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external">
-						<a href="_core_cvmenuitem_.html#cvmenuitembase" class="tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Base</a>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_core_cvsearchpane_.html#filteroperatorsuffix" class="tsd-kind-icon">filter<wbr>Operator<wbr>Suffix</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_core_cvsearchpane_.html#filtervaluesuffix" class="tsd-kind-icon">filter<wbr>Value<wbr>Suffix</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_core_cvsearchpane_.html#sortdirectionsuffix" class="tsd-kind-icon">sort<wbr>Direction<wbr>Suffix</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_core_cvsearchpane_.html#sortsequencesuffix" class="tsd-kind-icon">sort<wbr>Sequence<wbr>Suffix</a>
 					</li>
 				</ul>
 			</nav>
