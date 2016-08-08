@@ -16,14 +16,11 @@
     "url": "https://git.catavolt.com/javascript/catreact-examples.git"
   },
   "dependencies": {
-    "babelify": "^7.2.0",
-    "catavolt-sdk": "^1.0.5",
-    "catreact": "^1.0.16",
-    "react": "^15.2.0",
-    "react-dom": "^15.2.0",
+    "catreact": "^1.0.21",
     "react-router": "^2.0.0"
   },
   "devDependencies": {
+    "babelify": "^7.2.0",
     "babel-cli": "^6.4.5",
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.1",
