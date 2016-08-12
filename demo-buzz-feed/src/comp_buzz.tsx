@@ -68,7 +68,7 @@ const BuzzLogin = React.createClass({
             defaultGatewayUrl={'gw.catavolt.net'}
             defaultTenantId={'catavolt-dev'}
             defaultUserId={'rob'}
-            defaultPassword={'rob123'}
+            defaultPassword={''}
             showGatewayUrl={false}
             showClientType={false}
             loginListeners={[(event:CvEvent<CvLoginResult>)=>{

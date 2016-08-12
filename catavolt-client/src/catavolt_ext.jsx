@@ -65,7 +65,7 @@ const CvReactLogin = React.createClass({
         return <div>
             <div className="cv-login-wrapper">
                 <div className="cv-login-logo"/>
-                <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={'catavolt-qa'} defaultUserId={'qatester'} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
+                <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={''} defaultUserId={''} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
                 const windowId = event.resourceId; //get the session (window) from the LoginEvent
                 this.context.router.replace('/workbench/' + windowId + '/' + '0');
             }]}/>
