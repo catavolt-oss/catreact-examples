@@ -28,7 +28,7 @@ const BuzzApp = React.createClass({
 const BuzzLogin = React.createClass({
     mixins: [BuzzBase],
     render: function () {
-        return <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={'catavolt-dev'} defaultUserId={''} defaultPassword={''} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
+        return <CvLoginPanel defaultGatewayUrl={'gw.catavolt.net'} defaultTenantId={'catavolt-dev'} defaultUserId={'rob'} defaultPassword={'rob123'} showGatewayUrl={false} showClientType={false} loginListeners={[(event) => {
                 const sessionId = event.resourceId; //get the session from the LoginEvent
                 this.context.router.push('/workbench/' + sessionId);
             }]}/>;

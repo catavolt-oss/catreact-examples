@@ -112,8 +112,8 @@ const CvReactLogin = React.createClass({
                 <div className="cv-login-logo"/>
                 <CvLoginPanel
                     defaultGatewayUrl={'gw.catavolt.net'}
-                    defaultTenantId={''}
-                    defaultUserId={''}
+                    defaultTenantId={'solarsourcez'}
+                    defaultUserId={'sales'}
                     showGatewayUrl={false}
                     showClientType={false}
                     loginListeners={[(event:CvEvent<CvLoginResult>)=>{

@@ -114,7 +114,7 @@ var CvReactLogin = React.createClass({
                 'div',
                 { className: 'cv-login-wrapper' },
                 React.createElement('div', { className: 'cv-login-logo' }),
-                React.createElement(_catreact.CvLoginPanel, { defaultGatewayUrl: 'gw.catavolt.net', defaultTenantId: '', defaultUserId: '', showGatewayUrl: false, showClientType: false, loginListeners: [function (event) {
+                React.createElement(_catreact.CvLoginPanel, { defaultGatewayUrl: 'gw.catavolt.net', defaultTenantId: 'solarsourcez', defaultUserId: 'sales', showGatewayUrl: false, showClientType: false, loginListeners: [function (event) {
                         var windowId = event.resourceId; //get the session (window) from the LoginEvent
                         _this.context.router.replace('/workbench/' + windowId + '/' + '0');
                     }] }),

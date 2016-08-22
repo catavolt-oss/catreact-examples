@@ -176,6 +176,7 @@ body {
 
 .cv-dropdown-button {
     margin: 5px;
+    cursor: pointer;
 }
 
 /* Form style */
@@ -216,6 +217,12 @@ body {
 
 .cv-selected-row {
     background-color: #fcf4ce;
+}
+
+.cv-sort-dir {
+    vertical-align: middle;
+    margin-left: 5px;
+    margin-bottom: 3px;
 }
 
 /* detail panel */
@@ -264,6 +271,7 @@ body {
 /* menus */
 .cv-menu-button {
     color: #ffffff;
+    cursor: pointer;
 }
 
 .cv-menu-sep {

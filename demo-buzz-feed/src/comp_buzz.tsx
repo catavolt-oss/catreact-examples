@@ -67,8 +67,8 @@ const BuzzLogin = React.createClass({
         return <CvLoginPanel
             defaultGatewayUrl={'gw.catavolt.net'}
             defaultTenantId={'catavolt-dev'}
-            defaultUserId={''}
-            defaultPassword={''}
+            defaultUserId={'rob'}
+            defaultPassword={'rob123'}
             showGatewayUrl={false}
             showClientType={false}
             loginListeners={[(event:CvEvent<CvLoginResult>)=>{
@@ -149,7 +149,7 @@ const BuzzStream = React.createClass({
                                 <div style={{maxHeight: '800px', overflow: 'auto'}}>
                                     <ul className={'list-group'}>
                                         <CvListPane paneRef={0}>
-                                            <CvRecordList wrapperElemName={'span'} rowRenderer={(cvContext:CvContext, record:EntityRec)=>{
+                                            <CvRecordList wrapperElemName={'span'} rowRenderer={(cvContext, record)=>{
                                                 const listContext:ListContext = cvContext.scopeCtx.scopeObj;
                                                 //select "this record" so that the action can find the target via the selectionProvider
                                                 const selectionAdapter:CvValueAdapter<Array<string>> = new CvValueAdapter<Array<string>>();
