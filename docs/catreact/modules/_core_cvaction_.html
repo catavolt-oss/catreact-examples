@@ -101,10 +101,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvaction" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Action</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvaction_.cvactionprops.html" class="tsd-signature-type">CvActionProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvActionProps, CvActionState&gt;({mixins: [CvBaseMixin, CvActionBase],getChildContext: function () {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.menuDef();return ctx;},getDefaultProps: function () {return {actionId: null,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners: [],selectionProvider: null,renderer: null,wrapperElemName: &#x27;span&#x27;,wrapperElemProps: {},actionHandlerProvider: null}},render: function () {if (this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj())} else {const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[&#x27;onClick&#x27;] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);}}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Action<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvaction_.cvactionprops.html" class="tsd-signature-type">CvActionProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvActionProps, CvActionState&gt;({mixins: [CvBaseMixin, CvActionBase],componentDidMount: function() {this._componentDidMount();},getChildContext: function () {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.menuDef();return ctx;},getDefaultProps: function () {return {actionId: null,fireOnLoad:false,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners: [],selectionProvider: null,renderer: null,wrapperElemName: &#x27;span&#x27;,wrapperElemProps: {},actionHandlerProvider: null}},render: function () {if (this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj())} else if (this.props.children){const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[&#x27;onClick&#x27;] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);} else {return null;}}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:346</li>
+							<li>Defined in core/CvAction.tsx:356</li>
 						</ul>
 					</aside>
 				</section>
@@ -117,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Action<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvAction.tsx:116</li>
+							<li>Defined in core/CvAction.tsx:120</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
@@ -130,7 +130,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:257</li>
+										<li>Defined in core/CvAction.tsx:261</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -139,6 +139,23 @@
 										<h5>paneContext: <span class="tsd-signature-type">PaneContext</span></h5>
 									</li>
 								</ul>
+								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							</li>
+						</ul>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
+						<a name="cvactionbase._componentdidmount" class="tsd-anchor"></a>
+						<h3>_component<wbr>Did<wbr>Mount</h3>
+						<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
+							<li class="tsd-signature tsd-kind-icon">_component<wbr>Did<wbr>Mount<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						</ul>
+						<ul class="tsd-descriptions">
+							<li class="tsd-description">
+								<aside class="tsd-sources">
+									<ul>
+										<li>Defined in core/CvAction.tsx:275</li>
+									</ul>
+								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 							</li>
 						</ul>
@@ -153,7 +170,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:281</li>
+										<li>Defined in core/CvAction.tsx:291</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -184,7 +201,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:271</li>
+										<li>Defined in core/CvAction.tsx:281</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <a href="../interfaces/_core_cvaction_.cvactioncallback.html" class="tsd-signature-type">CvActionCallback</a></h4>
@@ -201,7 +218,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:317</li>
+										<li>Defined in core/CvAction.tsx:327</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -233,7 +250,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:294</li>
+										<li>Defined in core/CvAction.tsx:304</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -268,7 +285,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:121</li>
+										<li>Defined in core/CvAction.tsx:125</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-parameters-title">Parameters</h4>
@@ -291,7 +308,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:143</li>
+										<li>Defined in core/CvAction.tsx:147</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -308,7 +325,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:157</li>
+										<li>Defined in core/CvAction.tsx:161</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -325,7 +342,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:147</li>
+										<li>Defined in core/CvAction.tsx:151</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -342,7 +359,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvAction.tsx:166</li>
+										<li>Defined in core/CvAction.tsx:170</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
