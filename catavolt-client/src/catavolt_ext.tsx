@@ -105,16 +105,21 @@ const CvReactFooter  = React.createClass({
 const CvReactLogin = React.createClass({
 
     mixins: [CvReactBase],
+    
+    getInitialState() {
+       return {showDirectUrl: false, showGatewayUrl: false}
+    },
 
     render: function () {
         return <div>
             <div className="cv-login-wrapper">
-                <div className="cv-login-logo"/>
+                <div className="cv-login-logo" onDoubleClick={()=>{ this._toggleHiddenFields(); }}></div>
                 <CvLoginPanel
                     defaultGatewayUrl={'gw.catavolt.net'}
                     defaultTenantId={'solarsourcez'}
                     defaultUserId={'sales'}
-                    showGatewayUrl={false}
+                    showDirectUrl={this.state.showDirectUrl}
+                    showGatewayUrl={this.state.showGatewayUrl}
                     showClientType={false}
                     loginListeners={[(event:CvEvent<CvLoginResult>)=>{
                             const windowId = event.resourceId;  //get the session (window) from the LoginEvent
@@ -124,6 +129,10 @@ const CvReactLogin = React.createClass({
                 <CvMessagePanel/>
             </div>
        </div>
+    },
+    
+    _toggleHiddenFields: function() {
+        this.setState({showDirectUrl:!this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl});
     }
 
 });

@@ -104,6 +104,10 @@ var CvReactLogin = React.createClass({
     displayName: 'CvReactLogin',
 
     mixins: [CvReactBase],
+    getInitialState: function getInitialState() {
+        return { showDirectUrl: false, showGatewayUrl: false };
+    },
+
     render: function render() {
         var _this = this;
 
@@ -113,14 +117,19 @@ var CvReactLogin = React.createClass({
             React.createElement(
                 'div',
                 { className: 'cv-login-wrapper' },
-                React.createElement('div', { className: 'cv-login-logo' }),
-                React.createElement(_catreact.CvLoginPanel, { defaultGatewayUrl: 'gw.catavolt.net', defaultTenantId: 'solarsourcez', defaultUserId: 'sales', showGatewayUrl: false, showClientType: false, loginListeners: [function (event) {
+                React.createElement('div', { className: 'cv-login-logo', onDoubleClick: function onDoubleClick() {
+                        _this._toggleHiddenFields();
+                    } }),
+                React.createElement(_catreact.CvLoginPanel, { defaultGatewayUrl: 'gw.catavolt.net', defaultTenantId: 'solarsourcez', defaultUserId: 'sales', showDirectUrl: this.state.showDirectUrl, showGatewayUrl: this.state.showGatewayUrl, showClientType: false, loginListeners: [function (event) {
                         var windowId = event.resourceId; //get the session (window) from the LoginEvent
                         _this.context.router.replace('/workbench/' + windowId + '/' + '0');
                     }] }),
                 React.createElement(_catreact.CvMessagePanel, null)
             )
         );
+    },
+    _toggleHiddenFields: function _toggleHiddenFields() {
+        this.setState({ showDirectUrl: !this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl });
     }
 });
 /**
@@ -9496,6 +9505,15 @@ var StringUtil = (function () {
         }
         return hash;
     };
+    StringUtil.endsWith = function (subjectString, searchString, position) {
+        if (typeof position !== 'number' || !isFinite(position) ||
+            Math.floor(position) !== position || position > subjectString.length) {
+            position = subjectString.length;
+        }
+        position -= searchString.length;
+        var lastIndex = subjectString.indexOf(searchString, position);
+        return lastIndex !== -1 && lastIndex === position;
+    };
     return StringUtil;
 }());
 exports.StringUtil = StringUtil;
@@ -10869,7 +10887,7 @@ exports.CvLogin = React.createClass({
                 _this._postLogin(_this.catavolt().login(gatewayHost, tenantId, clientType, userId, password));
             },
             loginDirectly: function (url, tenantId, clientType, userId, password) {
-                _this.catavolt().login(url, tenantId, clientType, userId, password);
+                _this._postLogin(_this.catavolt().loginDirectly(url, tenantId, clientType, userId, password));
             }
         };
     },
@@ -12259,6 +12277,7 @@ exports.CvScope = React.createClass({
  */
 var React = require('react');
 var catreact_core_1 = require('./catreact-core');
+var catavolt_sdk_1 = require('catavolt-sdk');
 exports.FILTER_VALUE_SUFFIX = '_FILTER_VALUE';
 exports.FILTER_OPERATOR_SUFFIX = '_FILTER_OPER';
 exports.SORT_DIRECTION_SUFFIX = '_SORT_DIRECTION';
@@ -12310,7 +12329,25 @@ exports.CvSearchPane = React.createClass({
         var editorCallback = this._getCallbackObj();
         return {
             clear: function () {
-                _this.detailsContext().entityRec.propNames.forEach(function (propName) { editorCallback.setPropValue(propName, null); });
+                _this.detailsContext().entityRec.propNames.forEach(function (propName) {
+                    editorCallback.setPropValue(propName, null);
+                });
+            },
+            clearSearchValues: function () {
+                _this.detailsContext().entityRec.propNames.filter(function (propName) {
+                    return catavolt_sdk_1.StringUtil.endsWith(propName, exports.FILTER_OPERATOR_SUFFIX) ||
+                        catavolt_sdk_1.StringUtil.endsWith(propName, exports.FILTER_VALUE_SUFFIX);
+                }).forEach(function (propName) {
+                    editorCallback.setPropValue(propName, null);
+                });
+            },
+            clearSortValues: function () {
+                _this.detailsContext().entityRec.propNames.filter(function (propName) {
+                    return catavolt_sdk_1.StringUtil.endsWith(propName, exports.SORT_DIRECTION_SUFFIX) ||
+                        catavolt_sdk_1.StringUtil.endsWith(propName, exports.SORT_SEQUENCE_SUFFIX);
+                }).forEach(function (propName) {
+                    editorCallback.setPropValue(propName, null);
+                });
             },
             getSearchValue: function (propName) {
                 return editorCallback.getPropValueForEdit(propName + exports.FILTER_VALUE_SUFFIX);
@@ -12374,7 +12411,7 @@ exports.CvSearchPane = React.createClass({
     }
 });
 
-},{"./catreact-core":36,"react":616}],34:[function(require,module,exports){
+},{"./catreact-core":36,"catavolt-sdk":6,"react":616}],34:[function(require,module,exports){
 "use strict";
 /**
  * Created by rburson on 12/23/15.
@@ -14090,7 +14127,7 @@ exports.CvListColumnHeader = React.createClass({
         var nextDir = this._isAsc(dir) ? 'DSC' : 'ASC';
         return React.createElement("th", {className: "cv-target", onClick: (function (colName) {
             searchCallback.reopenSearch(function (success, error) {
-                searchCallback.clear();
+                searchCallback.clearSortValues();
                 searchCallback.setSortValue(colName, nextDir, 0);
                 searchCallback.submitSearch(function (success, error) { });
             });
@@ -14134,17 +14171,20 @@ exports.CvLoginPanel = React.createClass({
         return {
             loginListeners: [],
             defaultClientType: 'RICH_CLIENT',
+            defaultDirectUrl: '',
             defaultGatewayUrl: 'www.catavolt.net',
             defaultPassword: '',
             defaultTenantId: '',
             defaultUserId: '',
             showClientType: true,
+            showDirectUrl: true,
             showGatewayUrl: true,
             showTenantId: true
         };
     },
     getInitialState: function () {
         return {
+            directUrl: this.props.defaultDirectUrl,
             tenantId: this.props.defaultTenantId,
             gatewayUrl: this.props.defaultGatewayUrl,
             userId: this.props.defaultUserId,
@@ -14158,12 +14198,16 @@ exports.CvLoginPanel = React.createClass({
         return (React.createElement(catreact_core_1.CvLogin, {loginListeners: this.props.loginListeners, renderer: function (cvContext, callback) {
             if (!callback.isLoggedIn()) {
                 return (React.createElement("div", {className: "well cv-login-form-container animated fadeIn"}, React.createElement("form", {className: "form-horizontal cv-login-form", onSubmit: _this.handleSubmit.bind(_this, callback)}, (function () {
-                    if (_this.props.showTenantId) {
-                        return (React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "tenantId", className: "col-sm-2 control-label"}, "Tenant Id:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("input", {id: "tenantId", type: "text", className: "form-control", value: _this.state.tenantId, onChange: _this.handleChange.bind(_this, 'tenantId'), required: true}))));
+                    if (_this.props.showDirectUrl) {
+                        return (React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "directUrl", className: "col-sm-2 control-label"}, "Direct URL:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("input", {id: "directUrl", type: "text", className: "form-control", value: _this.state.directUrl, onChange: _this.handleChange.bind(_this, 'directUrl')}))));
                     }
                 })(), (function () {
                     if (_this.props.showGatewayUrl) {
-                        return (React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "gatewayUrl", className: "col-sm-2 control-label"}, "Gateway URL:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("div", {className: "input-group"}, React.createElement("input", {id: "gatewayUrl", type: "text", className: "form-control", value: _this.state.gatewayUrl, onChange: _this.handleChange.bind(_this, 'gatewayUrl'), "aria-describedby": "http-addon", required: true})))));
+                        return (React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "gatewayUrl", className: "col-sm-2 control-label"}, "Gateway URL:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("div", {className: "input-group"}, React.createElement("input", {id: "gatewayUrl", type: "text", className: "form-control", value: _this.state.gatewayUrl, onChange: _this.handleChange.bind(_this, 'gatewayUrl'), "aria-describedby": "http-addon"})))));
+                    }
+                })(), (function () {
+                    if (_this.props.showTenantId) {
+                        return (React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "tenantId", className: "col-sm-2 control-label"}, "Tenant Id:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("input", {id: "tenantId", type: "text", className: "form-control", value: _this.state.tenantId, onChange: _this.handleChange.bind(_this, 'tenantId'), required: true}))));
                     }
                 })(), React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "userId", className: "col-sm-2 control-label"}, "User Id:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("input", {id: "userId", type: "text", className: "form-control", value: _this.state.userId, onChange: _this.handleChange.bind(_this, 'userId'), required: true}))), React.createElement("div", {className: "form-group"}, React.createElement("label", {htmlFor: "password", className: "col-sm-2 control-label"}, "Password:"), React.createElement("div", {className: "col-sm-10"}, React.createElement("input", {id: "password", type: "password", className: "form-control", value: _this.state.password, onChange: _this.handleChange.bind(_this, 'password'), required: true}))), (function () {
                     if (_this.props.showClientType) {
@@ -14188,7 +14232,12 @@ exports.CvLoginPanel = React.createClass({
     },
     handleSubmit: function (callback, e) {
         e.preventDefault();
-        callback.login(this.state.gatewayUrl, this.state.tenantId, this.state.clientType, this.state.userId, this.state.password);
+        if (this.state.directUrl) {
+            callback.loginDirectly(this.state.directUrl, this.state.tenantId, this.state.clientType, this.state.userId, this.state.password);
+        }
+        else {
+            callback.login(this.state.gatewayUrl, this.state.tenantId, this.state.clientType, this.state.userId, this.state.password);
+        }
     },
 });
 
