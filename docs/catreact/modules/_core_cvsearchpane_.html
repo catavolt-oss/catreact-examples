@@ -107,7 +107,7 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Search<wbr>Value<wbr>Operator<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"Equal"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Not Equal"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Greater Than"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Less Than"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Contains"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Starts With"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"Ends With"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:21</li>
+							<li>Defined in core/CvSearchPane.tsx:23</li>
 						</ul>
 					</aside>
 				</section>
@@ -117,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Sort<wbr>Direction<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"ASC"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"DSC"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:24</li>
+							<li>Defined in core/CvSearchPane.tsx:26</li>
 						</ul>
 					</aside>
 				</section>
@@ -127,10 +127,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvsearchpane" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Search<wbr>Pane</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Search<wbr>Pane<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvsearchpane_.cvsearchpaneprops.html" class="tsd-signature-type">CvSearchPaneProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvSearchPaneProps, CvSearchPaneState&gt;({mixins: [CvBaseMixin, CvEditorBase],componentDidMount: function () {this._componentDidMount();},componentWillReceiveProps: function (nextProps, nextContext) {this._componentWillReceiveProps(nextProps, nextContext);},componentWillUnmount: function () {this._componentWillUnmount();},detailsContext: function (nextProps, nextContext) {return this.editorContext(nextProps, nextContext) as DetailsContext;},getDefaultProps: function () {return CvEditorBase._getDefaultProps();},render: function () {const editorContext:EditorContext &#x3D; this.editorContext();if (editorContext &amp;&amp; !editorContext.isDestroyed) {if (this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext);} else if (this.props.detailsRenderer) {if (editorContext.buffer) {return this.props.detailsRenderer(this.getChildContext().cvContext, editorContext.entityRec, this._getSearchCallbackObj());} else {return null;}} else {return null;}} else {return null;}},_getSearchCallbackObj: function ():CvSearchPaneCallback {const editorCallback:CvEditorPaneCallback &#x3D; this._getCallbackObj();return {clear: ():void &#x3D;&gt; {this.detailsContext().entityRec.propNames.forEach((propName:string)&#x3D;&gt;{editorCallback.setPropValue(propName, null)});},getSearchValue: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + FILTER_VALUE_SUFFIX);},getSearchValueOperation: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + FILTER_OPERATOR_SUFFIX);},getSortValueDirection: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + SORT_DIRECTION_SUFFIX);},getSortValuePriority: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + SORT_SEQUENCE_SUFFIX);},reopenSearch: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openWriteMode(resultCallback);},setSearchValue: (propName:string, searchValue:string):void &#x3D;&gt; {editorCallback.setPropValue(propName + FILTER_VALUE_SUFFIX, searchValue);},setSearchValueOperation: (propName:string, operator:CvSearchValueOperator):void &#x3D;&gt; {editorCallback.setPropValue(propName + FILTER_OPERATOR_SUFFIX, operator);},setSortValue: (propName:string, sortDirection:CvSortDirection&#x3D;&#x27;ASC&#x27;, sortFieldPriority:number&#x3D;0):void &#x3D;&gt; {editorCallback.setPropValue(propName + SORT_DIRECTION_SUFFIX, sortDirection);editorCallback.setPropValue(propName + SORT_SEQUENCE_SUFFIX, sortFieldPriority);},submitSearch: (resultCallback?:CvResultCallback&lt;CvNavigationResult&gt;):void &#x3D;&gt; {editorCallback.saveChanges(resultCallback);},/* proxy through the &#x27;base class&#x27; methods */getPropValueForDisplay: (propName:string):string &#x3D;&gt; {return editorCallback.getPropValueForDisplay(propName);},getPropValueForEdit: (propName:string):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName);},openReadMode: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openReadMode(resultCallback);},openWriteMode: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openWriteMode(resultCallback);},refresh: ()&#x3D;&gt; {editorCallback.refresh();},saveChanges: (resultCallback?:CvResultCallback&lt;CvEvent&lt;CvNavigationResult&gt;&gt;, navTarget?:string):void &#x3D;&gt; {editorCallback.saveChanges(resultCallback, navTarget);},setBinaryPropWithDataUrl: (name:string, dataUrl:string) &#x3D;&gt; {editorCallback.setBinaryPropWithDataUrl(name, dataUrl);},setBinaryPropWithEncodedData: (name:string, encodedData:string) &#x3D;&gt; {editorCallback.setBinaryPropWithEncodedData(name, encodedData);},setPropValue: (name:string, value:any) &#x3D;&gt; {editorCallback.setPropValue(name, value);}}}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Search<wbr>Pane<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvsearchpane_.cvsearchpaneprops.html" class="tsd-signature-type">CvSearchPaneProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvSearchPaneProps, CvSearchPaneState&gt;({mixins: [CvBaseMixin, CvEditorBase],componentDidMount: function () {this._componentDidMount();},componentWillReceiveProps: function (nextProps, nextContext) {this._componentWillReceiveProps(nextProps, nextContext);},componentWillUnmount: function () {this._componentWillUnmount();},detailsContext: function (nextProps, nextContext) {return this.editorContext(nextProps, nextContext) as DetailsContext;},getDefaultProps: function () {return CvEditorBase._getDefaultProps();},render: function () {const editorContext:EditorContext &#x3D; this.editorContext();if (editorContext &amp;&amp; !editorContext.isDestroyed) {if (this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext);} else if (this.props.detailsRenderer) {if (editorContext.buffer) {return this.props.detailsRenderer(this.getChildContext().cvContext, editorContext.entityRec, this._getSearchCallbackObj());} else {return null;}} else {return null;}} else {return null;}},_getSearchCallbackObj: function ():CvSearchPaneCallback {const editorCallback:CvEditorPaneCallback &#x3D; this._getCallbackObj();return {clearSearchValues: ():void &#x3D;&gt; {this.detailsContext().entityRec.propNames.filter((propName:string)&#x3D;&gt;{return StringUtil.endsWith(propName, FILTER_OPERATOR_SUFFIX)  ||StringUtil.endsWith(propName, FILTER_VALUE_SUFFIX);}).forEach((propName:string)&#x3D;&gt;{editorCallback.setPropValue(propName, null)});},clearSortValues: ():void &#x3D;&gt; {this.detailsContext().entityRec.propNames.filter((propName:string)&#x3D;&gt;{return StringUtil.endsWith(propName, SORT_DIRECTION_SUFFIX)  ||StringUtil.endsWith(propName, SORT_SEQUENCE_SUFFIX);}).forEach((propName:string)&#x3D;&gt;{editorCallback.setPropValue(propName, null)});},getSearchValue: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + FILTER_VALUE_SUFFIX);},getSearchValueOperation: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + FILTER_OPERATOR_SUFFIX);},getSortValueDirection: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + SORT_DIRECTION_SUFFIX);},getSortValuePriority: (propName):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName + SORT_SEQUENCE_SUFFIX);},reopenSearch: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openWriteMode(resultCallback);},setSearchValue: (propName:string, searchValue:string):void &#x3D;&gt; {editorCallback.setPropValue(propName + FILTER_VALUE_SUFFIX, searchValue);},setSearchValueOperation: (propName:string, operator:CvSearchValueOperator):void &#x3D;&gt; {editorCallback.setPropValue(propName + FILTER_OPERATOR_SUFFIX, operator);},setSortValue: (propName:string, sortDirection:CvSortDirection&#x3D;&#x27;ASC&#x27;, sortFieldPriority:number&#x3D;0):void &#x3D;&gt; {editorCallback.setPropValue(propName + SORT_DIRECTION_SUFFIX, sortDirection);editorCallback.setPropValue(propName + SORT_SEQUENCE_SUFFIX, sortFieldPriority);},submitSearch: (resultCallback?:CvResultCallback&lt;CvNavigationResult&gt;):void &#x3D;&gt; {editorCallback.saveChanges(resultCallback);},/* proxy through the &#x27;base class&#x27; methods */clear: ():void &#x3D;&gt; {editorCallback.clear();},getPropValueForDisplay: (propName:string):string &#x3D;&gt; {return editorCallback.getPropValueForDisplay(propName);},getPropValueForEdit: (propName:string):string &#x3D;&gt; {return editorCallback.getPropValueForEdit(propName);},openReadMode: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openReadMode(resultCallback);},openWriteMode: (resultCallback?:CvResultCallback&lt;EntityRecDef&gt;):void &#x3D;&gt; {editorCallback.openWriteMode(resultCallback);},refresh: ()&#x3D;&gt; {editorCallback.refresh();},saveChanges: (resultCallback?:CvResultCallback&lt;CvEvent&lt;CvNavigationResult&gt;&gt;, navTarget?:string):void &#x3D;&gt; {editorCallback.saveChanges(resultCallback, navTarget);},setBinaryPropWithDataUrl: (name:string, dataUrl:string) &#x3D;&gt; {editorCallback.setBinaryPropWithDataUrl(name, dataUrl);},setBinaryPropWithEncodedData: (name:string, encodedData:string) &#x3D;&gt; {editorCallback.setBinaryPropWithEncodedData(name, encodedData);},setPropValue: (name:string, value:any) &#x3D;&gt; {editorCallback.setPropValue(name, value);}}},})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:109</li>
+							<li>Defined in core/CvSearchPane.tsx:120</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -145,7 +145,7 @@
 					<div class="tsd-signature tsd-kind-icon">FILTER_<wbr>OPERATOR_<wbr>SUFFIX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;_FILTER_OPER&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:27</li>
+							<li>Defined in core/CvSearchPane.tsx:29</li>
 						</ul>
 					</aside>
 				</section>
@@ -155,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">FILTER_<wbr>VALUE_<wbr>SUFFIX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;_FILTER_VALUE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:26</li>
+							<li>Defined in core/CvSearchPane.tsx:28</li>
 						</ul>
 					</aside>
 				</section>
@@ -165,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">SORT_<wbr>DIRECTION_<wbr>SUFFIX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;_SORT_DIRECTION&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:28</li>
+							<li>Defined in core/CvSearchPane.tsx:30</li>
 						</ul>
 					</aside>
 				</section>
@@ -175,7 +175,7 @@
 					<div class="tsd-signature tsd-kind-icon">SORT_<wbr>SEQUENCE_<wbr>SUFFIX<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;_SORT_SEQUENCE&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvSearchPane.tsx:29</li>
+							<li>Defined in core/CvSearchPane.tsx:31</li>
 						</ul>
 					</aside>
 				</section>
