@@ -4647,6 +4647,14 @@ var AppContext = (function () {
         configurable: true
     });
     /**
+     * Open a {@link WorkbenchLaunchAction} expecting a Redirection
+     * @param launchAction
+     * @returns {Future<Redirection>}
+     */
+    AppContext.prototype.getRedirForLaunchAction = function (launchAction) {
+        return WorkbenchService.performLaunchAction(launchAction.id, launchAction.workbenchId, this.sessionContextTry.success);
+    };
+    /**
      * Get a Worbench by workbenchId
      * @param sessionContext
      * @param workbenchId
@@ -4716,6 +4724,43 @@ var AppContext = (function () {
         return result;
     };
     /**
+     * Login and create a new SessionContext
+     *
+     * @param systemContext
+     * @param tenantId
+     * @param userId
+     * @param password
+     * @param deviceProps
+     * @param clientType
+     * @returns {Future<SessionContext>}
+     */
+    AppContext.prototype.newSessionContext = function (systemContext, tenantId, userId, password, deviceProps, clientType) {
+        return SessionService.createSession(tenantId, userId, password, clientType, systemContext);
+    };
+    /**
+     * Get a SystemContext obj (containing the server endpoint)
+     *
+     * @param gatewayHost
+     * @param tenantId
+     * @returns {Future<SystemContextImpl>}
+     */
+    AppContext.prototype.newSystemContext = function (gatewayHost, tenantId) {
+        var serviceEndpoint = GatewayService.getServiceEndpoint(tenantId, 'soi-json', gatewayHost);
+        return serviceEndpoint.map(function (serviceEndpoint) {
+            return new SystemContextImpl(serviceEndpoint.serverAssignment);
+        });
+    };
+    /**
+     * Open a redirection
+     *
+     * @param redirection
+     * @param actionSource
+     * @returns {Future<NavRequest>}
+     */
+    AppContext.prototype.openRedirection = function (redirection, actionSource) {
+        return NavRequestUtil.fromRedirection(redirection, actionSource, this.sessionContextTry.success);
+    };
+    /**
      * Open a {@link WorkbenchLaunchAction}
      * @param launchAction
      * @returns {any}
@@ -4732,10 +4777,9 @@ var AppContext = (function () {
      * @param deviceProps
      * @returns {Future<AppWinDef>}
      */
-    AppContext.prototype.refreshContext = function (sessionContext, deviceProps) {
+    AppContext.prototype.refreshContext = function (sessionContext) {
         var _this = this;
-        if (deviceProps === void 0) { deviceProps = []; }
-        var appContextValuesFr = this.finalizeContext(sessionContext, deviceProps);
+        var appContextValuesFr = this.finalizeContext(sessionContext, this.deviceProps);
         return appContextValuesFr.bind(function (appContextValues) {
             _this.setAppContextStateToLoggedIn(appContextValues);
             return fp_1.Future.createSuccessfulFuture('AppContext::login', appContextValues.appWinDef);
@@ -4776,7 +4820,7 @@ var AppContext = (function () {
     };
     AppContext.prototype.loginOnline = function (gatewayHost, tenantId, clientType, userId, password, deviceProps) {
         var _this = this;
-        var systemContextFr = this.newSystemContextFr(gatewayHost, tenantId);
+        var systemContextFr = this.newSystemContext(gatewayHost, tenantId);
         return systemContextFr.bind(function (sc) {
             return _this.loginFromSystemContext(sc, tenantId, userId, password, deviceProps, clientType);
         });
@@ -4786,12 +4830,6 @@ var AppContext = (function () {
         var sessionContextFuture = SessionService.createSession(tenantId, userId, password, clientType, systemContext);
         return sessionContextFuture.bind(function (sessionContext) {
             return _this.finalizeContext(sessionContext, deviceProps);
-        });
-    };
-    AppContext.prototype.newSystemContextFr = function (gatewayHost, tenantId) {
-        var serviceEndpoint = GatewayService.getServiceEndpoint(tenantId, 'soi-json', gatewayHost);
-        return serviceEndpoint.map(function (serviceEndpoint) {
-            return new SystemContextImpl(serviceEndpoint.serverAssignment);
         });
     };
     AppContext.prototype.performLaunchActionOnline = function (launchAction, sessionContext) {
@@ -5395,7 +5433,7 @@ var DialogService = (function () {
         });
     };
     DialogService.openEditorModelFromRedir = function (redirection, sessionContext) {
-        var method = 'open2';
+        var method = 'reopen';
         var params = {
             'editorMode': redirection.dialogMode,
             'dialogHandle': OType.serializeObject(redirection.dialogHandle, 'WSDialogHandle')
@@ -5903,7 +5941,7 @@ var FormContextBuilder = (function () {
                 var formDef = formDefTry.success;
                 //if this is a nested form, use the child form contexts, otherwise, create new children
                 var childContexts = (formContexts && formContexts.length > 0) ? formContexts : _this.createChildrenContexts(formDef);
-                var formContext = new FormContext(_this.dialogRedirection, _this._actionSource, formDef, childContexts, false, false, _this.sessionContext);
+                var formContext = new FormContext(formDef.dialogRedirection, _this._actionSource, formDef, childContexts, false, false, _this.sessionContext);
                 formContextTry = new fp_1.Success(formContext);
             }
             return fp_1.Future.createCompletedFuture('FormContextBuilder::build', formContextTry);
@@ -9831,7 +9869,7 @@ exports.CatavoltPane = React.createClass({
         renderer: React.PropTypes.func
     },
     mixins: [catreact_core_1.CvBaseMixin],
-    componentDidMount: function () {
+    componentWillMount: function () {
         this.refresh();
     },
     componentWillReceiveProps: function (nextProps) {
@@ -10004,23 +10042,7 @@ exports.CvActionBase = {
                         /* Publish the action finished */
                         _this._publishActionFinished(menuDef_1.actionId, paneContext, _this.props.actionListeners, _this.eventRegistry());
                         if (navRequestTry.isSuccess) {
-                            var resourceId = _this.resourceIdForObject(navRequestTry.success);
-                            var e_1 = {
-                                type: catreact_core_1.CvEventType.NAVIGATION,
-                                resourceId: resourceId,
-                                eventObj: {
-                                    navRequest: navRequestTry.success,
-                                    actionId: _this.props.actionId,
-                                    navTarget: _this.props.navTarget,
-                                    noTransition: actionMeta_1.noTransition,
-                                    sourceIsDestroyed: paneContext.isDestroyed,
-                                    type: catreact_core_1.CvNavigationResultUtil.determineType(navRequestTry.success)
-                                }
-                            };
-                            _this.eventRegistry().publish(e_1, _this.shouldCacheResult());
-                            _this.props.navigationListeners.forEach(function (listener) {
-                                listener(e_1);
-                            });
+                            catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), navRequestTry.success, _this.props.actionId, null, _this.props.navTarget, _this.props.navigationListeners, paneContext.isDestroyed, actionMeta_1.noTransition);
                             _this._checkDestroyed(paneContext);
                         }
                         else {
@@ -10102,7 +10124,7 @@ exports.CvActionBase = {
         });
         eventRegistry.publish(e, false);
         return e;
-    }
+    },
 };
 /*
  ***************************************************
@@ -10159,6 +10181,7 @@ exports.CvAction = React.createClass({
 var React = require('react');
 var catreact_core_1 = require('./catreact-core');
 var catavolt_sdk_1 = require('catavolt-sdk');
+var CvReact_1 = require("./CvReact");
 /**
  * A component analogous to Catavolt AppWinDef
  */
@@ -10193,15 +10216,6 @@ exports.CvAppWindow = React.createClass({
             this.setAppWinDef(nextProps.loginResult, nextProps.windowId);
         }
     },
-    setAppWinDef: function (loginResult, windowId) {
-        if (loginResult) {
-            this.setState({ appWinDef: loginResult.appWinDef });
-        }
-        else if (windowId) {
-            var event_1 = this.eventRegistry().getEventByKey(this.props.windowId);
-            this.setState({ appWinDef: event_1.eventObj.appWinDef });
-        }
-    },
     getChildContext: function () {
         var ctx = this.getDefaultChildContext();
         ctx.cvContext.scopeCtx.scopeObj = this.state.appWinDef;
@@ -10229,12 +10243,34 @@ exports.CvAppWindow = React.createClass({
             return null;
         }
     },
+    setAppWinDef: function (loginResult, windowId) {
+        if (loginResult) {
+            this.setState({ appWinDef: loginResult.appWinDef });
+        }
+        else if (windowId) {
+            this._handleRetrieveAppWinDef(windowId);
+        }
+    },
+    _handleRetrieveAppWinDef: function (windowId) {
+        var _this = this;
+        var event = this.eventRegistry().getEventByKey(this.props.windowId);
+        if (!event) {
+            CvReact_1.CvSessionManager.updateSession(this.catavolt(), this.eventRegistry()).onComplete(function (appWinDefTry) {
+                if (appWinDefTry.isSuccess) {
+                    _this.setState({ appWinDef: appWinDefTry.success });
+                }
+            });
+        }
+        else {
+            this.setState({ appWinDef: event.eventObj.appWinDef });
+        }
+    },
     _loginListener: function (loginEvent) {
         this.setAppWinDef(loginEvent.eventObj);
     }
 });
 
-},{"./catreact-core":36,"catavolt-sdk":6,"react":604}],15:[function(require,module,exports){
+},{"./CvReact":28,"./catreact-core":36,"catavolt-sdk":6,"react":604}],15:[function(require,module,exports){
 /**
  * Created by rburson on 12/23/15.
  */
@@ -10549,7 +10585,7 @@ exports.CvEditorBase = {
         }
     },
     _handleNavigation: function (navRequest, actionId, navTarget, sourceIsDestroyed) {
-        var resourceId = this.resourceIdForObject(navRequest);
+        var resourceId = catreact_core_1.CvResourceManager.resourceIdForObject(navRequest, this.catavolt());
         var event = {
             type: catreact_core_1.CvEventType.NAVIGATION,
             resourceId: resourceId,
@@ -10561,7 +10597,7 @@ exports.CvEditorBase = {
                 type: catreact_core_1.CvNavigationResultUtil.determineType(navRequest)
             }
         };
-        this.eventRegistry().publish(event, this.shouldCacheResult());
+        this.eventRegistry().publish(event, this.shouldCacheResult(this.eventRegistry()));
         this.props.navigationListeners.forEach(function (listener) {
             listener(event);
         });
@@ -10681,7 +10717,7 @@ exports.CvForm = React.createClass({
         if (formContext && formContext.isDestroyed) {
             var event_1 = {
                 type: catreact_core_1.CvEventType.STATE_CHANGE,
-                resourceId: this.resourceIdForObject(formContext),
+                resourceId: catreact_core_1.CvResourceManager.resourceIdForObject(formContext, this.catavolt()),
                 eventObj: { source: formContext, type: catreact_core_1.CvStateChangeType.DESTROYED }
             };
             this.props.stateChangeListeners.forEach(function (listener) {
@@ -10835,26 +10871,13 @@ exports.CvLauncher = React.createClass({
         this.catavolt().performLaunchAction(launchAction).onComplete(function (launchTry) {
             _this._publishActionFinished(launchAction.actionId);
             if (launchTry.isSuccess) {
-                var resourceId = _this.resourceIdForObject(launchTry.success);
-                var event_1 = {
-                    type: catreact_core_1.CvEventType.NAVIGATION,
-                    resourceId: resourceId,
-                    eventObj: {
-                        navRequest: launchTry.success,
-                        workbenchId: launchAction.workbenchId, navTarget: _this.props.navTarget,
-                        type: catreact_core_1.CvNavigationResultUtil.determineType(launchTry.success)
-                    }
-                };
-                _this.eventRegistry().publish(event_1, _this.shouldCacheResult());
-                _this.props.launchListeners.forEach(function (listener) {
-                    listener(event_1);
-                });
+                catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), launchTry.success, launchAction.actionId, launchAction.workbenchId, _this.props.navTarget, _this.props.launchListeners, false, false);
             }
             else {
-                var event_2 = { type: catreact_core_1.CvEventType.MESSAGE,
+                var event_1 = { type: catreact_core_1.CvEventType.MESSAGE,
                     eventObj: { message: 'Launch of ' + _this.launchAction().name + ' failed', messageObj: launchTry.failure,
                         type: catreact_core_1.CvMessageType.ERROR } };
-                _this.eventRegistry().publish(event_2, false);
+                _this.eventRegistry().publish(event_1, false);
             }
         });
     },
@@ -10953,24 +10976,6 @@ exports.CvLogin = React.createClass({
         /* @TODO - need to work on the AppContext to make the session restore possible */
         //this.checkSession()
     },
-    checkSession: function () {
-        var _this = this;
-        var sessionContext = this.getSession();
-        if (sessionContext) {
-            this.catavolt().refreshContext(sessionContext).onComplete(function (appWinDefTry) {
-                if (appWinDefTry.isFailure) {
-                    var event_1 = {
-                        type: catreact_core_1.CvEventType.MESSAGE,
-                        eventObj: { message: 'Check session failed', messageObj: appWinDefTry.failure, type: catreact_core_1.CvMessageType.ERROR }
-                    };
-                    _this.eventRegistry().publish(event_1, false);
-                }
-                else {
-                    _this.setState({ loggedIn: true });
-                }
-            });
-        }
-    },
     getChildContext: function () {
         return this.getDefaultChildContext();
     },
@@ -10980,10 +10985,6 @@ exports.CvLogin = React.createClass({
             renderer: null
         };
     },
-    getSession: function () {
-        var session = sessionStorage.getItem('session');
-        return session ? JSON.parse(session) : null;
-    },
     render: function () {
         if (this.props.renderer) {
             return this.props.renderer(this.getChildContext().cvContext, this._getCallbackObject());
@@ -10991,12 +10992,6 @@ exports.CvLogin = React.createClass({
         else {
             return null;
         }
-    },
-    removeSession: function () {
-        sessionStorage.removeItem('session');
-    },
-    storeSession: function (sessionContext) {
-        sessionStorage.setItem('session', JSON.stringify(sessionContext));
     },
     _getCallbackObject: function () {
         var _this = this;
@@ -11016,23 +11011,24 @@ exports.CvLogin = React.createClass({
         var _this = this;
         loginResult.onComplete(function (appWinDefTry) {
             if (appWinDefTry.isSuccess) {
+                catreact_core_1.CvSessionManager.storeSession(_this.catavolt().sessionContextTry.success);
                 var eventRegistry = _this.eventRegistry();
-                var event_2 = {
+                var event_1 = {
                     type: catreact_core_1.CvEventType.LOGIN,
-                    resourceId: _this.resourceIdForObject(appWinDefTry.success),
+                    resourceId: catreact_core_1.CvResourceManager.resourceIdForObject(appWinDefTry.success, _this.catavolt()),
                     eventObj: { appWinDef: appWinDefTry.success }
                 };
-                eventRegistry.publish(event_2, _this.shouldCacheResult());
+                eventRegistry.publish(event_1, catreact_core_1.CvResourceManager.shouldCacheResult(_this.eventRegistry()));
                 _this.props.loginListeners.forEach(function (listener) {
-                    listener(event_2);
+                    listener(event_1);
                 });
             }
             else {
-                var event_3 = {
+                var event_2 = {
                     type: catreact_core_1.CvEventType.MESSAGE,
                     eventObj: { message: 'Login failed', messageObj: appWinDefTry.failure, type: catreact_core_1.CvMessageType.ERROR }
                 };
-                _this.eventRegistry().publish(event_3, false);
+                _this.eventRegistry().publish(event_2, false);
             }
         });
     }
@@ -11080,6 +11076,7 @@ exports.CvLogout = React.createClass({
     _postLogout: function (logoutResult) {
         var _this = this;
         logoutResult.onComplete(function (result) {
+            catreact_core_1.CvSessionManager.removeSession();
             var eventRegistry = _this.eventRegistry();
             var event = {
                 type: catreact_core_1.CvEventType.LOGOUT,
@@ -11279,6 +11276,9 @@ exports.CvMessagePane = React.createClass({
 "use strict";
 var React = require('react');
 var catreact_core_1 = require('./catreact-core');
+var catavolt_sdk_1 = require('catavolt-sdk');
+var CvReact_1 = require("../../js/core/CvReact");
+var CvReact_2 = require("./CvReact");
 /*
  ***************************************************
  * Render a NavRequest
@@ -11291,8 +11291,7 @@ exports.CvNavigation = React.createClass({
             this.setState({ navRequest: this.props.navigationResult.navRequest, visible: true });
         }
         else if (this.props.navigationId) {
-            var event_1 = this.eventRegistry().getEventByKey(this.props.navigationId);
-            this.setState({ navRequest: event_1.eventObj.navRequest, visible: true });
+            this._handleRetrieveNavigation(this.props.navigationId);
         }
         this.eventRegistry().subscribe(this._navListener, catreact_core_1.CvEventType.NAVIGATION);
     },
@@ -11304,8 +11303,7 @@ exports.CvNavigation = React.createClass({
             this.setState({ navRequest: nextProps.navigationResult.navRequest, visible: true });
         }
         else if (nextProps.navigationId) {
-            var event_2 = this.eventRegistry().getEventByKey(nextProps.navigationId);
-            this.setState({ navRequest: event_2.eventObj.navRequest, visible: true });
+            this._handleRetrieveNavigation(nextProps.navigationId);
         }
     },
     getChildContext: function () {
@@ -11335,6 +11333,27 @@ exports.CvNavigation = React.createClass({
             return null;
         }
     },
+    _handleRetrieveNavigation: function (navigationId) {
+        var _this = this;
+        var event = this.eventRegistry().getEventByKey(navigationId);
+        if (!event) {
+            var _a = catreact_core_1.CvResourceManager.deserializeRedirection(navigationId), redirection = _a.redirection, actionSource_1 = _a.actionSource;
+            catavolt_sdk_1.NavRequestUtil.fromRedirection(redirection, actionSource_1, this.catavolt().sessionContextTry.success).onComplete(function (navRequestTry) {
+                if (navRequestTry.isSuccess) {
+                    CvReact_2.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), navRequestTry.success, actionSource_1.actionId, actionSource_1.workbenchId, null, null, false, false);
+                    _this.setState({ navRequest: navRequestTry.success, visible: true });
+                }
+                else {
+                    var event_1 = { type: catreact_core_1.CvEventType.MESSAGE, eventObj: { message: 'Navigation failed',
+                            messageObj: navRequestTry.failure, type: CvReact_1.CvMessageType.ERROR } };
+                    _this.eventRegistry().publish(event_1, false);
+                }
+            });
+        }
+        else {
+            this.setState({ navRequest: event.eventObj.navRequest, visible: true });
+        }
+    },
     _navListener: function (navEvent) {
         var navRequest = navEvent.eventObj.navRequest;
         if (navRequest && this.isMounted()) {
@@ -11351,7 +11370,7 @@ exports.CvNavigation = React.createClass({
     },
 });
 
-},{"./catreact-core":36,"react":604}],25:[function(require,module,exports){
+},{"../../js/core/CvReact":28,"./CvReact":28,"./catreact-core":36,"catavolt-sdk":6,"react":604}],25:[function(require,module,exports){
 "use strict";
 /**
  * Created by rburson on 1/14/16.
@@ -11958,36 +11977,9 @@ exports.CvBaseMixin = {
             }
         };
     },
-    resourceIdForObject: function (o) {
-        if (o instanceof catavolt_sdk_1.FormContext) {
-            var formContext = o;
-            return formContext.paneDef.dialogHandle.handleValue.toString();
-        }
-        else if (o instanceof catavolt_sdk_1.AppWinDef) {
-            if (this.catavolt().sessionContextTry.isSuccess) {
-                //right now the 'windowId' is the session handle. may need to change this if want to have multiple windows...
-                return this.catavolt().sessionContextTry.success.sessionHandle;
-            }
-            else {
-                return null;
-            }
-        }
-        else if (o instanceof catavolt_sdk_1.WebRedirection) {
-            var webRedirection = o;
-            return 'ext_' + catavolt_sdk_1.StringUtil.hashCode(webRedirection.webURL);
-        }
-        else {
-            catavolt_sdk_1.Log.debug('No resourceId found for object');
-            return null;
-        }
-    },
     scopeCtx: function () {
         return this.context.cvContext && this.context.cvContext.scopeCtx;
-    },
-    shouldCacheResult: function () {
-        //cache everything for now, can later set this preference component-by-component via a property
-        return this.eventRegistry().isCacheEnabled();
-    },
+    }
 };
 /**
  *  Enumeration of event types to be used with {@link CvEvent}
@@ -12001,6 +11993,7 @@ exports.CvBaseMixin = {
     CvEventType[CvEventType["NAVIGATION"] = 3] = "NAVIGATION";
     CvEventType[CvEventType["STATE_CHANGE"] = 4] = "STATE_CHANGE";
     CvEventType[CvEventType["MESSAGE"] = 5] = "MESSAGE";
+    CvEventType[CvEventType["SESSION_UPDATE"] = 6] = "SESSION_UPDATE";
 })(exports.CvEventType || (exports.CvEventType = {}));
 var CvEventType = exports.CvEventType;
 (function (CvNavigationResultType) {
@@ -12015,23 +12008,6 @@ var CvNavigationResultType = exports.CvNavigationResultType;
     CvMessageType[CvMessageType["INFO"] = 2] = "INFO";
 })(exports.CvMessageType || (exports.CvMessageType = {}));
 var CvMessageType = exports.CvMessageType;
-var CvNavigationResultUtil = (function () {
-    function CvNavigationResultUtil() {
-    }
-    CvNavigationResultUtil.determineType = function (navRequest) {
-        if (navRequest instanceof catavolt_sdk_1.FormContext) {
-            return CvNavigationResultType.FORM;
-        }
-        else if (navRequest instanceof catavolt_sdk_1.WebRedirection) {
-            return CvNavigationResultType.URL;
-        }
-        else {
-            return CvNavigationResultType.NULL;
-        }
-    };
-    return CvNavigationResultUtil;
-}());
-exports.CvNavigationResultUtil = CvNavigationResultUtil;
 (function (CvStateChangeType) {
     CvStateChangeType[CvStateChangeType["DATA_CHANGE"] = 0] = "DATA_CHANGE";
     CvStateChangeType[CvStateChangeType["DESTROYED"] = 1] = "DESTROYED";
@@ -12087,8 +12063,11 @@ var CvEventRegistry = (function () {
             });
         }
         if (shouldCache && event.resourceId) {
-            this._cache[event.resourceId] = event;
+            this.cacheObjectAt(event.resourceId, event);
         }
+    };
+    CvEventRegistry.prototype.cacheObjectAt = function (id, obj) {
+        this._cache[id] = obj;
     };
     CvEventRegistry.prototype.removeFromCache = function (key) {
         delete this._cache[key];
@@ -12151,6 +12130,183 @@ var CvValueAdapter = (function () {
     return CvValueAdapter;
 }());
 exports.CvValueAdapter = CvValueAdapter;
+/**
+ Utilities
+ */
+var CvNavigationResultUtil = (function () {
+    function CvNavigationResultUtil() {
+    }
+    CvNavigationResultUtil.determineType = function (navRequest) {
+        if (navRequest instanceof catavolt_sdk_1.FormContext) {
+            return CvNavigationResultType.FORM;
+        }
+        else if (navRequest instanceof catavolt_sdk_1.WebRedirection) {
+            return CvNavigationResultType.URL;
+        }
+        else {
+            return CvNavigationResultType.NULL;
+        }
+    };
+    CvNavigationResultUtil.publishNavigation = function (catavolt, eventRegistry, navRequest, actionId, workbenchId, navTarget, navigationListeners, sourceIsDestroyed, noTransition) {
+        var resourceId = CvResourceManager.resourceIdForObject(navRequest, catavolt);
+        var e = {
+            type: CvEventType.NAVIGATION,
+            resourceId: resourceId,
+            eventObj: {
+                navRequest: navRequest,
+                actionId: actionId,
+                workbenchId: workbenchId,
+                navTarget: navTarget,
+                noTransition: noTransition,
+                sourceIsDestroyed: sourceIsDestroyed,
+                type: CvNavigationResultUtil.determineType(navRequest)
+            }
+        };
+        eventRegistry.publish(e, CvResourceManager.shouldCacheResult(eventRegistry));
+        if (navigationListeners) {
+            navigationListeners.forEach(function (listener) {
+                listener(e);
+            });
+        }
+    };
+    return CvNavigationResultUtil;
+}());
+exports.CvNavigationResultUtil = CvNavigationResultUtil;
+var CvSessionManager = (function () {
+    function CvSessionManager() {
+    }
+    CvSessionManager.removeSession = function () {
+        sessionStorage.removeItem('catavolt::session');
+    };
+    CvSessionManager.storeSession = function (sessionContext) {
+        sessionStorage.setItem('catavolt::session', JSON.stringify(sessionContext));
+    };
+    CvSessionManager.getSession = function () {
+        var sessionStr = sessionStorage.getItem('catavolt::session');
+        if (sessionStr) {
+            var sessionObj = JSON.parse(sessionStr);
+            if (sessionObj) {
+                var systemContext = new catavolt_sdk_1.SystemContextImpl(sessionObj.systemContext._urlString);
+                return new catavolt_sdk_1.SessionContextImpl(sessionObj.sessionHandle, sessionObj.userName, sessionObj.currentDivision, sessionObj.serverVersion, systemContext);
+            }
+            else {
+                return null;
+            }
+        }
+        else {
+            return null;
+        }
+    };
+    CvSessionManager.updateSession = function (catavolt, eventRegistry) {
+        var sessionContext = this.getSession();
+        if (sessionContext) {
+            var refreshFuture = catavolt.refreshContext(sessionContext);
+            refreshFuture.onComplete(function (appWinDefTry) {
+                if (appWinDefTry.isFailure) {
+                    var event_1 = {
+                        type: CvEventType.MESSAGE,
+                        eventObj: {
+                            message: 'Update session failed',
+                            messageObj: appWinDefTry.failure,
+                            type: CvMessageType.ERROR
+                        }
+                    };
+                    eventRegistry.publish(event_1, false);
+                }
+                else {
+                    var event_2 = {
+                        type: CvEventType.SESSION_UPDATE,
+                        resourceId: CvResourceManager.resourceIdForObject(appWinDefTry.success, catavolt),
+                        eventObj: { appWinDef: appWinDefTry.success }
+                    };
+                    eventRegistry.publish(event_2, CvResourceManager.shouldCacheResult(eventRegistry));
+                }
+            });
+            return refreshFuture;
+        }
+        else {
+            return catavolt_sdk_1.Future.createFailedFuture('CvReact::updateSession', 'no persistent session found');
+        }
+    };
+    return CvSessionManager;
+}());
+exports.CvSessionManager = CvSessionManager;
+var CvResourceManager = (function () {
+    function CvResourceManager() {
+    }
+    CvResourceManager.deserializeRedirection = function (token) {
+        var _a = token.split('_'), handleValue = _a[0], sessionHandle = _a[1], dialogMode = _a[2], dialogType = _a[3], objectId = _a[4], actionId = _a[5], actionObjId = _a[6], actionType = _a[7];
+        var actionSource = null;
+        if (actionType && actionType === 'ca') {
+            actionSource = new catavolt_sdk_1.ContextAction(actionId, actionObjId, null);
+        }
+        else if (actionType && actionType === 'wla') {
+            actionSource = new catavolt_sdk_1.WorkbenchLaunchAction(actionId, actionObjId, '', '', '');
+        }
+        return { redirection: new catavolt_sdk_1.DialogRedirection(new catavolt_sdk_1.DialogHandle(Number(handleValue), sessionHandle), dialogType, dialogMode, null, objectId, false, null, null, {}, {}), actionSource: actionSource };
+    };
+    CvResourceManager.shouldCacheResult = function (eventRegistry) {
+        //cache everything for now, can later set this preference component-by-component via a property
+        return eventRegistry.isCacheEnabled();
+    };
+    CvResourceManager.resourceIdForObject = function (o, catavolt) {
+        if (o instanceof catavolt_sdk_1.FormContext) {
+            var formContext = o;
+            return CvResourceManager.serializeRedirection(formContext.paneDef.dialogRedirection, formContext.actionSource);
+        }
+        else if (o instanceof catavolt_sdk_1.AppWinDef) {
+            if (catavolt.sessionContextTry.isSuccess) {
+                //right now the 'windowId' is the session handle. may need to change this if want to have multiple windows...
+                return catavolt.sessionContextTry.success.sessionHandle;
+            }
+            else {
+                return null;
+            }
+        }
+        else if (o instanceof catavolt_sdk_1.WebRedirection) {
+            var webRedirection = o;
+            return 'ext_' + catavolt_sdk_1.StringUtil.hashCode(webRedirection.webURL);
+        }
+        else {
+            catavolt_sdk_1.Log.debug('No resourceId found for object');
+            return null;
+        }
+    };
+    /**
+     * @private
+     *
+     * This is an attempt to preserve a redirection and all it's state along with the action source,
+     * in a single 'token' that can be used on the URL.  This along with the session information, are used to make a
+     * 'stateless' transition to a new URL.
+     * The sdk and server require quite a bit of state to be retained by the client in order to 'rebuild' a navigation.
+     *
+     * @param redirection
+     * @param actionSource
+     * @returns {string}
+     */
+    CvResourceManager.serializeRedirection = function (redirection, actionSource) {
+        var _a = ['', '', ''], actionId = _a[0], actionObjId = _a[1], actionType = _a[2];
+        if (actionSource instanceof catavolt_sdk_1.ContextAction) {
+            actionId = actionSource.actionId;
+            actionObjId = actionSource.objectId;
+            actionType = 'ca';
+        }
+        else if (actionSource instanceof catavolt_sdk_1.WorkbenchLaunchAction) {
+            actionId = actionSource.id;
+            actionObjId = actionSource.workbenchId;
+            actionType = 'wla';
+        }
+        var dialogHandle = redirection.dialogHandle;
+        return (dialogHandle.handleValue ? dialogHandle.handleValue : '') + '_'
+            + (dialogHandle.sessionHandle ? dialogHandle.sessionHandle : '') + '_'
+            + (redirection.dialogMode ? redirection.dialogMode : '') + '_'
+            + (redirection.dialogType ? redirection.dialogType : '') + '_'
+            + (redirection.objectId ? redirection.objectId : '') + '_'
+            + actionId + '_' + actionObjId + '_' + actionType;
+    };
+    return CvResourceManager;
+}());
+exports.CvResourceManager = CvResourceManager;
 /**
  * Localization
  */
@@ -14748,14 +14904,6 @@ exports.CvMessagePanel = React.createClass({
  * Created by rburson on 3/18/16.
  */
 "use strict";
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
 var React = require('react');
 var catreact_1 = require('./../catreact');
 var catavolt_sdk_1 = require('catavolt-sdk');
@@ -14803,11 +14951,6 @@ exports.CvNavigator = React.createClass({
         return ((nextProps.navigationId && nextProps.navigationId !== this.props.navigationId) ||
             (nextProps.navigationResult && nextProps.navigationResult !== this.props.navigationResult));
     },
-    getChildContext: function () {
-        var ctx = this.getDefaultChildContext();
-        ctx.cvContext.scopeCtx.scopeObj = this.navRequest();
-        return ctx;
-    },
     getDefaultProps: function () {
         return {
             navigationResult: null,
@@ -14833,29 +14976,14 @@ exports.CvNavigator = React.createClass({
         }
     },
     render: function () {
-        var navRequest = this.navRequest();
-        if (navRequest) {
-            if (this.props.renderer) {
-                return this.props.renderer(this.getChildContext().cvContext);
-            }
-            else {
-                if (navRequest instanceof catavolt_sdk_1.FormContext) {
-                    return React.createElement(catreact_1.CvNavigation, {navigationResult: this.props.navigationResult, navigationId: this.props.navigationId, persistent: this.props.persistent, targetId: this.props.targetId}, React.createElement(catreact_1.CvFormPanel, {formContext: navRequest, navigationListeners: this.props.navigationListeners, stateChangeListeners: this.props.stateChangeListeners, actionListeners: this.props.actionListeners, layoutOverrideElem: this.props.layoutOverrideElem, formComponentProvider: this.props.formComponentProvider}));
-                }
-                else if (navRequest instanceof catavolt_sdk_1.WebRedirection) {
-                    return React.createElement(catreact_1.CvNavigation, __assign({}, this.props), React.createElement(catreact_1.CvWebNavigator, {url: navRequest.webURL}));
-                }
-                else {
-                    var event_1 = { type: catreact_1.CvEventType.MESSAGE,
-                        eventObj: { message: 'Unsupported type of NavRequest: ' + navRequest.constructor['name'],
-                            messageObj: 'Unsupported type of NavRequest: ' + navRequest.constructor['name'], type: catreact_1.CvMessageType.ERROR } };
-                    this.eventRegistry().publish(event_1, false);
-                }
-            }
-        }
-        else {
-            return null;
-        }
+        /* @TODO
+            Add web navigation renderer back by adding an optional webRenderer to CvFormPane
+            See prior version of this file...
+         */
+        var _this = this;
+        return React.createElement(catreact_1.CvNavigation, {navigationResult: this.props.navigationResult, navigationId: this.props.navigationId, persistent: this.props.persistent, targetId: this.props.targetId, renderer: function (cvContext) {
+            return React.createElement(catreact_1.CvFormPanel, {formContext: cvContext.scopeCtx.scopeObj, navigationListeners: _this.props.navigationListeners, stateChangeListeners: _this.props.stateChangeListeners, actionListeners: _this.props.actionListeners, layoutOverrideElem: _this.props.layoutOverrideElem, formComponentProvider: _this.props.formComponentProvider});
+        }});
     }
 });
 
@@ -28456,7 +28584,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
 },{"d3-time":78}],78:[function(require,module,exports){
-// https://d3js.org/d3-time/ Version 1.0.3. Copyright 2016 Mike Bostock.
+// https://d3js.org/d3-time/ Version 1.0.4. Copyright 2016 Mike Bostock.
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
@@ -28499,9 +28627,9 @@ function newInterval(floori, offseti, count, field) {
 
   interval.filter = function(test) {
     return newInterval(function(date) {
-      while (floori(date), !test(date)) date.setTime(date - 1);
+      if (date >= date) while (floori(date), !test(date)) date.setTime(date - 1);
     }, function(date, step) {
-      while (--step >= 0) while (offseti(date, 1), !test(date)) {} // eslint-disable-line no-empty
+      if (date >= date) while (--step >= 0) while (offseti(date, 1), !test(date)) {} // eslint-disable-line no-empty
     });
   };
 
@@ -28834,6 +28962,7 @@ exports.utcYears = utcYears;
 Object.defineProperty(exports, '__esModule', { value: true });
 
 })));
+
 },{}],79:[function(require,module,exports){
 var MILI    = 'milliseconds'
   , SECONDS = 'seconds'
@@ -30239,9 +30368,15 @@ module.exports = function(options) {
                 addAnimationClass(container);
                 element.appendChild(container);
 
-                addEvent(container, "animationstart", function onAnimationStart () {
+                var onAnimationStart = function () {
                     getState(element).onRendered && getState(element).onRendered();
-                });
+                };
+
+                addEvent(container, "animationstart", onAnimationStart);
+
+                // Store the event handler here so that they may be removed when uninstall is called.
+                // See uninstall function for an explanation why it is needed.
+                getState(element).onAnimationStart = onAnimationStart;
             }
 
             return container;
@@ -30356,7 +30491,7 @@ module.exports = function(options) {
             addEvent(shrink, "scroll", onShrinkScroll);
 
             // Store the event handlers here so that they may be removed when uninstall is called.
-            // Se uninstall function for an explanation why it is needed.
+            // See uninstall function for an explanation why it is needed.
             getState(element).onExpandScroll = onExpandScroll;
             getState(element).onShrinkScroll = onShrinkScroll;
         }
@@ -30561,18 +30696,18 @@ module.exports = function(options) {
             return;
         }
 
-        if (state.busy) {
-            // Uninstall has been called while the element is being prepared.
-            // Right between the sync code and async batch.
-            // So no elements have been injected, and no event handlers have been registered.
-            return;
-        }
+        // Uninstall may have been called in the following scenarios:
+        // (1) Right between the sync code and async batch (here state.busy = true, but nothing have been registered or injected).
+        // (2) In the ready callback of the last level of the batch by another element (here, state.busy = true, but all the stuff has been injected).
+        // (3) After the installation process (here, state.busy = false and all the stuff has been injected).
+        // So to be on the safe side, let's check for each thing before removing.
 
         // We need to remove the event listeners, because otherwise the event might fire on an uninstall element which results in an error when trying to get the state of the element.
-        removeEvent(getExpandElement(element), "scroll", state.onExpandScroll);
-        removeEvent(getShrinkElement(element), "scroll", state.onShrinkScroll);
+        state.onExpandScroll && removeEvent(getExpandElement(element), "scroll", state.onExpandScroll);
+        state.onShrinkScroll && removeEvent(getShrinkElement(element), "scroll", state.onShrinkScroll);
+        state.onAnimationStart && removeEvent(state.container, "animationstart", state.onAnimationStart);
 
-        element.removeChild(state.container);
+        state.container && element.removeChild(state.container);
     }
 
     return {
@@ -30717,7 +30852,7 @@ module.exports = function(options) {
         throw new Error("Invalid strategy name: " + desiredStrategy);
     }
 
-    //Calls can be made to listenTo with elements that are still are being installed.
+    //Calls can be made to listenTo with elements that are still being installed.
     //Also, same elements can occur in the elements list in the listenTo function.
     //With this map, the ready callbacks can be synchronized between the calls
     //so that the ready callback can always be called when an element is ready - even if
@@ -30823,10 +30958,12 @@ module.exports = function(options) {
                         // Since the element size might have changed since the call to "listenTo", we need to check for this change,
                         // so that a resize event may be emitted.
                         // Having the startSize object is optional (since it does not make sense in some cases such as unrendered elements), so check for its existance before.
-                        if (stateHandler.getState(element).startSize) {
+                        // Also, check the state existance before since the element may have been uninstalled in the installation process.
+                        var state = stateHandler.getState(element);
+                        if (state && state.startSize) {
                             var width = element.offsetWidth;
                             var height = element.offsetHeight;
-                            if (stateHandler.getState(element).startSize.width !== width || stateHandler.getState(element).startSize.height !== height) {
+                            if (state.startSize.width !== width || state.startSize.height !== height) {
                                 onResizeCallback(element);
                             }
                         }
@@ -32540,7 +32677,8 @@ function is(x, y) {
   if (x === y) {
     // Steps 1-5, 7-10
     // Steps 6.b-6.e: +0 != -0
-    return x !== 0 || 1 / x === 1 / y;
+    // Added the nonzero y check to make Flow happy, but it is redundant
+    return x !== 0 || y !== 0 || 1 / x === 1 / y;
   } else {
     // Step 6.a: NaN == NaN
     return x !== x && y !== y;
@@ -41511,7 +41649,7 @@ module.exports = invariant;
 }).call(this,require('_process'))
 },{"_process":173}],170:[function(require,module,exports){
 //! moment.js
-//! version : 2.15.0
+//! version : 2.15.1
 //! authors : Tim Wood, Iskren Chernev, Moment.js contributors
 //! license : MIT
 //! momentjs.com
@@ -43303,10 +43441,10 @@ module.exports = invariant;
         var oldLocale = null;
         // TODO: Find a better way to register and load all the locales in Node
         if (!locales[name] && (typeof module !== 'undefined') &&
-                module && module.require) {
+                module && module.exports) {
             try {
                 oldLocale = globalLocale._abbr;
-                module.require('./locale/' + name);
+                require('./locale/' + name);
                 // because defineLocale currently also sets the global locale, we
                 // want to undo that for lazy loaded locales
                 locale_locales__getSetGlobalLocale(oldLocale);
@@ -45707,7 +45845,7 @@ module.exports = invariant;
     // Side effect imports
 
 
-    utils_hooks__hooks.version = '2.15.0';
+    utils_hooks__hooks.version = '2.15.1';
 
     setHookCallback(local__createLocal);
 
@@ -52280,8 +52418,6 @@ var _routerWarning = require('./routerWarning');
 
 var _routerWarning2 = _interopRequireDefault(_routerWarning);
 
-var _Actions = require('history/lib/Actions');
-
 var _computeChangedRoutes2 = require('./computeChangedRoutes');
 
 var _computeChangedRoutes3 = _interopRequireDefault(_computeChangedRoutes2);
@@ -52328,10 +52464,6 @@ function createTransitionManager(history, routes) {
     }
 
     return (0, _isActive3.default)(location, indexOnly, state.location, state.routes, state.params);
-  }
-
-  function createLocationFromRedirectInfo(location) {
-    return history.createLocation(location, _Actions.REPLACE);
   }
 
   var partialNextState = void 0;
@@ -52391,7 +52523,7 @@ function createTransitionManager(history, routes) {
     }
 
     function handleErrorOrRedirect(error, redirectInfo) {
-      if (error) callback(error);else callback(null, createLocationFromRedirectInfo(redirectInfo));
+      if (error) callback(error);else callback(null, redirectInfo);
     }
   }
 
@@ -52577,7 +52709,7 @@ function createTransitionManager(history, routes) {
 
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./TransitionUtils":242,"./computeChangedRoutes":245,"./getComponents":250,"./isActive":254,"./matchRoutes":257,"./routerWarning":258,"_process":173,"history/lib/Actions":152}],249:[function(require,module,exports){
+},{"./TransitionUtils":242,"./computeChangedRoutes":245,"./getComponents":250,"./isActive":254,"./matchRoutes":257,"./routerWarning":258,"_process":173}],249:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -53116,6 +53248,8 @@ exports.__esModule = true;
 
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
+var _Actions = require('history/lib/Actions');
+
 var _invariant = require('invariant');
 
 var _invariant2 = _interopRequireDefault(_invariant);
@@ -53174,7 +53308,7 @@ function match(_ref, callback) {
   history = (0, _RouterUtils.createRoutingHistory)(history, transitionManager);
 
   transitionManager.match(location, function (error, redirectLocation, nextState) {
-    callback(error, redirectLocation, nextState && _extends({}, nextState, {
+    callback(error, redirectLocation && router.createLocation(redirectLocation, _Actions.REPLACE), nextState && _extends({}, nextState, {
       history: history,
       router: router,
       matchContext: { history: history, transitionManager: transitionManager, router: router }
@@ -53192,7 +53326,7 @@ function match(_ref, callback) {
 exports.default = match;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./RouteUtils":237,"./RouterUtils":240,"./createMemoryHistory":246,"./createTransitionManager":248,"_process":173,"invariant":169}],257:[function(require,module,exports){
+},{"./RouteUtils":237,"./RouterUtils":240,"./createMemoryHistory":246,"./createTransitionManager":248,"_process":173,"history/lib/Actions":152,"invariant":169}],257:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -67456,8 +67590,10 @@ function getNativeBeforeInputChars(topLevelType, nativeEvent) {
 function getFallbackBeforeInputChars(topLevelType, nativeEvent) {
   // If we are currently composing (IME) and using a fallback to do so,
   // try to extract the composed characters from the fallback object.
+  // If composition event is available, we extract a string only at
+  // compositionevent, otherwise extract it at fallback events.
   if (currentComposition) {
-    if (topLevelType === topLevelTypes.topCompositionEnd || isFallbackCompositionEnd(topLevelType, nativeEvent)) {
+    if (topLevelType === topLevelTypes.topCompositionEnd || !canUseCompositionEvent && isFallbackCompositionEnd(topLevelType, nativeEvent)) {
       var chars = currentComposition.getData();
       FallbackCompositionState.release(currentComposition);
       currentComposition = null;
@@ -68079,7 +68215,7 @@ function shouldUseChangeEvent(elem) {
 var doesChangeEventBubble = false;
 if (ExecutionEnvironment.canUseDOM) {
   // See `handleChange` comment below
-  doesChangeEventBubble = isEventSupported('change') && (!('documentMode' in document) || document.documentMode > 8);
+  doesChangeEventBubble = isEventSupported('change') && (!document.documentMode || document.documentMode > 8);
 }
 
 function manualDispatchChangeEvent(nativeEvent) {
@@ -68145,7 +68281,7 @@ if (ExecutionEnvironment.canUseDOM) {
   // deleting text, so we ignore its input events.
   // IE10+ fire input events to often, such when a placeholder
   // changes or when an input with a placeholder is focused.
-  isInputEventSupported = isEventSupported('input') && (!('documentMode' in document) || document.documentMode > 11);
+  isInputEventSupported = isEventSupported('input') && (!document.documentMode || document.documentMode > 11);
 }
 
 /**
@@ -70458,6 +70594,8 @@ var HTMLDOMPropertyConfig = {
     allowFullScreen: HAS_BOOLEAN_VALUE,
     allowTransparency: 0,
     alt: 0,
+    // specifies target context for links with `preload` type
+    as: 0,
     async: HAS_BOOLEAN_VALUE,
     autoComplete: 0,
     // autoFocus is polyfilled/normalized by AutoFocusUtils
@@ -70538,6 +70676,7 @@ var HTMLDOMPropertyConfig = {
     optimum: 0,
     pattern: 0,
     placeholder: 0,
+    playsInline: HAS_BOOLEAN_VALUE,
     poster: 0,
     preload: 0,
     profile: 0,
@@ -71342,6 +71481,19 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
   },
 
   /**
+   * Protect against document.createEvent() returning null
+   * Some popup blocker extensions appear to do this:
+   * https://github.com/facebook/react/issues/6887
+   */
+  supportsEventPageXY: function () {
+    if (!document.createEvent) {
+      return false;
+    }
+    var ev = document.createEvent('MouseEvent');
+    return ev != null && 'pageX' in ev;
+  },
+
+  /**
    * Listens to window scroll and resize events. We cache scroll values so that
    * application code can access them without triggering reflows.
    *
@@ -71354,7 +71506,7 @@ var ReactBrowserEventEmitter = _assign({}, ReactEventEmitterMixin, {
    */
   ensureScrollValueMonitoring: function () {
     if (hasEventPageXY === undefined) {
-      hasEventPageXY = document.createEvent && 'pageX' in document.createEvent('MouseEvent');
+      hasEventPageXY = ReactBrowserEventEmitter.supportsEventPageXY();
     }
     if (!hasEventPageXY && !isMonitoringScrollValue) {
       var refresh = ViewportMetrics.refreshScrollValues;
@@ -73108,34 +73260,29 @@ function warnIfInvalidElement(Component, element) {
   }
 }
 
-function invokeComponentDidMountWithTimer() {
-  var publicInstance = this._instance;
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidMount');
-  }
-  publicInstance.componentDidMount();
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidMount');
-  }
-}
-
-function invokeComponentDidUpdateWithTimer(prevProps, prevState, prevContext) {
-  var publicInstance = this._instance;
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentDidUpdate');
-  }
-  publicInstance.componentDidUpdate(prevProps, prevState, prevContext);
-  if (this._debugID !== 0) {
-    ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentDidUpdate');
-  }
-}
-
 function shouldConstruct(Component) {
   return !!(Component.prototype && Component.prototype.isReactComponent);
 }
 
 function isPureComponent(Component) {
   return !!(Component.prototype && Component.prototype.isPureReactComponent);
+}
+
+// Separated into a function to contain deoptimizations caused by try/finally.
+function measureLifeCyclePerf(fn, debugID, timerType) {
+  if (debugID === 0) {
+    // Top-level wrappers (see ReactMount) and empty components (see
+    // ReactDOMEmptyComponent) are invisible to hooks and devtools.
+    // Both are implementation details that should go away in the future.
+    return fn();
+  }
+
+  ReactInstrumentation.debugTool.onBeginLifeCycleTimer(debugID, timerType);
+  try {
+    return fn();
+  } finally {
+    ReactInstrumentation.debugTool.onEndLifeCycleTimer(debugID, timerType);
+  }
 }
 
 /**
@@ -73229,6 +73376,8 @@ var ReactCompositeComponentMixin = {
    * @internal
    */
   mountComponent: function (transaction, hostParent, hostContainerInfo, context) {
+    var _this = this;
+
     this._context = context;
     this._mountOrder = nextMountID++;
     this._hostParent = hostParent;
@@ -73318,7 +73467,11 @@ var ReactCompositeComponentMixin = {
 
     if (inst.componentDidMount) {
       if (process.env.NODE_ENV !== 'production') {
-        transaction.getReactMountReady().enqueue(invokeComponentDidMountWithTimer, this);
+        transaction.getReactMountReady().enqueue(function () {
+          measureLifeCyclePerf(function () {
+            return inst.componentDidMount();
+          }, _this._debugID, 'componentDidMount');
+        });
       } else {
         transaction.getReactMountReady().enqueue(inst.componentDidMount, inst);
       }
@@ -73342,35 +73495,26 @@ var ReactCompositeComponentMixin = {
 
   _constructComponentWithoutOwner: function (doConstruct, publicProps, publicContext, updateQueue) {
     var Component = this._currentElement.type;
-    var instanceOrElement;
+
     if (doConstruct) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'ctor');
-        }
-      }
-      instanceOrElement = new Component(publicProps, publicContext, updateQueue);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'ctor');
-        }
-      }
-    } else {
-      // This can still be an instance in case of factory components
-      // but we'll count this as time spent rendering as the more common case.
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
-        }
-      }
-      instanceOrElement = Component(publicProps, publicContext, updateQueue);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
-        }
+        return measureLifeCyclePerf(function () {
+          return new Component(publicProps, publicContext, updateQueue);
+        }, this._debugID, 'ctor');
+      } else {
+        return new Component(publicProps, publicContext, updateQueue);
       }
     }
-    return instanceOrElement;
+
+    // This can still be an instance in case of factory components
+    // but we'll count this as time spent rendering as the more common case.
+    if (process.env.NODE_ENV !== 'production') {
+      return measureLifeCyclePerf(function () {
+        return Component(publicProps, publicContext, updateQueue);
+      }, this._debugID, 'render');
+    } else {
+      return Component(publicProps, publicContext, updateQueue);
+    }
   },
 
   performInitialMountWithErrorHandling: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
@@ -73379,11 +73523,6 @@ var ReactCompositeComponentMixin = {
     try {
       markup = this.performInitialMount(renderedElement, hostParent, hostContainerInfo, transaction, context);
     } catch (e) {
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onError();
-        }
-      }
       // Roll back to checkpoint, handle error (which may add items to the transaction), and take a new checkpoint
       transaction.rollback(checkpoint);
       this._instance.unstable_handleError(e);
@@ -73404,17 +73543,19 @@ var ReactCompositeComponentMixin = {
 
   performInitialMount: function (renderedElement, hostParent, hostContainerInfo, transaction, context) {
     var inst = this._instance;
+
+    var debugID = 0;
+    if (process.env.NODE_ENV !== 'production') {
+      debugID = this._debugID;
+    }
+
     if (inst.componentWillMount) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillMount');
-        }
-      }
-      inst.componentWillMount();
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillMount');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillMount();
+        }, debugID, 'componentWillMount');
+      } else {
+        inst.componentWillMount();
       }
       // When mounting, calls to `setState` by `componentWillMount` will set
       // `this._pendingStateQueue` without triggering a re-render.
@@ -73434,15 +73575,12 @@ var ReactCompositeComponentMixin = {
     );
     this._renderedComponent = child;
 
-    var selfDebugID = 0;
-    if (process.env.NODE_ENV !== 'production') {
-      selfDebugID = this._debugID;
-    }
-    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), selfDebugID);
+    var markup = ReactReconciler.mountComponent(child, transaction, hostParent, hostContainerInfo, this._processChildContext(context), debugID);
 
     if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+      if (debugID !== 0) {
+        var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
+        ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
       }
     }
 
@@ -73463,24 +73601,22 @@ var ReactCompositeComponentMixin = {
     if (!this._renderedComponent) {
       return;
     }
+
     var inst = this._instance;
 
     if (inst.componentWillUnmount && !inst._calledComponentWillUnmount) {
       inst._calledComponentWillUnmount = true;
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUnmount');
-        }
-      }
+
       if (safely) {
         var name = this.getName() + '.componentWillUnmount()';
         ReactErrorUtils.invokeGuardedCallback(name, inst.componentWillUnmount.bind(inst));
       } else {
-        inst.componentWillUnmount();
-      }
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUnmount');
+        if (process.env.NODE_ENV !== 'production') {
+          measureLifeCyclePerf(function () {
+            return inst.componentWillUnmount();
+          }, this._debugID, 'componentWillUnmount');
+        } else {
+          inst.componentWillUnmount();
         }
       }
     }
@@ -73567,13 +73703,21 @@ var ReactCompositeComponentMixin = {
   _processChildContext: function (currentContext) {
     var Component = this._currentElement.type;
     var inst = this._instance;
-    if (process.env.NODE_ENV !== 'production') {
-      ReactInstrumentation.debugTool.onBeginProcessingChildContext();
+    var childContext;
+
+    if (inst.getChildContext) {
+      if (process.env.NODE_ENV !== 'production') {
+        ReactInstrumentation.debugTool.onBeginProcessingChildContext();
+        try {
+          childContext = inst.getChildContext();
+        } finally {
+          ReactInstrumentation.debugTool.onEndProcessingChildContext();
+        }
+      } else {
+        childContext = inst.getChildContext();
+      }
     }
-    var childContext = inst.getChildContext && inst.getChildContext();
-    if (process.env.NODE_ENV !== 'production') {
-      ReactInstrumentation.debugTool.onEndProcessingChildContext();
-    }
+
     if (childContext) {
       !(typeof Component.childContextTypes === 'object') ? process.env.NODE_ENV !== 'production' ? invariant(false, '%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().', this.getName() || 'ReactCompositeComponent') : _prodInvariant('107', this.getName() || 'ReactCompositeComponent') : void 0;
       if (process.env.NODE_ENV !== 'production') {
@@ -73668,15 +73812,11 @@ var ReactCompositeComponentMixin = {
     // immediately reconciled instead of waiting for the next batch.
     if (willReceive && inst.componentWillReceiveProps) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
-        }
-      }
-      inst.componentWillReceiveProps(nextProps, nextContext);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillReceiveProps');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillReceiveProps(nextProps, nextContext);
+        }, this._debugID, 'componentWillReceiveProps');
+      } else {
+        inst.componentWillReceiveProps(nextProps, nextContext);
       }
     }
 
@@ -73686,15 +73826,11 @@ var ReactCompositeComponentMixin = {
     if (!this._pendingForceUpdate) {
       if (inst.shouldComponentUpdate) {
         if (process.env.NODE_ENV !== 'production') {
-          if (this._debugID !== 0) {
-            ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
-          }
-        }
-        shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
-        if (process.env.NODE_ENV !== 'production') {
-          if (this._debugID !== 0) {
-            ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'shouldComponentUpdate');
-          }
+          shouldUpdate = measureLifeCyclePerf(function () {
+            return inst.shouldComponentUpdate(nextProps, nextState, nextContext);
+          }, this._debugID, 'shouldComponentUpdate');
+        } else {
+          shouldUpdate = inst.shouldComponentUpdate(nextProps, nextState, nextContext);
         }
       } else {
         if (this._compositeType === CompositeTypes.PureClass) {
@@ -73760,6 +73896,8 @@ var ReactCompositeComponentMixin = {
    * @private
    */
   _performComponentUpdate: function (nextElement, nextProps, nextState, nextContext, transaction, unmaskedContext) {
+    var _this2 = this;
+
     var inst = this._instance;
 
     var hasComponentDidUpdate = Boolean(inst.componentDidUpdate);
@@ -73774,15 +73912,11 @@ var ReactCompositeComponentMixin = {
 
     if (inst.componentWillUpdate) {
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'componentWillUpdate');
-        }
-      }
-      inst.componentWillUpdate(nextProps, nextState, nextContext);
-      if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'componentWillUpdate');
-        }
+        measureLifeCyclePerf(function () {
+          return inst.componentWillUpdate(nextProps, nextState, nextContext);
+        }, this._debugID, 'componentWillUpdate');
+      } else {
+        inst.componentWillUpdate(nextProps, nextState, nextContext);
       }
     }
 
@@ -73796,7 +73930,9 @@ var ReactCompositeComponentMixin = {
 
     if (hasComponentDidUpdate) {
       if (process.env.NODE_ENV !== 'production') {
-        transaction.getReactMountReady().enqueue(invokeComponentDidUpdateWithTimer.bind(this, prevProps, prevState, prevContext), this);
+        transaction.getReactMountReady().enqueue(function () {
+          measureLifeCyclePerf(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), _this2._debugID, 'componentDidUpdate');
+        });
       } else {
         transaction.getReactMountReady().enqueue(inst.componentDidUpdate.bind(inst, prevProps, prevState, prevContext), inst);
       }
@@ -73813,6 +73949,12 @@ var ReactCompositeComponentMixin = {
     var prevComponentInstance = this._renderedComponent;
     var prevRenderedElement = prevComponentInstance._currentElement;
     var nextRenderedElement = this._renderValidatedComponent();
+
+    var debugID = 0;
+    if (process.env.NODE_ENV !== 'production') {
+      debugID = this._debugID;
+    }
+
     if (shouldUpdateReactComponent(prevRenderedElement, nextRenderedElement)) {
       ReactReconciler.receiveComponent(prevComponentInstance, nextRenderedElement, transaction, this._processChildContext(context));
     } else {
@@ -73825,15 +73967,12 @@ var ReactCompositeComponentMixin = {
       );
       this._renderedComponent = child;
 
-      var selfDebugID = 0;
-      if (process.env.NODE_ENV !== 'production') {
-        selfDebugID = this._debugID;
-      }
-      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), selfDebugID);
+      var nextMarkup = ReactReconciler.mountComponent(child, transaction, this._hostParent, this._hostContainerInfo, this._processChildContext(context), debugID);
 
       if (process.env.NODE_ENV !== 'production') {
-        if (this._debugID !== 0) {
-          ReactInstrumentation.debugTool.onSetChildren(this._debugID, child._debugID !== 0 ? [child._debugID] : []);
+        if (debugID !== 0) {
+          var childDebugIDs = child._debugID !== 0 ? [child._debugID] : [];
+          ReactInstrumentation.debugTool.onSetChildren(debugID, childDebugIDs);
         }
       }
 
@@ -73855,17 +73994,14 @@ var ReactCompositeComponentMixin = {
    */
   _renderValidatedComponentWithoutOwnerOrContext: function () {
     var inst = this._instance;
+    var renderedComponent;
 
     if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onBeginLifeCycleTimer(this._debugID, 'render');
-      }
-    }
-    var renderedComponent = inst.render();
-    if (process.env.NODE_ENV !== 'production') {
-      if (this._debugID !== 0) {
-        ReactInstrumentation.debugTool.onEndLifeCycleTimer(this._debugID, 'render');
-      }
+      renderedComponent = measureLifeCyclePerf(function () {
+        return inst.render();
+      }, this._debugID, 'render');
+    } else {
+      renderedComponent = inst.render();
     }
 
     if (process.env.NODE_ENV !== 'production') {
@@ -73916,7 +74052,7 @@ var ReactCompositeComponentMixin = {
     var publicComponentInstance = component.getPublicInstance();
     if (process.env.NODE_ENV !== 'production') {
       var componentName = component && component.getName ? component.getName() : 'a component';
-      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
+      process.env.NODE_ENV !== 'production' ? warning(publicComponentInstance != null || component._compositeType !== CompositeTypes.StatelessFunctional, 'Stateless function components cannot be given refs ' + '(See ref "%s" in %s created by %s). ' + 'Attempts to access this ref will fail.', ref, componentName, this.getName()) : void 0;
     }
     var refs = inst.refs === emptyObject ? inst.refs = {} : inst.refs;
     refs[ref] = publicComponentInstance;
@@ -74344,9 +74480,9 @@ function optionPostMount() {
   ReactDOMOption.postMountWrapper(inst);
 }
 
-var setContentChildForInstrumentation = emptyFunction;
+var setAndValidateContentChildDev = emptyFunction;
 if (process.env.NODE_ENV !== 'production') {
-  setContentChildForInstrumentation = function (content) {
+  setAndValidateContentChildDev = function (content) {
     var hasExistingContent = this._contentDebugID != null;
     var debugID = this._debugID;
     // This ID represents the inlined child that has no backing instance:
@@ -74360,6 +74496,7 @@ if (process.env.NODE_ENV !== 'production') {
       return;
     }
 
+    validateDOMNesting(null, String(content), this, this._ancestorInfo);
     this._contentDebugID = contentDebugID;
     if (hasExistingContent) {
       ReactInstrumentation.debugTool.onBeforeUpdateComponent(contentDebugID, content);
@@ -74534,7 +74671,7 @@ function ReactDOMComponent(element) {
   this._flags = 0;
   if (process.env.NODE_ENV !== 'production') {
     this._ancestorInfo = null;
-    setContentChildForInstrumentation.call(this, null);
+    setAndValidateContentChildDev.call(this, null);
   }
 }
 
@@ -74634,7 +74771,7 @@ ReactDOMComponent.Mixin = {
       if (parentInfo) {
         // parentInfo should always be present except for the top-level
         // component when server rendering
-        validateDOMNesting(this._tag, this, parentInfo);
+        validateDOMNesting(this._tag, null, this, parentInfo);
       }
       this._ancestorInfo = validateDOMNesting.updatedAncestorInfo(parentInfo, this._tag, this);
     }
@@ -74803,7 +74940,7 @@ ReactDOMComponent.Mixin = {
         // TODO: Validate that text is allowed as a child of this node
         ret = escapeTextContentForBrowser(contentToUse);
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, contentToUse);
+          setAndValidateContentChildDev.call(this, contentToUse);
         }
       } else if (childrenToUse != null) {
         var mountImages = this.mountChildren(childrenToUse, transaction, context);
@@ -74840,7 +74977,7 @@ ReactDOMComponent.Mixin = {
       if (contentToUse != null) {
         // TODO: Validate that text is allowed as a child of this node
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, contentToUse);
+          setAndValidateContentChildDev.call(this, contentToUse);
         }
         DOMLazyTree.queueText(lazyTree, contentToUse);
       } else if (childrenToUse != null) {
@@ -75072,7 +75209,7 @@ ReactDOMComponent.Mixin = {
       if (lastContent !== nextContent) {
         this.updateTextContent('' + nextContent);
         if (process.env.NODE_ENV !== 'production') {
-          setContentChildForInstrumentation.call(this, nextContent);
+          setAndValidateContentChildDev.call(this, nextContent);
         }
       }
     } else if (nextHtml != null) {
@@ -75084,7 +75221,7 @@ ReactDOMComponent.Mixin = {
       }
     } else if (nextChildren != null) {
       if (process.env.NODE_ENV !== 'production') {
-        setContentChildForInstrumentation.call(this, null);
+        setAndValidateContentChildDev.call(this, null);
       }
 
       this.updateChildren(nextChildren, transaction, context);
@@ -75139,7 +75276,7 @@ ReactDOMComponent.Mixin = {
     this._wrapperState = null;
 
     if (process.env.NODE_ENV !== 'production') {
-      setContentChildForInstrumentation.call(this, null);
+      setAndValidateContentChildDev.call(this, null);
     }
   },
 
@@ -75730,7 +75867,7 @@ function forceUpdateIfMounted() {
 
 function isControlled(props) {
   var usesChecked = props.type === 'checkbox' || props.type === 'radio';
-  return usesChecked ? props.checked !== undefined : props.value !== undefined;
+  return usesChecked ? props.checked != null : props.value != null;
 }
 
 /**
@@ -76652,7 +76789,7 @@ _assign(ReactDOMTextComponent.prototype, {
       if (parentInfo) {
         // parentInfo should always be present except for the top-level
         // component when server rendering
-        validateDOMNesting('#text', this, parentInfo);
+        validateDOMNesting(null, this._stringText, this, parentInfo);
       }
     }
 
@@ -77396,12 +77533,6 @@ var ReactDebugTool = {
     endLifeCycleTimer(debugID, timerType);
     emitEvent('onEndLifeCycleTimer', debugID, timerType);
   },
-  onError: function (debugID) {
-    if (currentTimerDebugID != null) {
-      endLifeCycleTimer(currentTimerDebugID, currentTimerType);
-    }
-    emitEvent('onError', debugID);
-  },
   onBeginProcessingChildContext: function () {
     emitEvent('onBeginProcessingChildContext');
   },
@@ -77812,14 +77943,6 @@ ReactElement.createElement = function (type, config, children) {
   var source = null;
 
   if (config != null) {
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(
-      /* eslint-disable no-proto */
-      config.__proto__ == null || config.__proto__ === Object.prototype,
-      /* eslint-enable no-proto */
-      'React.createElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
-    }
-
     if (hasValidRef(config)) {
       ref = config.ref;
     }
@@ -77920,14 +78043,6 @@ ReactElement.cloneElement = function (element, config, children) {
   var owner = element._owner;
 
   if (config != null) {
-    if (process.env.NODE_ENV !== 'production') {
-      process.env.NODE_ENV !== 'production' ? warning(
-      /* eslint-disable no-proto */
-      config.__proto__ == null || config.__proto__ === Object.prototype,
-      /* eslint-enable no-proto */
-      'React.cloneElement(...): Expected props argument to be a plain object. ' + 'Properties defined in its prototype chain will be ignored.') : void 0;
-    }
-
     if (hasValidRef(config)) {
       // Silently steal the ref from the parent.
       ref = config.ref;
@@ -82428,7 +82543,7 @@ module.exports = ReactUpdates;
 
 'use strict';
 
-module.exports = '15.3.1';
+module.exports = '15.3.2';
 },{}],555:[function(require,module,exports){
 /**
  * Copyright 2013-present, Facebook, Inc.
@@ -82768,7 +82883,7 @@ var eventTypes = {
       bubbled: keyOf({ onSelect: null }),
       captured: keyOf({ onSelectCapture: null })
     },
-    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
+    dependencies: [topLevelTypes.topBlur, topLevelTypes.topContextMenu, topLevelTypes.topFocus, topLevelTypes.topKeyDown, topLevelTypes.topKeyUp, topLevelTypes.topMouseDown, topLevelTypes.topMouseUp, topLevelTypes.topSelectionChange]
   }
 };
 
@@ -83837,7 +83952,8 @@ _assign(SyntheticEvent.prototype, {
 
     if (event.preventDefault) {
       event.preventDefault();
-    } else {
+    } else if (typeof event.returnValue !== 'unknown') {
+      // eslint-disable-line valid-typeof
       event.returnValue = false;
     }
     this.isDefaultPrevented = emptyFunction.thatReturnsTrue;
@@ -86242,9 +86358,9 @@ var setInnerHTML = createMicrosoftUnsafeLocalFunction(function (node, html) {
   if (node.namespaceURI === DOMNamespaces.svg && !('innerHTML' in node)) {
     reusableSVGContainer = reusableSVGContainer || document.createElement('div');
     reusableSVGContainer.innerHTML = '<svg>' + html + '</svg>';
-    var newNodes = reusableSVGContainer.firstChild.childNodes;
-    for (var i = 0; i < newNodes.length; i++) {
-      node.appendChild(newNodes[i]);
+    var svgNode = reusableSVGContainer.firstChild;
+    while (svgNode.firstChild) {
+      node.appendChild(svgNode.firstChild);
     }
   } else {
     node.innerHTML = html;
@@ -86854,10 +86970,15 @@ if (process.env.NODE_ENV !== 'production') {
 
   var didWarn = {};
 
-  validateDOMNesting = function (childTag, childInstance, ancestorInfo) {
+  validateDOMNesting = function (childTag, childText, childInstance, ancestorInfo) {
     ancestorInfo = ancestorInfo || emptyAncestorInfo;
     var parentInfo = ancestorInfo.current;
     var parentTag = parentInfo && parentInfo.tag;
+
+    if (childText != null) {
+      process.env.NODE_ENV !== 'production' ? warning(childTag == null, 'validateDOMNesting: when childText is passed, childTag should be null') : void 0;
+      childTag = '#text';
+    }
 
     var invalidParent = isTagValidWithParent(childTag, parentTag) ? null : parentInfo;
     var invalidAncestor = invalidParent ? null : findInvalidAncestorForTag(childTag, ancestorInfo);
@@ -86906,7 +87027,15 @@ if (process.env.NODE_ENV !== 'production') {
       didWarn[warnKey] = true;
 
       var tagDisplayName = childTag;
-      if (childTag !== '#text') {
+      var whitespaceInfo = '';
+      if (childTag === '#text') {
+        if (/\S/.test(childText)) {
+          tagDisplayName = 'Text nodes';
+        } else {
+          tagDisplayName = 'Whitespace text nodes';
+          whitespaceInfo = ' Make sure you don\'t have any extra whitespace between tags on ' + 'each line of your source code.';
+        }
+      } else {
         tagDisplayName = '<' + childTag + '>';
       }
 
@@ -86915,7 +87044,7 @@ if (process.env.NODE_ENV !== 'production') {
         if (ancestorTag === 'table' && childTag === 'tr') {
           info += ' Add a <tbody> to your code to match the DOM tree generated by ' + 'the browser.';
         }
-        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>. ' + 'See %s.%s', tagDisplayName, ancestorTag, ownerInfo, info) : void 0;
+        process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a child of <%s>.%s ' + 'See %s.%s', tagDisplayName, ancestorTag, whitespaceInfo, ownerInfo, info) : void 0;
       } else {
         process.env.NODE_ENV !== 'production' ? warning(false, 'validateDOMNesting(...): %s cannot appear as a descendant of ' + '<%s>. See %s.', tagDisplayName, ancestorTag, ownerInfo) : void 0;
       }
