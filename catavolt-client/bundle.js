@@ -9983,7 +9983,7 @@ exports.CvActionBase = {
             return paneContext.findMenuDefAt(this.props.actionId);
         }
     },
-    performAction: function () {
+    performAction: function (resultCallback) {
         var _this = this;
         var paneContext = this.paneContext();
         if (paneContext) {
@@ -10010,6 +10010,10 @@ exports.CvActionBase = {
                         result = paneContext.performMenuAction(menuDef_1);
                     }
                 }
+                /*
+                 * Note: client actions are handled supplying an 'actionHandler' propery to the CvAction
+                 * resultCallbacks will only be called for successful or failed 'Navigations' (non-client actions)
+                 */
                 if (actionMeta_1.isClientAction) {
                     /* let the designated handler perform the action */
                     if (this.props.actionHandler) {
@@ -10042,12 +10046,18 @@ exports.CvActionBase = {
                         /* Publish the action finished */
                         _this._publishActionFinished(menuDef_1.actionId, paneContext, _this.props.actionListeners, _this.eventRegistry());
                         if (navRequestTry.isSuccess) {
-                            catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), navRequestTry.success, _this.props.actionId, null, _this.props.navTarget, _this.props.navigationListeners, paneContext.isDestroyed, actionMeta_1.noTransition);
+                            var e = catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), navRequestTry.success, _this.props.actionId, null, _this.props.navTarget, _this.props.navigationListeners, paneContext.isDestroyed, actionMeta_1.noTransition);
+                            if (resultCallback && typeof resultCallback === 'function') {
+                                resultCallback(e.eventObj);
+                            }
                             _this._checkDestroyed(paneContext);
                         }
                         else {
                             var event_4 = { type: catreact_core_1.CvEventType.MESSAGE, eventObj: { message: 'Navigation failed',
                                     messageObj: navRequestTry.failure, type: catreact_core_1.CvMessageType.ERROR } };
+                            if (resultCallback && typeof resultCallback === 'function') {
+                                resultCallback(null, navRequestTry.failure);
+                            }
                             _this.eventRegistry().publish(event_4, false);
                         }
                     });
@@ -10072,14 +10082,14 @@ exports.CvActionBase = {
     },
     _componentDidMount: function () {
         if (this.props.fireOnLoad) {
-            this._getCallbackObj().fireAction();
+            this._getCallbackObj().fireAction(this.props.fireOnLoad);
         }
     },
     _getCallbackObj: function () {
         var _this = this;
         return {
-            fireAction: function () {
-                _this.performAction();
+            fireAction: function (resultCallback) {
+                _this.performAction(resultCallback);
             }
         };
     },
@@ -10144,7 +10154,7 @@ exports.CvAction = React.createClass({
     getDefaultProps: function () {
         return {
             actionId: null,
-            fireOnLoad: false,
+            fireOnLoad: null,
             paneContext: null,
             navTarget: null,
             menuDef: null,
@@ -10864,20 +10874,26 @@ exports.CvLauncher = React.createClass({
             return null;
         }
     },
-    performAction: function () {
+    performAction: function (resultCallback) {
         var _this = this;
         var launchAction = this.launchAction();
         this._publishActionStarted(launchAction.actionId);
         this.catavolt().performLaunchAction(launchAction).onComplete(function (launchTry) {
             _this._publishActionFinished(launchAction.actionId);
             if (launchTry.isSuccess) {
-                catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), launchTry.success, launchAction.actionId, launchAction.workbenchId, _this.props.navTarget, _this.props.launchListeners, false, false);
+                var event_1 = catreact_core_1.CvNavigationResultUtil.publishNavigation(_this.catavolt(), _this.eventRegistry(), launchTry.success, launchAction.actionId, launchAction.workbenchId, _this.props.navTarget, _this.props.launchListeners, false, false);
+                if (resultCallback && typeof resultCallback === 'function') {
+                    resultCallback(event_1.eventObj);
+                }
             }
             else {
-                var event_1 = { type: catreact_core_1.CvEventType.MESSAGE,
+                var event_2 = { type: catreact_core_1.CvEventType.MESSAGE,
                     eventObj: { message: 'Launch of ' + _this.launchAction().name + ' failed', messageObj: launchTry.failure,
                         type: catreact_core_1.CvMessageType.ERROR } };
-                _this.eventRegistry().publish(event_1, false);
+                if (resultCallback && typeof resultCallback === 'function') {
+                    resultCallback(null, launchTry.failure);
+                }
+                _this.eventRegistry().publish(event_2, false);
             }
         });
     },
@@ -10887,8 +10903,8 @@ exports.CvLauncher = React.createClass({
     _getCallbackObject: function () {
         var _this = this;
         return {
-            fireLaunchAction: function () {
-                _this.performAction();
+            fireLaunchAction: function (resultCallback) {
+                _this.performAction(resultCallback);
             }
         };
     },
@@ -10999,15 +11015,15 @@ exports.CvLogin = React.createClass({
             isLoggedIn: function () {
                 return _this.catavolt().isLoggedIn;
             },
-            login: function (gatewayHost, tenantId, clientType, userId, password) {
-                _this._postLogin(_this.catavolt().login(gatewayHost, tenantId, clientType, userId, password));
+            login: function (gatewayHost, tenantId, clientType, userId, password, resultCallback) {
+                _this._postLogin(_this.catavolt().login(gatewayHost, tenantId, clientType, userId, password, resultCallback));
             },
-            loginDirectly: function (url, tenantId, clientType, userId, password) {
-                _this._postLogin(_this.catavolt().loginDirectly(url, tenantId, clientType, userId, password));
+            loginDirectly: function (url, tenantId, clientType, userId, password, resultCallback) {
+                _this._postLogin(_this.catavolt().loginDirectly(url, tenantId, clientType, userId, password, resultCallback));
             }
         };
     },
-    _postLogin: function (loginResult) {
+    _postLogin: function (loginResult, resultCallback) {
         var _this = this;
         loginResult.onComplete(function (appWinDefTry) {
             if (appWinDefTry.isSuccess) {
@@ -11018,6 +11034,9 @@ exports.CvLogin = React.createClass({
                     resourceId: catreact_core_1.CvResourceManager.resourceIdForObject(appWinDefTry.success, _this.catavolt()),
                     eventObj: { appWinDef: appWinDefTry.success }
                 };
+                if (resultCallback && typeof resultCallback === 'function') {
+                    resultCallback(event_1.eventObj);
+                }
                 eventRegistry.publish(event_1, catreact_core_1.CvResourceManager.shouldCacheResult(_this.eventRegistry()));
                 _this.props.loginListeners.forEach(function (listener) {
                     listener(event_1);
@@ -11028,6 +11047,9 @@ exports.CvLogin = React.createClass({
                     type: catreact_core_1.CvEventType.MESSAGE,
                     eventObj: { message: 'Login failed', messageObj: appWinDefTry.failure, type: catreact_core_1.CvMessageType.ERROR }
                 };
+                if (resultCallback && typeof resultCallback === 'function') {
+                    resultCallback(null, appWinDefTry.failure);
+                }
                 _this.eventRegistry().publish(event_2, false);
             }
         });
@@ -11140,7 +11162,7 @@ exports.CvMenuItem = React.createClass({
     getDefaultProps: function () {
         return {
             actionId: null,
-            fireOnLoad: false,
+            fireOnLoad: null,
             paneContext: null,
             navTarget: null,
             menuDef: null,
@@ -12168,6 +12190,7 @@ var CvNavigationResultUtil = (function () {
                 listener(e);
             });
         }
+        return e;
     };
     return CvNavigationResultUtil;
 }());
@@ -14365,7 +14388,7 @@ exports.CvListPanel = React.createClass({
             var listContext = cvContext.scopeCtx.scopeObj;
             return (React.createElement("div", {className: "cv-list-container"}, (function () {
                 return _this.props.searchable ?
-                    React.createElement(catreact_1.CvAction, {actionId: '#search', fireOnLoad: true, paneContext: listContext, navigationListeners: [function (event) {
+                    React.createElement(catreact_1.CvAction, {actionId: '#search', fireOnLoad: function (success, error) { }, paneContext: listContext, navigationListeners: [function (event) {
                             _this.setState({ searchNavResult: event.eventObj });
                         }]}) : null;
             })(), React.createElement("div", {className: "text-right"}, React.createElement("button", {className: "btn btn-default", onClick: callback.refresh}, React.createElement("span", {className: "glyphicon glyphicon-refresh", "aria-hidden": "true"})), (function () {

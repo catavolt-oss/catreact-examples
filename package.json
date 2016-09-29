@@ -16,7 +16,7 @@
     "url": "https://git.catavolt.com/javascript/catreact-examples.git"
   },
   "dependencies": {
-    "catreact": "1.1.0",
+    "catreact": "1.1.1",
     "react-router": "^2.0.0"
   },
   "devDependencies": {
