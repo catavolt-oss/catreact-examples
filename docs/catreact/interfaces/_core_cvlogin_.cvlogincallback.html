@@ -105,7 +105,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in core/CvLogin.tsx:31</li>
+									<li>Defined in core/CvLogin.tsx:34</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -116,13 +116,13 @@
 					<a name="login" class="tsd-anchor"></a>
 					<h3>login</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">login<span class="tsd-signature-symbol">(</span>gatewayHost<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, clientType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">login<span class="tsd-signature-symbol">(</span>gatewayHost<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, clientType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, resultCallback<span class="tsd-signature-symbol">?: </span><a href="_core_cvreact_.cvresultcallback.html" class="tsd-signature-type">CvResultCallback</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvreact_.cvloginresult.html" class="tsd-signature-type">CvLoginResult</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in core/CvLogin.tsx:33</li>
+									<li>Defined in core/CvLogin.tsx:36</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -142,6 +142,9 @@
 								<li>
 									<h5>password: <span class="tsd-signature-type">string</span></h5>
 								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> resultCallback: <a href="_core_cvreact_.cvresultcallback.html" class="tsd-signature-type">CvResultCallback</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvreact_.cvloginresult.html" class="tsd-signature-type">CvLoginResult</a><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
@@ -151,13 +154,13 @@
 					<a name="logindirectly" class="tsd-anchor"></a>
 					<h3>login<wbr>Directly</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">login<wbr>Directly<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, clientType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">login<wbr>Directly<span class="tsd-signature-symbol">(</span>url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, clientType<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, password<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, resultCallback<span class="tsd-signature-symbol">?: </span><a href="_core_cvreact_.cvresultcallback.html" class="tsd-signature-type">CvResultCallback</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvreact_.cvloginresult.html" class="tsd-signature-type">CvLoginResult</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in core/CvLogin.tsx:39</li>
+									<li>Defined in core/CvLogin.tsx:43</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -176,6 +179,9 @@
 								</li>
 								<li>
 									<h5>password: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> resultCallback: <a href="_core_cvreact_.cvresultcallback.html" class="tsd-signature-type">CvResultCallback</a><span class="tsd-signature-symbol">&lt;</span><a href="_core_cvreact_.cvloginresult.html" class="tsd-signature-type">CvLoginResult</a><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>

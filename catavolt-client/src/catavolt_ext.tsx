@@ -71,7 +71,7 @@ const CvReactBase = {
 const CvReactApp = React.createClass({
 
     mixins: [CvReactBase],
-
+    
     render: function () {
         return (
             <div className="cv-container container-fluid">
@@ -113,7 +113,7 @@ const CvReactLogin = React.createClass({
     render: function () {
         return <div>
             <div className="cv-login-wrapper">
-                <div className="cv-login-logo" onDoubleClick={()=>{ this._toggleHiddenFields(); }}></div>
+                <div className="cv-login-logo" onDoubleClick={this._toggleHiddenFields}></div>
                 <CvLoginPanel
                     defaultGatewayUrl={'gw.catavolt.net'}
                     defaultTenantId={'solarsourcez'}
@@ -131,8 +131,10 @@ const CvReactLogin = React.createClass({
        </div>
     },
     
-    _toggleHiddenFields: function() {
-        this.setState({showDirectUrl:!this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl});
+    _toggleHiddenFields: function(e) {
+        if(e.shiftKey && e.ctrlKey) {
+            this.setState({showDirectUrl:!this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl});
+        } 
     }
 
 });
@@ -145,10 +147,11 @@ const CvReactLogin = React.createClass({
 const CvReactWindow = React.createClass({
 
     mixins: [CvReactBase],
-
+    
     render: function () {
         const windowId = this.props.params.windowId; //get the window from the url param
-        return <CvAppWindow windowId={windowId}>
+        const logoutListener = ()=>{ this.context.router.replace('/');}
+        return <CvAppWindow windowId={windowId} logoutListeners={[logoutListener]}>
                     <div className="cv-window">
                         <div className="cv-logo pull-left"/>
                         <CvMessagePanel/>
@@ -157,7 +160,7 @@ const CvReactWindow = React.createClass({
                                 renderer={(cvContext:CvContext, callback:CvLogoutCallback)=>{
                                     return <a className="cv-target" onClick={callback.logout}>Logout</a>
                                 }}
-                                logoutListeners={[()=>{ this.context.router.replace('/');}]}
+                                logoutListeners={[logoutListener]}
                             />
                         </div>
                         {this.props.children}
@@ -285,19 +288,6 @@ const CvReactNavigator = React.createClass({
 
     mixins: [CvReactBase],
 
-
-    componentWillMount: function () {
-        console.log("mounting CvReactNavigator");
-    },
-
-    componentWillReceiveProps: function(nextProps) {
-        console.log("receive props CvReactNavigator")
-    },
-
-    componentWillUpdate: function(nextProps, nextState, nextContext) {
-        console.log("updating CvReactNavigator")
-    },
-    
     render: function () {
 
         const windowId = this.props.params.windowId; //get the window from the url param

@@ -117,9 +117,7 @@ var CvReactLogin = React.createClass({
             React.createElement(
                 'div',
                 { className: 'cv-login-wrapper' },
-                React.createElement('div', { className: 'cv-login-logo', onDoubleClick: function onDoubleClick() {
-                        _this._toggleHiddenFields();
-                    } }),
+                React.createElement('div', { className: 'cv-login-logo', onDoubleClick: this._toggleHiddenFields }),
                 React.createElement(_catreact.CvLoginPanel, { defaultGatewayUrl: 'gw.catavolt.net', defaultTenantId: 'solarsourcez', defaultUserId: 'sales', showDirectUrl: this.state.showDirectUrl, showGatewayUrl: this.state.showGatewayUrl, showClientType: false, loginListeners: [function (event) {
                         var windowId = event.resourceId; //get the session (window) from the LoginEvent
                         _this.context.router.replace('/workbench/' + windowId + '/' + '0');
@@ -128,8 +126,10 @@ var CvReactLogin = React.createClass({
             )
         );
     },
-    _toggleHiddenFields: function _toggleHiddenFields() {
-        this.setState({ showDirectUrl: !this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl });
+    _toggleHiddenFields: function _toggleHiddenFields(e) {
+        if (e.shiftKey && e.ctrlKey) {
+            this.setState({ showDirectUrl: !this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl });
+        }
     }
 });
 /**
@@ -145,9 +145,12 @@ var CvReactWindow = React.createClass({
         var _this2 = this;
 
         var windowId = this.props.params.windowId; //get the window from the url param
+        var logoutListener = function logoutListener() {
+            _this2.context.router.replace('/');
+        };
         return React.createElement(
             _catreact.CvAppWindow,
-            { windowId: windowId },
+            { windowId: windowId, logoutListeners: [logoutListener] },
             React.createElement(
                 'div',
                 { className: 'cv-window' },
@@ -162,9 +165,7 @@ var CvReactWindow = React.createClass({
                                 { className: 'cv-target', onClick: callback.logout },
                                 'Logout'
                             );
-                        }, logoutListeners: [function () {
-                            _this2.context.router.replace('/');
-                        }] })
+                        }, logoutListeners: [logoutListener] })
                 ),
                 this.props.children
             )
@@ -276,15 +277,6 @@ var CvReactNavigator = React.createClass({
     displayName: 'CvReactNavigator',
 
     mixins: [CvReactBase],
-    componentWillMount: function componentWillMount() {
-        console.log("mounting CvReactNavigator");
-    },
-    componentWillReceiveProps: function componentWillReceiveProps(nextProps) {
-        console.log("receive props CvReactNavigator");
-    },
-    componentWillUpdate: function componentWillUpdate(nextProps, nextState, nextContext) {
-        console.log("updating CvReactNavigator");
-    },
     render: function render() {
         var _this4 = this;
 
@@ -10192,6 +10184,7 @@ var React = require('react');
 var catreact_core_1 = require('./catreact-core');
 var catavolt_sdk_1 = require('catavolt-sdk');
 var CvReact_1 = require("./CvReact");
+var CvLogout_1 = require("../../js/core/CvLogout");
 /**
  * A component analogous to Catavolt AppWinDef
  */
@@ -10201,6 +10194,7 @@ exports.CvAppWindow = React.createClass({
          * loginResult?:CvLoginResult;
          */
         loginResult: React.PropTypes.shape({ appWinDef: React.PropTypes.instanceOf(catavolt_sdk_1.AppWinDef) }),
+        logoutListeners: React.PropTypes.arrayOf(React.PropTypes.func),
         windowId: React.PropTypes.string,
         catavolt: React.PropTypes.instanceOf(catavolt_sdk_1.AppContext),
         eventRegistry: React.PropTypes.instanceOf(catreact_core_1.CvEventRegistry),
@@ -10232,7 +10226,7 @@ exports.CvAppWindow = React.createClass({
         return ctx;
     },
     getDefaultProps: function () {
-        return { loginResult: null, windowId: null };
+        return { loginResult: null, windowId: null, logoutListeners: [] };
     },
     getInitialState: function () {
         return { appWinDef: null };
@@ -10269,6 +10263,9 @@ exports.CvAppWindow = React.createClass({
                 if (appWinDefTry.isSuccess) {
                     _this.setState({ appWinDef: appWinDefTry.success });
                 }
+                else {
+                    CvLogout_1.CvLogout.postLogout(_this.eventRegistry(), _this.props.logoutListeners);
+                }
             });
         }
         else {
@@ -10280,7 +10277,7 @@ exports.CvAppWindow = React.createClass({
     }
 });
 
-},{"./CvReact":28,"./catreact-core":36,"catavolt-sdk":6,"react":604}],15:[function(require,module,exports){
+},{"../../js/core/CvLogout":21,"./CvReact":28,"./catreact-core":36,"catavolt-sdk":6,"react":604}],15:[function(require,module,exports){
 /**
  * Created by rburson on 12/23/15.
  */
@@ -10607,7 +10604,7 @@ exports.CvEditorBase = {
                 type: catreact_core_1.CvNavigationResultUtil.determineType(navRequest)
             }
         };
-        this.eventRegistry().publish(event, this.shouldCacheResult(this.eventRegistry()));
+        this.eventRegistry().publish(event, catreact_core_1.CvResourceManager.shouldCacheResult(this.eventRegistry()));
         this.props.navigationListeners.forEach(function (listener) {
             listener(event);
         });
@@ -10674,7 +10671,7 @@ exports.CvForm = React.createClass({
     componentWillUnmount: function () {
         var formContext = this.formContext();
         if (formContext && formContext.isDestroyed) {
-            this.eventRegistry().removeFromCache(this.resourceIdForObject(formContext));
+            this.eventRegistry().removeFromCache(catreact_core_1.CvResourceManager.resourceIdForObject(formContext, this.catavolt()));
         }
     },
     getChildContext: function () {
@@ -11091,25 +11088,27 @@ exports.CvLogout = React.createClass({
                 return _this.catavolt().isLoggedIn;
             },
             logout: function () {
-                _this._postLogout(_this.catavolt().logout());
+                _this.catavolt().logout().onComplete(function (result) {
+                    exports.CvLogout.postLogout(_this.eventRegistry(), _this.props.logoutListeners);
+                });
             }
         };
     },
-    _postLogout: function (logoutResult) {
-        var _this = this;
-        logoutResult.onComplete(function (result) {
+    statics: {
+        postLogout: function (eventRegistry, logoutListeners) {
             catreact_core_1.CvSessionManager.removeSession();
-            var eventRegistry = _this.eventRegistry();
             var event = {
                 type: catreact_core_1.CvEventType.LOGOUT,
                 eventObj: null
             };
             eventRegistry.publish(event, false);
-            _this.props.logoutListeners.forEach(function (listener) {
-                listener(event);
-            });
+            if (logoutListeners) {
+                logoutListeners.forEach(function (listener) {
+                    listener(event);
+                });
+            }
             eventRegistry.clearAll();
-        });
+        }
     }
 });
 
@@ -11590,6 +11589,12 @@ exports.CvProp = React.createClass({
 var React = require('react');
 var catreact_core_1 = require('./catreact-core');
 var catavolt_sdk_1 = require('catavolt-sdk');
+(function (CvQueryMode) {
+    CvQueryMode[CvQueryMode["NORMAL"] = 0] = "NORMAL";
+    CvQueryMode[CvQueryMode["DEFERRED"] = 1] = "DEFERRED";
+    CvQueryMode[CvQueryMode["MANUAL"] = 2] = "MANUAL";
+})(exports.CvQueryMode || (exports.CvQueryMode = {}));
+var CvQueryMode = exports.CvQueryMode;
 exports.CvQueryBase = {
     formContext: function (nextProps, nextContext) {
         if (nextProps && nextProps.formContext) {
@@ -11661,6 +11666,8 @@ exports.CvQueryBase = {
         var queryContext = this.queryContext(nextProps, nextContext);
         //update page size if it has changed - note: this resets the buffer
         //attempt to detect changes to the queryContext
+        //
+        //is this an update to recordPageSize?
         if (nextProps && nextProps.recordPageSize && nextProps.recordPageSize != this.props.recordPageSize) {
             this.reload(nextProps.recordPageSize, nextProps, nextContext);
         }
@@ -11669,7 +11676,7 @@ exports.CvQueryBase = {
             this.reload(this.props.recordPageSize, nextProps, nextContext);
         }
         else {
-            //otherwise, assume an underlying change...
+            //otherwise, assume some other underlying change
             if (this.isMounted()) {
                 //if there are 'nextProps' we know that the underlying queryContext has been updated in some way...
                 this.forceUpdate();
@@ -11690,7 +11697,9 @@ exports.CvQueryBase = {
         }
     },
     _componentWillMount: function () {
-        this.reload(this.props.recordPageSize);
+        if (this.props.queryMode === CvQueryMode.NORMAL) {
+            this.reload(this.props.recordPageSize);
+        }
         if (this.props.actionProvider) {
             this.props.actionProvider.subscribe(this._handleAction);
         }
@@ -11701,15 +11710,21 @@ exports.CvQueryBase = {
         if (nextProps.actionProvider && nextProps.actionProvider !== this.props.actionProvider) {
             nextProps.actionProvider.subscribe(this._handleAction);
         }
-        this.refresh(nextProps, nextContext);
+        if (this.props.queryMode === CvQueryMode.NORMAL) {
+            this.refresh(nextProps, nextContext);
+        }
     },
     _componentWillUnmount: function () {
         this.eventRegistry().unsubscribe(this._dataChangeListener);
     },
     _dataChangeListener: function (dataChangeResult) {
+        //reload if someone else ('source' !== me) published a state change
         if (dataChangeResult.eventObj.type === catreact_core_1.CvStateChangeType.DATA_CHANGE &&
             dataChangeResult.eventObj.source !== this.queryContext()) {
-            this.reload(this.props.recordPageSize);
+            if (this.props.queryMode === CvQueryMode.NORMAL ||
+                this.props.queryMode === CvQueryMode.DEFERRED) {
+                this.reload(this.props.recordPageSize);
+            }
         }
     },
     _getCallbackObj: function () {
@@ -11802,7 +11817,8 @@ exports.CvQueryBase = {
             stateChangeListeners: [],
             actionListeners: [],
             actionProvider: null,
-            recordPageSize: 50
+            recordPageSize: 50,
+            queryMode: CvQueryMode.NORMAL
         };
     },
     _handleAction: function (params) {
@@ -12258,7 +12274,7 @@ var CvResourceManager = (function () {
     function CvResourceManager() {
     }
     CvResourceManager.deserializeRedirection = function (token) {
-        var _a = token.split('_'), handleValue = _a[0], sessionHandle = _a[1], dialogMode = _a[2], dialogType = _a[3], objectId = _a[4], actionId = _a[5], actionObjId = _a[6], actionType = _a[7];
+        var _a = token.split(CvResourceManager.PARAM_DELIM), handleValue = _a[0], sessionHandle = _a[1], dialogMode = _a[2], dialogType = _a[3], objectId = _a[4], actionId = _a[5], actionObjId = _a[6], actionType = _a[7];
         var actionSource = null;
         if (actionType && actionType === 'ca') {
             actionSource = new catavolt_sdk_1.ContextAction(actionId, actionObjId, null);
@@ -12320,13 +12336,15 @@ var CvResourceManager = (function () {
             actionType = 'wla';
         }
         var dialogHandle = redirection.dialogHandle;
-        return (dialogHandle.handleValue ? dialogHandle.handleValue : '') + '_'
-            + (dialogHandle.sessionHandle ? dialogHandle.sessionHandle : '') + '_'
-            + (redirection.dialogMode ? redirection.dialogMode : '') + '_'
-            + (redirection.dialogType ? redirection.dialogType : '') + '_'
-            + (redirection.objectId ? redirection.objectId : '') + '_'
-            + actionId + '_' + actionObjId + '_' + actionType;
+        var PARAM_DELIM = CvResourceManager.PARAM_DELIM;
+        return (dialogHandle.handleValue ? dialogHandle.handleValue : '') + PARAM_DELIM
+            + (dialogHandle.sessionHandle ? dialogHandle.sessionHandle : '') + PARAM_DELIM
+            + (redirection.dialogMode ? redirection.dialogMode : '') + PARAM_DELIM
+            + (redirection.dialogType ? redirection.dialogType : '') + PARAM_DELIM
+            + (redirection.objectId ? redirection.objectId : '') + PARAM_DELIM
+            + actionId + PARAM_DELIM + actionObjId + PARAM_DELIM + actionType;
     };
+    CvResourceManager.PARAM_DELIM = '~';
     return CvResourceManager;
 }());
 exports.CvResourceManager = CvResourceManager;

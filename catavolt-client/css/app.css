@@ -182,8 +182,8 @@ body {
 /* Form style */
 
 .cv-form-container {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .cv-split-pane {
@@ -229,16 +229,21 @@ body {
 
 .cv-detail-container {
     max-height:750px;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .cv-detail-container .cv-cell-def-title-col {
     vertical-align: middle;
+    font-weight: bold;
 }
 
 .cv-detail-container .cv-cell-def-col {
     vertical-align: middle;
     position: relative;
+}
+
+.cv-label-cell-def {
 }
 
 .cv-cell-def-select-box {
