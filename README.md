@@ -38,11 +38,6 @@ Use React Router and the ‘Core’ Catavolt React Components.  A good example 
 # React Component docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catreact/index.html)
 # SDK API docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catavolt-sdk/index.html)
 
-
-**Note:** *When compiling the Typescript examples, the Typescript compiler may complain about 'Type assignability'.  This can be ignored.  There is currently a Typescript compiler bug realted to using more than one set of the same definition files and private members.  This will hopefully be fixed with Typescript 2.0*  
-See https://github.com/Microsoft/TypeScript/issues/8346 and https://github.com/Microsoft/TypeScript/issues/6496
-
-
 # Configuring WebStorm for Typescript:
 
 * Open the catreact project root folder in WebStorm
