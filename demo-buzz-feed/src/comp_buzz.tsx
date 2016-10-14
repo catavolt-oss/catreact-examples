@@ -5,6 +5,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import {Log, LogLevel, EntityRec, WorkbenchLaunchAction, ListContext} from 'catavolt-sdk'
 import {
     CatavoltPane,
     CvAppWindow,
@@ -19,17 +20,18 @@ import {
     CvDetailsPane,
     CvRecord,
     CvRecordList,
-    CvProp,
-    CvResource,
     CvAction,
     CvEvent,
     CvNavigationResult,
     CvLoginResult,
     CvDetailsPaneCallback,
-    CvLoginPanel,
     CvValueAdapter
-} from '../../catreact'
-import {Log, LogLevel, EntityRec, WorkbenchLaunchAction, ListContext} from 'catavolt-sdk'
+} from 'catreact'
+import {
+    CvLoginPanel,
+    CvHtmlProp,
+    CvHtmlResource
+} from '../../catreact-html'
 
 Log.logLevel(LogLevel.DEBUG);
 
@@ -165,7 +167,7 @@ const BuzzStream = React.createClass({
                                                                         selectionProvider={selectionAdapter}
                                                                         wrapperElemName="li"
                                                                         wrapperElemProps={{className:"list-group-item"}}>
-                                                                        <CvProp propName={'name'}/>
+                                                                        <CvHtmlProp propName={'name'}/>
                                                                     </CvAction>
                                                     </CvRecord>
                                                 );}}/>
@@ -217,7 +219,7 @@ const BuzzMessages = React.createClass<{}, {openNewMessageFormResult}>({
                                                     $('#loading').addClass('show').removeClass('hidden');
                                                 }]}>
                                                 <span>
-                                                    <CvResource resourceName={'icon-action-join.png'}/>
+                                                    <CvHtmlResource resourceName={'icon-action-join.png'}/>
                                                     <a className="hlText">New Message</a>
                                                 </span>
                                             </CvAction>
@@ -238,39 +240,39 @@ const BuzzMessages = React.createClass<{}, {openNewMessageFormResult}>({
                                                                 <div className="col-sm-6">
                                                                     <div className="row">
                                                                         <div className="col-sm-2">
-                                                                            <CvProp propName={'avatar_large'}
+                                                                            <CvHtmlProp propName={'avatar_large'}
                                                                                     className={'img-rounded avatar'}/>
                                                                         </div>
                                                                         <div className="col-sm-4 text-center attrib-box">
-                                                                            <h4> <CvProp propName={'created-by'}/> </h4>
-                                                                            <small> <CvProp propName={'group_name'}/> </small>
-                                                                            <small className="text-muted"> <CvProp propName={'created-at'}/> </small>
+                                                                            <h4> <CvHtmlProp propName={'created-by'}/> </h4>
+                                                                            <small> <CvHtmlProp propName={'group_name'}/> </small>
+                                                                            <small className="text-muted"> <CvHtmlProp propName={'created-at'}/> </small>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div className="col-sm-6">
                                                                     <div className="pull-right">
-                                                                        <CvProp propName={'is_flagged'} handler={(prop)=>{
+                                                                        <CvHtmlProp propName={'is_flagged'} handler={(prop)=>{
                                                                         return prop.value ?
-                                                                            <CvResource resourceName={'icon-bookmark.png'} style={{width:24, height:38}}/> :
-                                                                            <CvResource resourceName={'icon-bookmark-unchecked.png'} style={{width:24, height:38}}/>
+                                                                            <CvHtmlResource resourceName={'icon-bookmark.png'} style={{width:24, height:38}}/> :
+                                                                            <CvHtmlResource resourceName={'icon-bookmark-unchecked.png'} style={{width:24, height:38}}/>
                                                                     }}/>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div className="like-row">
-                                                                <span> <CvProp propName={'likes_count'}/> </span>
+                                                                <span> <CvHtmlProp propName={'likes_count'}/> </span>
                                                                 <span>liked</span> <span/> <span/>
-                                                                <span> <CvProp propName={'comments_count'}/> </span>
+                                                                <span> <CvHtmlProp propName={'comments_count'}/> </span>
                                                                 <span>comments</span>
                                                             </div>
-                                                            <div> <div> <CvProp propName={'title'}/> </div>
-                                                                <blockquote> <p> <CvProp propName={'body_preview'}/> </p> </blockquote>
+                                                            <div> <div> <CvHtmlProp propName={'title'}/> </div>
+                                                                <blockquote> <p> <CvHtmlProp propName={'body_preview'}/> </p> </blockquote>
                                                                 <div className="text-center">{
                                                                     function() {
                                                                         const attachments = [];
                                                                         for(let i = 1; i<=10; i++) {
-                                                                            attachments.push(<CvProp
+                                                                            attachments.push(<CvHtmlProp
                                                                                 propName={'attachment_preview_' + i}
                                                                                 key={'' + i}/>)
                                                                             }
@@ -280,12 +282,12 @@ const BuzzMessages = React.createClass<{}, {openNewMessageFormResult}>({
                                                             </div>
                                                             <div className="badge-row">
                                                                 <div className="text-right">
-                                                                    <CvProp propName={'deletable'} handler={(prop)=>{
+                                                                    <CvHtmlProp propName={'deletable'} handler={(prop)=>{
                                                                       return prop.value ?
-                                                                            <CvResource resourceName={'icon-humana-delete.png'} style={{width:20, height:20, marginRight:5}}/>
+                                                                            <CvHtmlResource resourceName={'icon-humana-delete.png'} style={{width:20, height:20, marginRight:5}}/>
                                                                        : null;
                                                                     }}/>
-                                                                    <CvResource
+                                                                    <CvHtmlResource
                                                                         resourceName={'icon-action-comment.png'}
                                                                         style={{width:24, height:24}}/>
                                                                 </div>

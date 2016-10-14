@@ -4,8 +4,9 @@
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Router, Route, hashHistory, IndexRoute } from 'react-router';
-import { CatavoltPane, CvAppWindow, CvLoginPanel, CvGraphicalWorkbench, CvWorkbenchManager, CvNavigator, CvDropdownWorkbenchMenu, CvValueAdapter, CvLogout, CvStateChangeType, CvNavigationResultType, CvActionFiredResultType, CvMessagePanel } from '../../catreact';
 import { Log, LogLevel } from 'catavolt-sdk';
+import { CatavoltPane, CvAppWindow, CvValueAdapter, CvLogout, CvStateChangeType, CvNavigationResultType, CvActionFiredResultType } from 'catreact';
+import { CvLoginPanel, CvGraphicalWorkbench, CvWorkbenchManager, CvNavigator, CvDropdownWorkbenchMenu, CvMessagePanel } from '../../catreact-html';
 Log.logLevel(LogLevel.DEBUG);
 const CvReactBase = {
     componentWillMount: function () {

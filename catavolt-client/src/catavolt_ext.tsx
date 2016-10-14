@@ -5,6 +5,7 @@
 import * as React from 'react'
 import * as ReactDOM from 'react-dom'
 import {Router, Route, hashHistory, IndexRoute} from 'react-router'
+import {Log, LogLevel, Workbench, WebRedirection} from 'catavolt-sdk'
 import {
     CatavoltPane,
     CvAppWindow,
@@ -13,12 +14,6 @@ import {
     CvLogoutCallback,
     CvLoginResult,
     CvNavigationResult,
-    CvLoginPanel,
-    CvGraphicalWorkbench,
-    CvWorkbenchManager,
-    CvNavigator,
-    CvDropdownWorkbenchMenu,
-    CvTabbedWorkbenchMenu,
     CvValueAdapter,
     CvValueProvider,
     CvValueListener,
@@ -26,14 +21,20 @@ import {
     CvStateChangeResult,
     CvStateChangeType,
     CvNavigationResultType,
+    CvActionFiredResult,
+    CvActionFiredResultType
+} from 'catreact'
+import {
+    CvLoginPanel,
+    CvGraphicalWorkbench,
+    CvWorkbenchManager,
+    CvNavigator,
+    CvDropdownWorkbenchMenu,
+    CvTabbedWorkbenchMenu,
     CvVerticalLayoutFormPane,
     CvTabbedFormPanel,
-    CvActionFiredResult,
-    CvActionFiredResultType,
     CvMessagePanel
-} from '../../catreact'
-
-import {Log, LogLevel, Workbench, WebRedirection} from 'catavolt-sdk'
+} from '../../catreact-html'
 
 Log.logLevel(LogLevel.DEBUG);
 
