@@ -35,7 +35,9 @@ Use React Router and the ‘Core’ Catavolt React Components.  A good example 
 
 * Open the index.html in 'catavolt-client' (or 'launch' it from your ide)
 
-# React Component docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catreact/index.html)
+# Component Model Overview can be found [here] (https://rawgit.com/catavolt-oss/catreact-examples/master/docs/componentOverview.pdf)
+# Core Component User's Guide can be found [here] (https://rawgit.com/catavolt-oss/catreact-examples/master/docs/CatavoltReactSDKUserGuide.pdf)
+# Catavolt React Component API docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catreact/index.html)
 # SDK API docs can be found [here](https://rawgit.com/catavolt-oss/catreact-examples/master/docs/catavolt-sdk/index.html)
 
 # Configuring WebStorm for Typescript:
