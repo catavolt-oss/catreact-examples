@@ -91,9 +91,11 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#jsoncall" class="tsd-kind-icon">json<wbr>Call</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#jsonget" class="tsd-kind-icon">json<wbr>Get</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#jsonpost" class="tsd-kind-icon">json<wbr>Post</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#postmultipart" class="tsd-kind-icon">post<wbr>Multipart</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_ws_.xmlhttpclient.html#stringget" class="tsd-kind-icon">string<wbr>Get</a></li>
 							</ul>
 						</section>
 					</div>
@@ -101,39 +103,6 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
-					<a name="jsoncall" class="tsd-anchor"></a>
-					<h3>json<wbr>Call</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">json<wbr>Call<span class="tsd-signature-symbol">(</span>targetUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, jsonObj<span class="tsd-signature-symbol">?: </span><a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a>, method<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, timeoutMillis<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_catavolt_ws_.client.html">Client</a>.<a href="../interfaces/_catavolt_ws_.client.html#jsoncall">jsonCall</a></p>
-								<ul>
-									<li>Defined in catavolt/ws.ts:31</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>targetUrl: <span class="tsd-signature-type">string</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> jsonObj: <a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> method: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&quot;GET&quot;</span></h5>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> timeoutMillis: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30000</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
 					<a name="jsonget" class="tsd-anchor"></a>
 					<h3>json<wbr>Get</h3>
@@ -145,7 +114,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_catavolt_ws_.client.html">Client</a>.<a href="../interfaces/_catavolt_ws_.client.html#jsonget">jsonGet</a></p>
 								<ul>
-									<li>Defined in catavolt/ws.ts:23</li>
+									<li>Defined in catavolt/ws.ts:30</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -172,7 +141,7 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_catavolt_ws_.client.html">Client</a>.<a href="../interfaces/_catavolt_ws_.client.html#jsonpost">jsonPost</a></p>
 								<ul>
-									<li>Defined in catavolt/ws.ts:27</li>
+									<li>Defined in catavolt/ws.ts:46</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -188,6 +157,92 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="postmultipart" class="tsd-anchor"></a>
+					<h3>post<wbr>Multipart</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">post<wbr>Multipart<span class="tsd-signature-symbol">(</span>targetUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, formData<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">FormData</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_catavolt_ws_.client.html">Client</a>.<a href="../interfaces/_catavolt_ws_.client.html#postmultipart">postMultipart</a></p>
+								<ul>
+									<li>Defined in catavolt/ws.ts:63</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetUrl: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>formData: <span class="tsd-signature-type">FormData</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="sendrequest" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> send<wbr>Request</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">send<wbr>Request<span class="tsd-signature-symbol">(</span>targetUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, body<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, method<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, timeoutMillis<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/ws.ts:88</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetUrl: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>body: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>method: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> timeoutMillis: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;30000</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="stringget" class="tsd-anchor"></a>
+					<h3>string<wbr>Get</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">string<wbr>Get<span class="tsd-signature-symbol">(</span>targetUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, timeoutMillis<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Implementation of <a href="../interfaces/_catavolt_ws_.client.html">Client</a>.<a href="../interfaces/_catavolt_ws_.client.html#stringget">stringGet</a></p>
+								<ul>
+									<li>Defined in catavolt/ws.ts:41</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetUrl: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> timeoutMillis: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -215,6 +270,9 @@
 						<a href="../modules/_catavolt_fp_.html">"catavolt/fp"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_print_.html">"catavolt/print"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
 					</li>
 					<li class="current tsd-kind-external-module tsd-is-external">
@@ -228,6 +286,9 @@
 						<a href="_catavolt_ws_.call.html" class="tsd-kind-icon">Call</a>
 					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
+						<a href="_catavolt_ws_.clientfactory.html" class="tsd-kind-icon">Client<wbr>Factory</a>
+					</li>
+					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external">
 						<a href="_catavolt_ws_.get.html" class="tsd-kind-icon">Get</a>
 					</li>
 				</ul>
@@ -236,13 +297,19 @@
 						<a href="_catavolt_ws_.xmlhttpclient.html" class="tsd-kind-icon">XMLHttp<wbr>Client</a>
 						<ul>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
-								<a href="_catavolt_ws_.xmlhttpclient.html#jsoncall" class="tsd-kind-icon">json<wbr>Call</a>
-							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_ws_.xmlhttpclient.html#jsonget" class="tsd-kind-icon">json<wbr>Get</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_ws_.xmlhttpclient.html#jsonpost" class="tsd-kind-icon">json<wbr>Post</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_ws_.xmlhttpclient.html#postmultipart" class="tsd-kind-icon">post<wbr>Multipart</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_catavolt_ws_.xmlhttpclient.html#sendrequest" class="tsd-kind-icon">send<wbr>Request</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_ws_.xmlhttpclient.html#stringget" class="tsd-kind-icon">string<wbr>Get</a>
 							</li>
 						</ul>
 					</li>

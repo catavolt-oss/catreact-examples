@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>catreact</title>
+	<title>catreact-html</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">catreact</a>
+					<a href="index.html" class="title">catreact-html</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -57,7 +57,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> catreact</h1>
+			<h1> catreact-html</h1>
 		</div>
 	</div>
 </header>
@@ -75,40 +75,40 @@
 				</ol>
 				<p>The Catavolt React Component hierarchy mimics the Catavolt Extender (server model) as well as the object model used in the Catvolt SDK. Please see <a href="../componentOverview.pdf">this document</a>.</p>
 				<h3 id="catavolt-core-react-components-core-package-">Catavolt ‘Core’ React Components (‘core’ package)</h3>
-				<p><strong>&lt;<a href="modules/_core_catavoltpane_.html#catavoltpane">CatavoltPane</a>/&gt;</strong><br>Required root component. Initializes the SDK and supplies the ‘context’ with support objects<br>Accepts <a href="interfaces/_core_catavoltpane_.catavoltpaneprops.html">CatavoltPaneProps</a>  </p>
-				<p><strong>&lt;<a href="modules/_core_cvlogin_.html#cvlogin">CvLogin</a>/&gt;</strong><br>Allows for declarative access to Catavolt’s login service. Publishes the Login Event to the EventRegistry for other components to consume.<br>Accepts <a href="interfaces/_core_cvlogin_.cvloginprops.html">CvLoginProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvappwindow_.html#cvappwindow">CvAppWindow</a>/&gt;</strong><br>Analogous to the Catavolt AppWinDef object. Exposes the AppWinDef to the context scope and makes multi-window apps possible.<br>Accepts <a href="interfaces/_core_cvappwindow_.cvappwindowprops.html">CvAppWindowProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvworkbench_.html#cvworkbench">CvWorkbench</a>/&gt;</strong><br>Provides access to the workbench via workbenchId.<br>Accepts <a href="interfaces/_core_cvworkbench_.cvworkbenchprops.html">CvWorkbenchProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvworkbenchmenu_.html#cvworkbenchmenu">CvWorkbenchMenu</a>/&gt;</strong><br>Allows for the construction of ‘menu’ of the current workbenches in the current AppWindow scope.<br>Accepts <a href="interfaces/_core_cvworkbenchmenu_.cvworkbenchmenuprops.html">CvWorkbenchMenuProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvlauncher_.html#cvlauncher">CvLauncher</a>/&gt;</strong><br>Provides a mechanism to custom render a launcher and handle a ‘click’ action.<br>Accepts <a href="interfaces/_core_cvlauncher_.cvlauncherprops.html">CvLauncherProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvnavigation_.html#cvnavigation">CvNavigation</a>/&gt;</strong><br>Represents a ‘target’ for a navigation action.  Also ‘subscribes’ to all Navigation Events, and handles those that match its ‘target’ value.<br>Accepts <a href="interfaces/_core_cvnavigation_.cvnavigationprops.html">CvNavigationProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvform_.html#cvform">CvForm</a>/&gt;</strong><br>Handles the ‘logical’ rendering of a Form definition, hosting pluggable ‘component’ renderers for each type of ‘pane’ that may be a ‘child’ of a Form.<br>Accepts <a href="interfaces/_core_cvform_.cvformprops.html">CvFormProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a>/&gt;</strong><br>Provides access to a ‘ListContext’, it’s associated data, and list paging controls.<br>Accepts <a href="interfaces/_core_cvlistpane_.cvlistpaneprops.html">CvListPaneProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvquerypane_.html#cvquerypane">CvQueryPane</a>/&gt;</strong><br>Provides access to a ‘QueryContext’ subtypes and their associated data
-				Accepts <a href="interfaces/_core_cvquerybase_.cvquerypaneprops.html">CvQueryPaneProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvdetailspane_.html#cvdetailspane">CvDetailsPane</a>/&gt;</strong><br>Provides rendering of a ‘DetailsContext’ a data editing controls.<br>Accepts <a href="interfaces/_core_cvdetailspane_.cvdetailspaneprops.html">CvDetailsPaneProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvrecordlist_.html#cvrecordlist">CvRecordList</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a>’. Allows for the specification of a rendering function to render the ‘EntityRecords’ supplied by a parent ListPane.<br>Accepts <a href="interfaces/_core_cvrecordlist_.cvrecordlistprops.html">CvRecordListProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>/&gt;</strong><br>Corresponds to an ‘EntityRecord’.  Provides a context for accessing the ‘Properties’ of a record.  Also provides a default click handler for a record.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvrecord_.cvrecordprops.html">CvRecordProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvaction_.html#cvaction">CvAction</a>/&gt;</strong><br>Allows for the direct creation of a Catavolt ‘Action’.  Provides ‘click’ handling options as well as the base logic for ‘<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>’.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvaction_.cvactionbaseprops.html">CvActionBaseProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.<br>Accepts <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html">CvMenuItemProps</a>  </p>
+				<p><strong>&lt;{@link CatavoltPane}/&gt;</strong><br>Required root component. Initializes the SDK and supplies the ‘context’ with support objects<br>Accepts {@link CatavoltPaneProps}  </p>
+				<p><strong>&lt;{@link CvLogin}/&gt;</strong><br>Allows for declarative access to Catavolt’s login service. Publishes the Login Event to the EventRegistry for other components to consume.<br>Accepts {@link CvLoginProps}</p>
+				<p><strong>&lt;{@link CvAppWindow}/&gt;</strong><br>Analogous to the Catavolt AppWinDef object. Exposes the AppWinDef to the context scope and makes multi-window apps possible.<br>Accepts {@link CvAppWindowProps}</p>
+				<p><strong>&lt;{@link CvWorkbench}/&gt;</strong><br>Provides access to the workbench via workbenchId.<br>Accepts {@link CvWorkbenchProps}</p>
+				<p><strong>&lt;{@link CvWorkbenchMenu}/&gt;</strong><br>Allows for the construction of ‘menu’ of the current workbenches in the current AppWindow scope.<br>Accepts {@link CvWorkbenchMenuProps}</p>
+				<p><strong>&lt;{@link CvLauncher}/&gt;</strong><br>Provides a mechanism to custom render a launcher and handle a ‘click’ action.<br>Accepts {@link CvLauncherProps}</p>
+				<p><strong>&lt;{@link CvNavigation}/&gt;</strong><br>Represents a ‘target’ for a navigation action.  Also ‘subscribes’ to all Navigation Events, and handles those that match its ‘target’ value.<br>Accepts {@link CvNavigationProps}</p>
+				<p><strong>&lt;{@link CvForm}/&gt;</strong><br>Handles the ‘logical’ rendering of a Form definition, hosting pluggable ‘component’ renderers for each type of ‘pane’ that may be a ‘child’ of a Form.<br>Accepts {@link CvFormProps}</p>
+				<p><strong>&lt;{@link CvListPane}/&gt;</strong><br>Provides access to a ‘ListContext’, it’s associated data, and list paging controls.<br>Accepts {@link CvListPaneProps}</p>
+				<p><strong>&lt;{@link CvQueryPane}/&gt;</strong><br>Provides access to a ‘QueryContext’ subtypes and their associated data
+				Accepts {@link CvQueryPaneProps}</p>
+				<p><strong>&lt;{@link CvDetailsPane}/&gt;</strong><br>Provides rendering of a ‘DetailsContext’ a data editing controls.<br>Accepts {@link CvDetailsPaneProps}</p>
+				<p><strong>&lt;{@link CvRecordList}/&gt;</strong><br>Should be used as a child of ‘{@link CvListPane}’. Allows for the specification of a rendering function to render the ‘EntityRecords’ supplied by a parent ListPane.<br>Accepts {@link CvRecordListProps}</p>
+				<p><strong>&lt;{@link CvRecord}/&gt;</strong><br>Corresponds to an ‘EntityRecord’.  Provides a context for accessing the ‘Properties’ of a record.  Also provides a default click handler for a record.  Publishes Navigation Events.<br>Accepts {@link CvRecordProps}</p>
+				<p><strong>&lt;{@link CvAction}/&gt;</strong><br>Allows for the direct creation of a Catavolt ‘Action’.  Provides ‘click’ handling options as well as the base logic for ‘{@link CvMenuItem}’.  Publishes Navigation Events.<br>Accepts {@link CvActionBaseProps}</p>
+				<p><strong>&lt;{@link CvMenuItem}/&gt;</strong><br>Allows for the recursive, nested construction of ‘MenuDef’s.  Provides click handling options.  Publishes Navigation Events.<br>Accepts {@link CvMenuItemProps}  </p>
 				<p>There are several ways to use CvMenuItem  </p>
 				<ol>
 					<li>Simple wrapper - Provide an actionId OR menuItem and (optionally) a wrapperElem and wrapperElemProps.<br>This will render your child tags wrapped in wrapperElem with an onClick that fires &#39;this&#39; action  </li>
 					<li>Function for submenus - Provide an actionId OR menuItem and a subMenuItemRenderer
-						see <a href="interfaces/_core_cvmenuitem_.cvmenuitemprops.html#submenuitemrenderer">CvMenuItemProps.subMenuItemRenderer</a>.
+						see {@link CvMenuItemProps.subMenuItemRenderer}.
 						Providing this function will allow you to render all &#39;child&#39; MenuDefs (but not &#39;this&#39; MenuDef).
 					The result will be wrapped in wrapperElem (if provided)</li>
 					<li>Recursive rendering of child menus - Omit both an actionId and menuItem and (optionally) specify a parentMenuItem
 						The render method will render each child of the parentMenuItem (provided or found in scope) passing along all
-					additional properties to new child <a href="modules/_core_cvmenuitem_.html#cvmenuitem">CvMenuItem</a>s</li>
+					additional properties to new child {@link CvMenuItem}s</li>
 				</ol>
-				<p><strong>&lt;<a href="modules/_core_cvresource_.html#cvresource">CvResource</a>/&gt;</strong><br>Provides access to remote resources.  (Currently images via the GMLAssetsURL)<br>Accepts <a href="interfaces/_core_cvresource_.cvresourceprops.html">CvResourceProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvprop_.html#cvprop">CvProp</a>/&gt;</strong><br>Should be used as a child of ‘<a href="modules/_core_cvrecord_.html#cvrecord">CvRecord</a>’.  Allows for accessing or custom rendering a ‘property’.  Renders binary properties as responsive images.<br>Accepts <a href="interfaces/_core_cvprop_.cvpropprops.html">CvPropProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvmessagepane_.html#cvmessagepane">CvMessagePane</a>/&gt;</strong><br>Allows for the rendering of <a href="interfaces/_core_cvreact_.cvmessage.html">CvMessage</a> events<br>Accepts <a href="interfaces/_core_cvmessagepane_.cvmessagepaneprops.html">CvMessagePaneProps</a></p>
-				<p><strong>&lt;<a href="modules/_core_cvlogout_.html#cvlogout">CvLogout</a>/&gt;</strong><br>Handle end session<br>Accepts <a href="interfaces/_core_cvlogout_.cvlogoutprops.html">CvLogoutProps</a></p>
+				<p><strong>&lt;{@link CvResource}/&gt;</strong><br>Provides access to remote resources.  (Currently images via the GMLAssetsURL)<br>Accepts {@link CvResourceProps}</p>
+				<p><strong>&lt;{@link CvProp}/&gt;</strong><br>Should be used as a child of ‘{@link CvRecord}’.  Allows for accessing or custom rendering a ‘property’.  Renders binary properties as responsive images.<br>Accepts {@link CvPropProps}</p>
+				<p><strong>&lt;{@link CvMessagePane}/&gt;</strong><br>Allows for the rendering of {@link CvMessage} events<br>Accepts {@link CvMessagePaneProps}</p>
+				<p><strong>&lt;{@link CvLogout}/&gt;</strong><br>Handle end session<br>Accepts {@link CvLogoutProps}</p>
 				<p>Additional Mixins/Helpers
-				<a href="modules/_core_cvquerybase_.html#cvquerybase">CvQueryBase</a> (module)<br>Base Mixin for <a href="modules/_core_cvquerypane_.html#cvquerypane">CvQueryPane</a> and <a href="modules/_core_cvlistpane_.html#cvlistpane">CvListPane</a></p>
-				<p><strong>CvReact</strong> (module}<br>Base, common components.<br><a href="modules/_core_cvreact_.html#cvbasemixin">CvBaseMixin</a>, <a href="classes/_core_cvreact_.cveventregistry.html">CvEventRegistry</a>, <a href="interfaces/_core_cvreact_.cvevent.html">CvEvent</a> and <a href="enums/_core_cvreact_.cveventtype.html">CvEventType</a>  definitions and utility functions.  </p>
+				{@link CvQueryBase} (module)<br>Base Mixin for {@link CvQueryPane} and {@link CvListPane}</p>
+				<p><strong>CvReact</strong> (module}<br>Base, common components.<br>{@link CvBaseMixin}, {@link CvEventRegistry}, {@link CvEvent} and {@link CvEventType}  definitions and utility functions.  </p>
 				<h3 id="catavolt-extended-react-components-ext-package-">Catavolt ‘Extended’ React Components (‘ext’ package)</h3>
 				<p><strong>&lt;<a href="modules/_ext_cvloginpanel_.html#cvloginpanel">CvLoginPanel</a>/&gt;</strong><br>Basic styled, configurable Login Component<br><a href="interfaces/_ext_cvloginpanel_.cvloginpanelprops.html">CvLoginPanelProps</a></p>
 				<p><strong>&lt;<a href="modules/_ext_cvworkbenchmanager_.html#cvworkbenchmanager">CvWorkbenchManager</a>/&gt;</strong><br>Basic Workbench ‘switcher’ composed of a <a href="modules/_ext_cvgraphicalworkbenchmenu_.html#cvdropdownworkbenchmenu">CvDropdownWorkbenchMenu</a> and <a href="modules/_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench">CvGraphicalWorkbench</a> by default.  ‘Pluggable’ with other implementations of these.<br><a href="interfaces/_ext_cvworkbenchmanager_.cvworkbenchmanagerprops.html">CvWorkbenchManagerProps</a></p>
@@ -130,7 +130,7 @@
 				<p><strong>&lt;<a href="modules/_ext_cvgraphpanel_.html#cvgraphpanel">CvGraphPanel</a>/&gt;</strong><br>Render a default, styled graph
 				<a href="interfaces/_ext_cvgraphpanel_.cvgraphpanelprops.html">CvGraphPanelProps</a></p>
 				<p><strong>&lt;CvImagePickerPanel/&gt;</strong><br>(pending implementation) Render a default, styled image picker panel  </p>
-				<p><strong>&lt;<a href="modules/_ext_cvmessagepanel_.html#cvmessagepanel">CvMessagePanel</a>/&gt;</strong><br>Uses a <a href="modules/_core_cvmessagepane_.html#cvmessagepane">CvMessagePane</a> to display a &quot;toast-like&quot; notification of messages (based on toast.js)
+				<p><strong>&lt;<a href="modules/_ext_cvmessagepanel_.html#cvmessagepanel">CvMessagePanel</a>/&gt;</strong><br>Uses a {@link CvMessagePane} to display a &quot;toast-like&quot; notification of messages (based on toast.js)
 				<a href="interfaces/_ext_cvmessagepanel_.cvmessagepanelprops.html">CvMessagePanelProps</a>  </p>
 			</div>
 		</div>
@@ -144,85 +144,10 @@
 						<span>Internals</span>
 					</li>
 					<li class=" tsd-kind-external-module">
-						<a href="modules/_catreact_.html">"catreact"</a>
+						<a href="modules/_catreact_html_.html">"catreact-<wbr>html"</a>
 					</li>
 					<li class="label tsd-is-external">
 						<span>Externals</span>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_catavoltpane_.html">"core/<wbr>Catavolt<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvaction_.html">"core/<wbr>CvAction"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvappwindow_.html">"core/<wbr>CvApp<wbr>Window"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvdetailspane_.html">"core/<wbr>CvDetails<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cveditorbase_.html">"core/<wbr>CvEditor<wbr>Base"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvform_.html">"core/<wbr>CvForm"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvlauncher_.html">"core/<wbr>CvLauncher"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvlistpane_.html">"core/<wbr>CvList<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvlogin_.html">"core/<wbr>CvLogin"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvlogout_.html">"core/<wbr>CvLogout"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvmenuitem_.html">"core/<wbr>CvMenu<wbr>Item"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvmessagepane_.html">"core/<wbr>CvMessage<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvnavigation_.html">"core/<wbr>CvNavigation"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvprop_.html">"core/<wbr>CvProp"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvquerybase_.html">"core/<wbr>CvQuery<wbr>Base"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvquerypane_.html">"core/<wbr>CvQuery<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvreact_.html">"core/<wbr>CvReact"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvrecord_.html">"core/<wbr>CvRecord"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvrecordlist_.html">"core/<wbr>CvRecord<wbr>List"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvresource_.html">"core/<wbr>CvResource"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvscope_.html">"core/<wbr>CvScope"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvsearchpane_.html">"core/<wbr>CvSearch<wbr>Pane"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvworkbench_.html">"core/<wbr>CvWorkbench"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_cvworkbenchmenu_.html">"core/<wbr>CvWorkbench<wbr>Menu"</a>
-					</li>
-					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_core_catreact_core_.html">"core/catreact-<wbr>core"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="modules/_ext_cvcellvaluedef_.html">"ext/<wbr>CvCell<wbr>Value<wbr>Def"</a>
@@ -246,7 +171,16 @@
 						<a href="modules/_ext_cvgraphicalworkbenchmenu_.html">"ext/<wbr>CvGraphical<wbr>Workbench<wbr>Menu"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_ext_cvgridpanel_.html">"ext/<wbr>CvGrid<wbr>Panel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="modules/_ext_cvheroheader_.html">"ext/<wbr>CvHero<wbr>Header"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_ext_cvhtmlprop_.html">"ext/<wbr>CvHtml<wbr>Prop"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_ext_cvhtmlresource_.html">"ext/<wbr>CvHtml<wbr>Resource"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="modules/_ext_cvlistpanel_.html">"ext/<wbr>CvList<wbr>Panel"</a>
@@ -267,6 +201,12 @@
 						<a href="modules/_ext_cvnavigator_.html">"ext/<wbr>CvNavigator"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_ext_cvprintpanel_.html">"ext/<wbr>CvPrint<wbr>Panel"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="modules/_ext_cvreacthtml_.html">"ext/<wbr>CvReact<wbr>Html"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="modules/_ext_cvsearchpanel_.html">"ext/<wbr>CvSearch<wbr>Panel"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
@@ -276,7 +216,7 @@
 						<a href="modules/_ext_cvworkbenchmanager_.html">"ext/<wbr>CvWorkbench<wbr>Manager"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
-						<a href="modules/_ext_catreact_ext_.html">"ext/catreact-<wbr>ext"</a>
+						<a href="modules/_ext_catreact_html_.html">"ext/catreact-<wbr>html"</a>
 					</li>
 				</ul>
 			</nav>

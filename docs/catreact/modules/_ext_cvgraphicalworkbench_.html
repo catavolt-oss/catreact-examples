@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>&quot;ext/CvGraphicalWorkbench&quot; | catreact</title>
+	<title>&quot;ext/CvGraphicalWorkbench&quot; | catreact-html</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">catreact</a>
+					<a href="../index.html" class="title">catreact-html</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -74,6 +74,8 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Interfaces</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelprops.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>Props</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelstate.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>State</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Props</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchstate.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>State</a></li>
 							</ul>
@@ -82,6 +84,7 @@
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_ext_cvgraphicalworkbench_.html#cvgraphicalworkbenchpanel" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel</a></li>
 							</ul>
 						</section>
 					</div>
@@ -92,10 +95,20 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvgraphicalworkbench" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Graphical<wbr>Workbench</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html" class="tsd-signature-type">CvGraphicalWorkbenchProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvGraphicalWorkbenchProps, CvGraphicalWorkbenchState&gt;({mixins: [CvBaseMixin],componentDidMount: function () {this.refresh(this.props);},componentWillReceiveProps: function (nextProps) {this.refresh(nextProps);},appWinDef: function ():AppWinDef {return this.props.appWinDef || this.firstInScope(AppWinDef);},getDefaultProps: function () {return {appWinDef: null,launchListeners: [],actionListeners: [],numCols: 3,selectionProvider: null,initialWorkbench: null,initialWorkbenchId: null}},getInitialState: function () {return {workbench: null}},getChildContext: function () {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.workbench();return ctx;},refresh: function (props:CvGraphicalWorkbenchProps) {if (props.initialWorkbench) {this.setState({workbench: props.initialWorkbench});} else if (props.initialWorkbenchId) {const workbench &#x3D; this._workbenchForId(props.initialWorkbenchId);if(workbench) {this.setState({workbench: workbench});} else {this.setState({workbench: this.appWinDef().workbenches[0]})}} else {this.setState({workbench: this.appWinDef().workbenches[0]})}const selectionProvider:CvValueProvider&lt;Workbench&gt; &#x3D; props.selectionProvider;if (selectionProvider) {selectionProvider.subscribe(this._updateWorkbench);}},render: function () {const workbench:Workbench &#x3D; this.workbench();if (workbench) {return (&lt;CvWorkbench workbench&#x3D;{workbench} appWinDef&#x3D;{this.appWinDef()} renderer&#x3D;{(cvContext:CvContext)&#x3D;&gt;{const cssCols &#x3D; Math.floor(12/this.props.numCols);const workbench:Workbench &#x3D; cvContext.scopeCtx.scopeObj as Workbench;const newChildren &#x3D; [];let rowElems &#x3D; [];workbench.workbenchLaunchActions.forEach((launchAction:WorkbenchLaunchAction, i:number) &#x3D;&gt; {rowElems.push(&lt;CvLauncher launchAction&#x3D;{launchAction} key&#x3D;{launchAction.actionId}launchListeners&#x3D;{this.props.launchListeners} actionListeners&#x3D;{this.props.actionListeners}renderer&#x3D;{(cvContext:CvContext, callback:CvLaunchActionCallback)&#x3D;&gt;{const launcher &#x3D; cvContext.scopeCtx.scopeObj as WorkbenchLaunchAction;return (&lt;div onClick&#x3D;{callback.fireLaunchAction} className&#x3D;{&quot;col-sm-&quot; + cssCols + &quot; cv-launcher-container cv-target animated fadeIn&quot;}&gt;&lt;img className&#x3D;&quot;cv-launcher-icon img-responsive center-block&quot; src&#x3D;{launcher.iconBase} onError&#x3D;{this._loadPlaceholder}/&gt;&lt;h4 className&#x3D;&quot;cv-launcher-text small text-center&quot;&gt;{launcher.name}&lt;/h4&gt;&lt;/div&gt;);}}/&gt;);if(i % this.props.numCols &#x3D;&#x3D; this.props.numCols-1) {newChildren.push(React.createElement(&#x27;div&#x27;, {className:&#x27;row&#x27;, key: i}, rowElems));rowElems &#x3D; [];}});if(rowElems.length &gt; 0){newChildren.push(React.createElement(&#x27;div&#x27;, {className:&#x27;row&#x27;, key: &#x27;00&#x27;}, rowElems));}return &lt;div&gt;{newChildren}&lt;/div&gt;}}/&gt;);} else {return null;}},workbench: function () {return this.state.workbench;},_loadPlaceholder: function (e) {e.preventDefault();e.target.src &#x3D; &#x27;http://cdn.churchm.ag/wp-content/uploads/2013/06/404-Space-Invaders.png&#x27;},_updateWorkbench: function (workbench:Workbench) {this.setState({workbench: workbench});},_workbenchForId: function(id:string) {const appWinDef &#x3D; this.appWinDef();let workbench &#x3D; null;appWinDef.workbenches.some((wb)&#x3D;&gt; {if (wb.workbenchId &#x3D;&#x3D; id) {workbench &#x3D; wb;return true;} else {return false;}});return workbench;}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html" class="tsd-signature-type">CvGraphicalWorkbenchProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvGraphicalWorkbenchProps, CvGraphicalWorkbenchState&gt;({mixins: [CvBaseMixin],componentDidMount: function () {this.refresh(this.props);},componentWillReceiveProps: function (nextProps) {this.refresh(nextProps);},appWinDef: function ():AppWinDef {return this.props.appWinDef || this.firstInScope(AppWinDef);},getDefaultProps: function () {return {appWinDef: null,launchListeners: [],actionListeners: [],numCols: 3,selectionProvider: null,workbench: null,workbenchId: null}},getInitialState: function () {return {workbench: null}},getChildContext: function () {const ctx &#x3D; this.getDefaultChildContext();ctx.cvContext.scopeCtx.scopeObj &#x3D; this.workbench();return ctx;},refresh: function (props:CvGraphicalWorkbenchProps) {if (props.workbench) {this.setState({workbench: props.workbench});} else if (props.workbenchId) {const workbench &#x3D; this._workbenchForId(props.workbenchId);if(workbench) {this.setState({workbench: workbench});} else {this.setState({workbench: this.appWinDef().workbenches[0]})}} else {this.setState({workbench: this.appWinDef().workbenches[0]})}const selectionProvider:CvValueProvider&lt;Workbench&gt; &#x3D; props.selectionProvider;if (selectionProvider) {selectionProvider.subscribe(this._updateWorkbench);}},render: function () {const workbench:Workbench &#x3D; this.workbench();if (workbench) {return (&lt;CvWorkbench workbench&#x3D;{workbench} appWinDef&#x3D;{this.appWinDef()} renderer&#x3D;{(cvContext:CvContext)&#x3D;&gt;{const cssCols &#x3D; Math.floor(12/this.props.numCols);const workbench:Workbench &#x3D; cvContext.scopeCtx.scopeObj as Workbench;const newChildren &#x3D; [];let rowElems &#x3D; [];workbench.workbenchLaunchActions.forEach((launchAction:WorkbenchLaunchAction, i:number) &#x3D;&gt; {rowElems.push(&lt;CvLauncher launchAction&#x3D;{launchAction} key&#x3D;{launchAction.actionId}launchListeners&#x3D;{this.props.launchListeners} actionListeners&#x3D;{this.props.actionListeners}renderer&#x3D;{(cvContext:CvContext, callback:CvLaunchActionCallback)&#x3D;&gt;{const launcher &#x3D; cvContext.scopeCtx.scopeObj as WorkbenchLaunchAction;return (&lt;div onClick&#x3D;{callback.fireLaunchAction}className&#x3D;{&quot;col-sm-&quot; + cssCols + &quot; cv-launcher-container cv-target animated fadeIn&quot;}id&#x3D;{launcher.alias || launcher.actionId}&gt;&lt;img className&#x3D;&quot;cv-launcher-icon img-responsive center-block&quot; src&#x3D;{launcher.iconBase} onError&#x3D;{this._loadPlaceholder}/&gt;&lt;h4 className&#x3D;&quot;cv-launcher-text small text-center&quot;&gt;{launcher.name}&lt;/h4&gt;&lt;/div&gt;);}}/&gt;);if(i % this.props.numCols &#x3D;&#x3D; this.props.numCols-1) {newChildren.push(React.createElement(&#x27;div&#x27;, {className:&#x27;row&#x27;, key: i}, rowElems));rowElems &#x3D; [];}});if(rowElems.length &gt; 0){newChildren.push(React.createElement(&#x27;div&#x27;, {className:&#x27;row&#x27;, key: &#x27;00&#x27;}, rowElems));}return &lt;div&gt;{newChildren}&lt;/div&gt;}}/&gt;);} else {return null;}},workbench: function () {return this.state.workbench;},_loadPlaceholder: function (e) {e.preventDefault();e.target.src &#x3D; &#x27;http://cdn.churchm.ag/wp-content/uploads/2013/06/404-Space-Invaders.png&#x27;},_updateWorkbench: function (workbench:Workbench) {this.setState({workbench: workbench});},_workbenchForId: function(id:string) {const appWinDef &#x3D; this.appWinDef();let workbench &#x3D; null;appWinDef.workbenches.some((wb)&#x3D;&gt; {if (wb.workbenchId &#x3D;&#x3D; id) {workbench &#x3D; wb;return true;} else {return false;}});return workbench;}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in ext/CvGraphicalWorkbench.tsx:64</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+					<a name="cvgraphicalworkbenchpanel" class="tsd-anchor"></a>
+					<h3>Cv<wbr>Graphical<wbr>Workbench<wbr>Panel</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelprops.html" class="tsd-signature-type">CvGraphicalWorkbenchPanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvGraphicalWorkbenchPanelProps, CvGraphicalWorkbenchPanelState&gt;({mixins: [CvBaseMixin],appWinDef: function ():AppWinDef {return this.props.appWinDef || this.firstInScope(AppWinDef);},getDefaultProps: function() {return {appWinDef:null, workbench: null, workbenchId:null, workbenchRenderer: null}},render: function () {const workbench &#x3D; this.workbench();if (this.props.renderer) {return this.props.renderer(this.getChildContext().cvContext);}  else {return (&lt;div className&#x3D;&quot;cv-workbench-manager-container animated fadeIn&quot;&gt;&lt;div className&#x3D;&quot;cv-panel panel panel-primary cv-workbench-panel&quot;&gt;&lt;div className&#x3D;&quot;cv-panel-heading panel-heading&quot;&gt;&lt;h3 className&#x3D;&quot;cv-panel-title panel-title&quot;&gt;{workbench ? workbench.name : &#x27;&#x27;}&lt;/h3&gt;&lt;/div&gt;&lt;div className&#x3D;&quot;cv-panel-body panel-body&quot;&gt;{this.props.workbenchRenderer(workbench)}&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;);}},workbench: function() {if (this.props.workbenchId) {const workbench &#x3D; this._workbenchForId(this.props.workbenchId);if(workbench) {return workbench;} else {return this.appWinDef().workbenches.length &gt; 0 ? this.appWinDef().workbenches[0] : null;}}},_workbenchForId: function(id:string) {const appWinDef &#x3D; this.appWinDef();let workbench &#x3D; null;appWinDef.workbenches.some((wb)&#x3D;&gt; {if (wb.workbenchId &#x3D;&#x3D; id) {workbench &#x3D; wb;return true;} else {return false;}});return workbench;}})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGraphicalWorkbench.tsx:216</li>
 						</ul>
 					</aside>
 				</section>
@@ -115,6 +128,12 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelprops.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelstate.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 						<a href="../interfaces/_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Props</a>
 					</li>
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
@@ -122,6 +141,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 						<a href="_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+						<a href="_ext_cvgraphicalworkbench_.html#cvgraphicalworkbenchpanel" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel</a>
 					</li>
 				</ul>
 			</nav>

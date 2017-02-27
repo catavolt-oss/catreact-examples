@@ -17,7 +17,6 @@ body {
 }
 
 .container-fluid, .row {
-    height:100%;
 }
 
 #cvApp {
@@ -50,10 +49,31 @@ body {
     margin-bottom: 50px;
 }
 
-.cv-footer {
+.cv-user-id {
+    font-size: small;
+    margin: 1px 3px 1px 7px;
+}
+
+.cv-footer{
     /*background-color: #d3ddea; */
     background-color: #c0cad7;
-    padding: 15px 10px 10px 10px;
+    padding: 5px 5px 5px 5px;
+    border: 1px solid transparent;
+    border-width: 1px 0 0;
+    margin-bottom: 0;
+    bottom: 0;
+    border-radius: 0;
+    right: 0;
+    left: 0;
+    z-index: 1030;
+}
+
+.cv-footer-fixed {
+    position: fixed;
+}
+
+.cv-footer ul {
+   margin: 0px;
 }
 
 .cv-footer a {
@@ -63,6 +83,7 @@ body {
 /* top-level window container */
 .cv-window {
     margin-bottom: 70px;
+    height: 100%;
 }
 
 /* login form */
@@ -90,6 +111,13 @@ body {
 
 .cv-login-form {
     padding: 15px;
+}
+
+.cv-login-error {
+    margin-top: 20px;
+    color:#a94442;
+    font-size: larger;
+    text-align:center;
 }
 
 .cv-logo {
@@ -165,9 +193,22 @@ body {
 .cv-workbench-panel {
 }
 
-/* workbench menu */
+/* navigation bar containing workbenches */
+.cv-workbench-navbar {
+    text-align: center;
+    margin: 5px 5px 15px 5px;
+}
+
+/* back navigation container */
+.cv-back-nav {
+    padding: 15px 5px;
+    vertical-align: middle;
+}
+
+/* workbench menu items */
 .cv-workbench-tab-menu {
-    margin: 5px 5px 5px 10px;
+    margin: 3px 3px 1px 3px;
+    display: inline-block;
 }
 
 .cv-workbench-tab-menu a {
@@ -184,9 +225,14 @@ body {
 .cv-form-container {
     margin-left: 5px;
     margin-right: 5px;
+    height: 100%;
 }
 
 .cv-split-pane {
+}
+
+.cv-tab-form-menu {
+    margin: 10px 0px 5px 0px;
 }
 
 .cv-popup-nav-container {
@@ -194,17 +240,33 @@ body {
 
 /* list panel */
 
-.cv-list-container {
+.cv-list-scrollpane {
+    max-height:560px;
+    overflow: auto;
 }
 
-
-.cv-list-scrollpane {
-    max-height:720px;
-    overflow: auto;
+.cv-list-container {
+    /*width: 100%;*/
 }
 
 .cv-list-container .cv-list-cell {
     vertical-align: middle;
+}
+
+.cv-list-container .cv-list-cell-width-xl {
+    min-width: 600px;
+}
+
+.cv-list-container .cv-list-cell-width-lg {
+    min-width: 400px;
+}
+
+.cv-list-container .cv-list-cell-width-md {
+    white-space: nowrap;
+}
+
+.cv-list-container .cv-list-cell-width-default {
+   white-space: nowrap;
 }
 
 .cv-paging-controls {
@@ -215,8 +277,8 @@ body {
     margin: 5px;
 }
 
-.cv-selected-row {
-    background-color: #fcf4ce;
+.cv-table>tbody>tr.cv-selected-row {
+    background-color: #f4e492;
 }
 
 .cv-sort-dir {
@@ -225,10 +287,53 @@ body {
     margin-bottom: 3px;
 }
 
+
+/* grid panel */
+
+.cv-grid-container {
+    width: 100%;
+}
+
+/*
+ ag-grid adds a wrapper div with this class name
+ we'll set it to expand height fully so that we can vertical center lines
+ */
+.ag-react-container {
+    height:100%;
+}
+
+.ag-fresh .ag-row-selected {
+    background-color: #f4e492;
+}
+
+
+.cv-grid-cell-wrapper {
+    display: table;
+    height: 100%;
+}
+
+.cv-grid-container .cv-grid-cell {
+    display: table-cell;
+    vertical-align: middle;
+    height: 100%;
+}
+
+.cv-selectable {
+    -webkit-user-select:text;
+    -moz-user-select: text;
+    -ms-user-select:text;
+    user-select: text;
+}
+
+.cv-quick-filter {
+    margin-right:10px;
+}
+
+
 /* detail panel */
 
 .cv-detail-container {
-    max-height:750px;
+    max-height:650px;
     overflow-x: hidden;
     overflow-y: auto;
 }
@@ -244,6 +349,7 @@ body {
 }
 
 .cv-label-cell-def {
+    font-weight: bold;
 }
 
 .cv-cell-def-select-box {
@@ -353,6 +459,14 @@ body {
     color: #ffffff;
 }
 
+.cv-spinner-size {
+    font-size: 5em;
+}
+
+.cv-table-spinner-size {
+    font-size: 1.5em;
+}
+
 /* icons */
 
 .cv-icon {
@@ -371,6 +485,10 @@ body {
 
 .cv-image-list-item-max-size {
     max-height: 125px;
+}
+
+.cv-image-grid-item-max-size {
+    max-height: 50px;
 }
 
 .cv-annotation-image {
@@ -436,4 +554,3 @@ body {
 .toast-warning {
     background-color: #f8b95c;
 }
-

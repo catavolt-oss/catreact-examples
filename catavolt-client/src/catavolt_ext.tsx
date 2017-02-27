@@ -22,18 +22,20 @@ import {
     CvStateChangeType,
     CvNavigationResultType,
     CvActionFiredResult,
-    CvActionFiredResultType
+    CvActionFiredResultType, CvLogoutResult, CvAppWindowCallback
 } from 'catreact'
 import {
     CvLoginPanel,
     CvGraphicalWorkbench,
+    CvGraphicalWorkbenchPanel,
     CvWorkbenchManager,
     CvNavigator,
     CvDropdownWorkbenchMenu,
     CvTabbedWorkbenchMenu,
     CvVerticalLayoutFormPane,
     CvTabbedFormPanel,
-    CvMessagePanel
+    CvMessagePanel,
+    CvDisplayProperties
 } from '../../catreact-html'
 
 Log.logLevel(LogLevel.DEBUG);
@@ -54,12 +56,20 @@ const CvReactBase = {
     _showWaitState: function(event:CvEvent<CvActionFiredResult>) {
         if(this.isMounted()) {
             if(event.eventObj.type === CvActionFiredResultType.ACTION_STARTED) {
-                this.waitListener(true);
+                this._showWait();
             } else if(event.eventObj.type === CvActionFiredResultType.ACTION_COMPLETED) {
-                this.waitListener(false);
+                this._hideWait();
             }
         }
     },
+    
+    _showWait: function() {
+        this.waitListener(true);
+    },
+    
+    _hideWait: function() {
+        this.waitListener(false);
+    }
 
 
 };
@@ -79,19 +89,17 @@ const CvReactApp = React.createClass({
                 <CatavoltPane enableResourceCaching={true}>
                     {this.props.children}
                 </CatavoltPane>
-                <CvReactFooter/>
             </div>
         );
     }
 });
 
-const CvReactFooter  = React.createClass({
+const CvReactFooter  = React.createClass<{fixed?:boolean},{}>({
    
     render: function () {
-        return <div className="cv-footer navbar navbar-fixed-bottom">
+        return <div className={'cv-footer' + (this.props.fixed ? ' cv-footer-fixed' : '')}>
             <ul className="list-inline text-right">
-                <li><a className="cv-target">About</a></li>
-                <li><a className="cv-target">Contact</a></li>
+                <li><a className="cv-target">&copy; Catavolt Inc. 2016</a></li>
             </ul>
         </div>
     }
@@ -107,21 +115,32 @@ const CvReactLogin = React.createClass({
 
     mixins: [CvReactBase],
     
+    componentWillMount: function() {
+        const tenantId = this.props.params.tenantId;
+        if(!tenantId) {
+            this.setState({showDirectUrl:true, showGatewayUrl: true, showTenantId:true});
+        } 
+    },
+    
     getInitialState() {
-       return {showDirectUrl: false, showGatewayUrl: false}
+       return {showDirectUrl: false, showGatewayUrl: false, showTenantId: false}
     },
 
     render: function () {
+
+        const tenantId = this.props.params.tenantId;
+        
         return <div>
             <div className="cv-login-wrapper">
                 <div className="cv-login-logo" onDoubleClick={this._toggleHiddenFields}></div>
                 <CvLoginPanel
-                    defaultGatewayUrl={'gw.catavolt.net'}
-                    defaultTenantId={'solarsourcez'}
-                    defaultUserId={'sales'}
+                    defaultGatewayUrl={'www.catavolt.net'}
+                    defaultTenantId={tenantId}
                     showDirectUrl={this.state.showDirectUrl}
                     showGatewayUrl={this.state.showGatewayUrl}
+                    showTenantId={this.state.showTenantId}
                     showClientType={false}
+                    actionListeners={[this._showWaitState]}
                     loginListeners={[(event:CvEvent<CvLoginResult>)=>{
                             const windowId = event.resourceId;  //get the session (window) from the LoginEvent
                             this.context.router.replace('/workbench/' + windowId + '/' + '0');
@@ -129,12 +148,14 @@ const CvReactLogin = React.createClass({
                 />
                 <CvMessagePanel/>
             </div>
+            <CvWaitPopup paramProvider={this.waitProvider}/>
+            <CvReactFooter fixed={true}/>
        </div>
     },
     
     _toggleHiddenFields: function(e) {
         if(e.shiftKey && e.ctrlKey) {
-            this.setState({showDirectUrl:!this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl});
+            this.setState({showDirectUrl:!this.state.showDirectUrl, showGatewayUrl: !this.state.showGatewayUrl, showTenantId: !this.state.showTenantId});
         } 
     }
 
@@ -151,25 +172,70 @@ const CvReactWindow = React.createClass({
     
     render: function () {
         const windowId = this.props.params.windowId; //get the window from the url param
-        const logoutListener = ()=>{ this.context.router.replace('/');}
-        return <CvAppWindow windowId={windowId} logoutListeners={[logoutListener]}>
-                    <div className="cv-window">
-                        <div className="cv-logo pull-left"/>
-                        <CvMessagePanel/>
-                        <div className="cv-top-nav text-right">
-                            <CvLogout 
-                                renderer={(cvContext:CvContext, callback:CvLogoutCallback)=>{
-                                    return <a className="cv-target" onClick={callback.logout}>Logout</a>
-                                }}
-                                logoutListeners={[logoutListener]}
-                            />
-                        </div>
-                        {this.props.children}
-                    </div>
-                </CvAppWindow>;
+        const workbenchId = this.props.params.workbenchId; //get the workbench from the url param
+        const logoutListener = (event:CvEvent<CvLogoutResult>)=>{ this.context.router.replace('/' + event.eventObj.tenantId);}
+        return <CvAppWindow windowId={windowId} logoutListeners={[logoutListener]}
+                            renderer={(cvContext:CvContext, callback?:CvAppWindowCallback)=>{
+                                let [userId, tenantId] = ['', ''];
+                                if(callback.getAppContext().sessionContextTry.isSuccess) {
+                                    userId = callback.getAppContext().sessionContextTry.success.userName; 
+                                    tenantId = callback.getAppContext().sessionContextTry.success.tenantId;
+                                }
+                                return <div className="cv-window" ref={(r)=>{ document.title = tenantId}}>
+                                            <div className="cv-logo pull-left"/>
+                                            <CvMessagePanel/>
+                                            <div className="cv-top-nav text-right">
+                                                <CvLogout
+                                                    renderer={(cvContext:CvContext, callback:CvLogoutCallback)=>{
+                                                        return <a className="cv-target" onClick={callback.logout}>Logout</a>
+                                                    }}
+                                                    logoutListeners={[logoutListener]}
+                                                />
+                                                <span className="cv-user-id">({userId})</span>
+                                            </div>
+                                            <div className="clearfix"/>
+                                            <CvReactNavMenu windowId={windowId} workbenchId={workbenchId}
+                                                            path={this.props.location ? this.props.location.pathname : null}/>
+                                            {this.props.children}
+                                </div>
+        }}/>
     }
 
 });
+
+/**
+ * *********************************************************
+ * Create a NavMenu or the supplied window
+ * *********************************************************
+ */
+const CvReactNavMenu = React.createClass<{windowId:string, workbenchId:string, path:string}, {}>({
+
+    mixins: [CvReactBase],
+
+    render: function () {
+
+        const windowId = this.props.windowId;
+        let workbenchId = this.props.workbenchId;
+        const path = this.props.path;
+        const selectionAdapter:CvValueAdapter<Workbench> = new CvValueAdapter<Workbench>();  //the glue for our menu and workbench
+        (selectionAdapter as CvValueProvider<Workbench>).subscribe((workbench:Workbench)=> {
+            this.context.router.push('/workbench/' + windowId + '/' + workbench.workbenchId);
+        });
+        return <div className="cv-workbench-navbar cv-comp-bg-color1">
+            {path && (path.substr(0, 11) === '/navigator/') ?
+                    <div className="cv-back-nav pull-left">
+                        <span className="glyphicon glyphicon-triangle-left" aria-hidden="true"/>
+                        <a className="cv-target" onClick={()=>{this.context.router.goBack()}}>Prev</a>
+                    </div>
+            : null }
+            <div className="cv-workbench-tab-menu">
+                    <CvTabbedWorkbenchMenu workbenchSelectionListener={selectionAdapter.createValueListener()} initialSelectedWorkbenchId={workbenchId}/>
+            </div>
+        </div>;
+        
+    }
+
+ });
 
 /**
  * *********************************************************
@@ -184,91 +250,22 @@ const CvReactWorkbench = React.createClass({
         
         const windowId = this.props.params.windowId; //get the window from the url param
         let workbenchId = this.props.params.workbenchId; //get the workbench from the url param
-        const selectionAdapter:CvValueAdapter<Workbench> = new CvValueAdapter<Workbench>();  //the glue for our menu and workbench
-        (selectionAdapter as CvValueProvider<Workbench>).subscribe((workbench:Workbench)=>{
-            this.context.router.replace('/workbench/' + windowId + '/' + workbench.workbenchId);
-        });
-        let workbenchEl = null;
        
-        /**
-         ****************************************************************
-         * Example 1 - Graphical Workbench with a 'Dropdown' Menu
-         ****************************************************************
-         */
-        //*
-            const menuRenderer = ()=>{
-                return <div className="col-sm-3 col-sm-offset-9 text-right">
-                    <CvDropdownWorkbenchMenu workbenchSelectionListener={selectionAdapter.createValueListener()} initialSelectedWorkbenchId={workbenchId}/>
-                </div>;
-            }
-            
-            const workbenchRenderer = ()=>{
-                return <CvGraphicalWorkbench initialWorkbenchId={workbenchId} numCols={3}
-                            actionListeners={[this._showWaitState]}
-                            launchListeners={[(launchEvent:CvEvent<CvNavigationResult>)=>{
-                                const navigationId = launchEvent.resourceId;
-                                this.context.router.push('/navigator/' + windowId + '/' + navigationId);
-                             }]}
-                />
-            }
-            
-            workbenchEl = <CvWorkbenchManager menuRenderer={menuRenderer} workbenchRenderer={workbenchRenderer} selectionProvider={selectionAdapter}/>
-        //*/
-        /**
-         *********** End Example 1 ****************************************
-         */
+        const workbenchEl = <CvGraphicalWorkbenchPanel workbenchId={workbenchId} workbenchRenderer={(workbench:Workbench)=>
+             <CvGraphicalWorkbench workbench={workbench} numCols={3}
+                                             actionListeners={[this._showWaitState]}
+                                             launchListeners={[(launchEvent:CvEvent<CvNavigationResult>)=>{
+                                                const navigationId = launchEvent.resourceId;
+                                                this.context.router.push('/navigator/' + windowId + '/' + workbenchId + '/' + navigationId);
+                                             }]}
+             />
+         }/>
         
-        
-        /**
-         ****************************************************************
-         * Example 2 - Graphical Workbench with a 'Tabbed' Menu
-         ****************************************************************
-         */
-        /*
-            const menuRenderer = ()=>{
-                return <div className="cv-workbench-tab-menu">
-                    <CvTabbedWorkbenchMenu workbenchSelectionListener={selectionAdapter.createValueListener()} initialSelectedWorkbenchId={workbenchId}/>
-                </div>;
-            }
-
-            const workbenchRenderer = ()=>{
-                return <CvGraphicalWorkbench initialWorkbenchId={workbenchId} numCols={3}
-                            actionListeners={[this._showWaitState]}
-                            launchListeners={[(launchEvent:CvEvent<CvNavigationResult>)=>{
-                                    const navigationId = launchEvent.resourceId;
-                                    this.context.router.push('/navigator/' + windowId + '/' + navigationId);
-                             }]}
-                />
-            }
-
-            workbenchEl = <CvWorkbenchManager menuRenderer={menuRenderer} workbenchRenderer={workbenchRenderer} selectionProvider={selectionAdapter}/>
-          */
-        /**
-         *********** End Example 2 ****************************************
-         */
-        
-
-        /**
-         ****************************************************************
-         * Example 3 - Place a specific workbench (without menu)
-         ****************************************************************
-         */
-        /*
-            workbenchEl = <CvGraphicalWorkbench initialWorkbenchId="AAABACffAAAAAa6T" numCols={4}
-                                actionListeners={[this._showWaitState]}
-                                launchListeners={[(launchEvent:CvEvent<CvNavigationResult>)=>{
-                                    const navigationId = launchEvent.resourceId;
-                                    this.context.router.push('/navigator/' + windowId + '/' + navigationId);
-                                 }]}
-            />
-         */
-        /**
-         *********** End Example 3 ****************************************
-         */
         return(
             <div>
                 {workbenchEl}
                 <CvWaitPopup paramProvider={this.waitProvider}/>
+                <CvReactFooter fixed={true}/>
             </div>
         );
                     
@@ -289,10 +286,18 @@ const CvReactNavigator = React.createClass({
 
     mixins: [CvReactBase],
 
+    componentDidMount() {
+        this.context.router.setRouteLeaveHook(this.props.route, this._hideWait)
+    },
+
     render: function () {
 
         const windowId = this.props.params.windowId; //get the window from the url param
+        const workbenchId = this.props.params.windowId; //get the workbenchId from the url param
         const currentNavId = this.props.params.navId;
+        const currentDisplayProps = this.props.params.displayProps ?
+            CvDisplayProperties.deserializeProperties(this.props.params.displayProps) : new CvDisplayProperties();
+       
         const router = this.context.router;
         return <div>
             <CvNavigator navigationId={currentNavId}
@@ -303,7 +308,7 @@ const CvReactNavigator = React.createClass({
                             if(event.eventObj.noTransition) {
                                 this.navPopupListener(nextNavigationId);    
                             } else {
-                                const target = '/navigator/' + windowId + '/' + nextNavigationId;
+                                const target = '/navigator/' + windowId + '/' + workbenchId + '/' + encodeURIComponent(nextNavigationId);
                                 event.eventObj.sourceIsDestroyed ? router.replace(target) : router.push(target);
                             }
                         } else if(event.eventObj.type === CvNavigationResultType.URL) {
@@ -311,7 +316,7 @@ const CvReactNavigator = React.createClass({
                         }
                     } else {
                         //force a refresh if there's no new resource (i.e. a NullNavigation)
-                        router.replace('/navigator/' + windowId + '/' + currentNavId);
+                        router.replace('/navigator/' + windowId + '/' + workbenchId + '/' + encodeURIComponent(currentNavId));
                     }
                 }]}
                 actionListeners={[this._showWaitState]}
@@ -320,9 +325,15 @@ const CvReactNavigator = React.createClass({
                         router.goBack();
                     }
                 }]}
+                displayProperties={currentDisplayProps}      
+                displayPropChangeListeners={[(updatedDisplayProps:CvDisplayProperties)=>{
+                    router.replace('/navigator/' + windowId + '/' + workbenchId + '/'
+                         + encodeURIComponent(currentNavId) + '/' + encodeURIComponent(updatedDisplayProps.serializeProperties()));
+                }]}
             />
             <CvPopupNavigator paramProvider={this.navPopupProvider}/>
             <CvWaitPopup paramProvider={this.waitProvider}/>
+            <CvReactFooter fixed={true}/>
         </div>
     },
 });
@@ -361,7 +372,7 @@ const CvWaitPopup = React.createClass<{paramProvider:CvValueProvider<boolean>}, 
                 <div className="modal-dialog">
                     <div className="modal-body">
                         <div className="cv-wait-screen text-center">
-                            <i className="fa fa-spinner fa-pulse fa-5x"/>
+                            <i className="fa fa-spinner fa-pulse cv-spinner-size"/>
                         </div>
                     </div>
                 </div>
@@ -448,9 +459,10 @@ ReactDOM.render(
     <Router history={hashHistory}>
         <Route path="/" component={CvReactApp}>
             <IndexRoute component={CvReactLogin}/>
+            <Route path="/:tenantId" component={CvReactLogin}/>
             <Route path="app" component={CvReactWindow}>
                 <Route path="/workbench/:windowId/:workbenchId" component={CvReactWorkbench}/>
-                <Route path="/navigator/:windowId/:navId" component={CvReactNavigator}/>
+                <Route path="/navigator/:windowId/:workbenchId/:navId(/:displayProps)" component={CvReactNavigator}/>
             </Route>
         </Route>
     </Router>

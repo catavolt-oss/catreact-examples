@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>CvGraphicalWorkbenchProps | catreact</title>
+	<title>CvGraphicalWorkbenchProps | catreact-html</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -23,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">catreact</a>
+					<a href="../index.html" class="title">catreact-html</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -74,7 +74,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="_core_cvreact_.cvprops.html" class="tsd-signature-type">CvProps</a>
+						<span class="tsd-signature-type">CvProps</span>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">CvGraphicalWorkbenchProps</span>
@@ -94,12 +94,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#appwindef" class="tsd-kind-icon">app<wbr>Win<wbr>Def</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#catavolt" class="tsd-kind-icon">catavolt</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#eventregistry" class="tsd-kind-icon">event<wbr>Registry</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#initialworkbench" class="tsd-kind-icon">initial<wbr>Workbench</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#initialworkbenchid" class="tsd-kind-icon">initial<wbr>Workbench<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#launchlisteners" class="tsd-kind-icon">launch<wbr>Listeners</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#numcols" class="tsd-kind-icon">num<wbr>Cols</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#renderer" class="tsd-kind-icon">renderer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#selectionprovider" class="tsd-kind-icon">selection<wbr>Provider</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#workbench" class="tsd-kind-icon">workbench</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#workbenchid" class="tsd-kind-icon">workbench<wbr>Id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -118,7 +118,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Register to receive <a href="_core_cvreact_.cvevent.html">CvEvent</a>s of type <a href="_core_cvreact_.cvactionfiredresult.html">CvActionFiredResult</a></p>
+							<p>Register to receive {@link CvEvent}s of type {@link CvActionFiredResult}</p>
 						</div>
 					</div>
 				</section>
@@ -142,9 +142,9 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> catavolt</h3>
 					<div class="tsd-signature tsd-kind-icon">catavolt<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">AppContext</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#catavolt">catavolt</a></p>
+						<p>Inherited from CvProps.catavolt</p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:40</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:15</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -157,49 +157,17 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external">
 					<a name="eventregistry" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> event<wbr>Registry</h3>
-					<div class="tsd-signature tsd-kind-icon">event<wbr>Registry<span class="tsd-signature-symbol">:</span> <a href="../classes/_core_cvreact_.cveventregistry.html" class="tsd-signature-type">CvEventRegistry</a></div>
+					<div class="tsd-signature tsd-kind-icon">event<wbr>Registry<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CvEventRegistry</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#eventregistry">eventRegistry</a></p>
+						<p>Inherited from CvProps.eventRegistry</p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:46</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:20</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p> The <a href="../classes/_core_cvreact_.cveventregistry.html">CvEventRegistry</a> handles decoupled communication between components.  Any component may subscribe to and publish
-							<a href="_core_cvreact_.cvevent.html">CvEvent</a>s.  See also <a href="_core_cvreact_.cvlistener.html">CvListener</a> and <a href="../enums/_core_cvreact_.cveventtype.html">CvEventType</a></p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-					<a name="initialworkbench" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> initial<wbr>Workbench</h3>
-					<div class="tsd-signature tsd-kind-icon">initial<wbr>Workbench<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Workbench</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in ext/CvGraphicalWorkbench.tsx:47</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The initial workbench to show
-							Should not be used if the initialWorkbenchId property is provided</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-					<a name="initialworkbenchid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> initial<wbr>Workbench<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">initial<wbr>Workbench<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in ext/CvGraphicalWorkbench.tsx:42</li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>The workbench id of the initial workbench to show.
-							Should not be used if the initialWorkbench property is provided</p>
+							<p> The {@link CvEventRegistry} handles decoupled communication between components.  Any component may subscribe to and publish
+							{@link CvEvent}s.  See also {@link CvListener} and {@link CvEventType}</p>
 						</div>
 					</div>
 				</section>
@@ -214,7 +182,7 @@
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Register to receive <a href="_core_cvreact_.cvevent.html">CvEvent</a>s of type <a href="_core_cvreact_.cvnavigationresult.html">CvNavigationResult</a></p>
+							<p>Register to receive {@link CvEvent}s of type {@link CvNavigationResult}</p>
 						</div>
 					</div>
 				</section>
@@ -238,16 +206,16 @@
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> renderer</h3>
 					<div class="tsd-signature tsd-kind-icon">renderer<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<aside class="tsd-sources">
-						<p>Inherited from <a href="_core_cvreact_.cvprops.html">CvProps</a>.<a href="_core_cvreact_.cvprops.html#renderer">renderer</a></p>
+						<p>Inherited from CvProps.renderer</p>
 						<ul>
-							<li>Defined in core/CvReact.tsx:54</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:27</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>Allows for a component&#39;s rendering logic to be overridden and completely customized.
-								The first argument, the <a href="_core_cvreact_.cvcontext.html">CvContext</a>, exposes the <a href="_core_cvreact_.cvscopecontext.html">CvScopeContext</a> which provides the relevant SDK object
-								for use by the renderer.  <a href="_core_cvreact_.cvscopecontext.html#scopeobj">CvScopeContext.scopeObj</a> will always be an SDK object exposing the data related to
+								The first argument, the {@link CvContext}, exposes the {@link CvScopeContext} which provides the relevant SDK object
+								for use by the renderer.  {@link CvScopeContext.scopeObj} will always be an SDK object exposing the data related to
 							the current component.</p>
 						</div>
 					</div>
@@ -256,14 +224,14 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cvContext<span class="tsd-signature-symbol">: </span><a href="_core_cvreact_.cvcontext.html" class="tsd-signature-type">CvContext</a>, callbackObj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cvContext<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CvContext</span>, callbackObj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
 										<h4 class="tsd-parameters-title">Parameters</h4>
 										<ul class="tsd-parameters">
 											<li>
-												<h5>cvContext: <a href="_core_cvreact_.cvcontext.html" class="tsd-signature-type">CvContext</a></h5>
+												<h5>cvContext: <span class="tsd-signature-type">CvContext</span></h5>
 											</li>
 											<li>
 												<h5><span class="tsd-flag ts-flagOptional">Optional</span> callbackObj: <span class="tsd-signature-type">any</span></h5>
@@ -281,7 +249,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 					<a name="selectionprovider" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagOptional">Optional</span> selection<wbr>Provider</h3>
-					<div class="tsd-signature tsd-kind-icon">selection<wbr>Provider<span class="tsd-signature-symbol">:</span> <a href="_core_cvreact_.cvvalueprovider.html" class="tsd-signature-type">CvValueProvider</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Workbench</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">selection<wbr>Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CvValueProvider</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Workbench</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in ext/CvGraphicalWorkbench.tsx:55</li>
@@ -290,6 +258,38 @@
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>A workbench selection provider, to which this component will &#39;listen&#39; and display workbench selection changes</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="workbench" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> workbench</h3>
+					<div class="tsd-signature tsd-kind-icon">workbench<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Workbench</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGraphicalWorkbench.tsx:47</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The workbench to show
+							Should not be used if the workbenchId property is provided</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="workbenchid" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> workbench<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">workbench<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGraphicalWorkbench.tsx:42</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The workbench id of the workbench to show.
+							Should not be used if the workbench property is provided</p>
 						</div>
 					</div>
 				</section>
@@ -308,6 +308,12 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelprops.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchpanelstate.html" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel<wbr>State</a>
+					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
@@ -326,12 +332,6 @@
 								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#eventregistry" class="tsd-kind-icon">event<wbr>Registry</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#initialworkbench" class="tsd-kind-icon">initial<wbr>Workbench</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#initialworkbenchid" class="tsd-kind-icon">initial<wbr>Workbench<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#launchlisteners" class="tsd-kind-icon">launch<wbr>Listeners</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
@@ -343,6 +343,12 @@
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#selectionprovider" class="tsd-kind-icon">selection<wbr>Provider</a>
 							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#workbench" class="tsd-kind-icon">workbench</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgraphicalworkbench_.cvgraphicalworkbenchprops.html#workbenchid" class="tsd-kind-icon">workbench<wbr>Id</a>
+							</li>
 						</ul>
 					</li>
 				</ul>
@@ -352,6 +358,9 @@
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 						<a href="../modules/_ext_cvgraphicalworkbench_.html#cvgraphicalworkbench" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
+						<a href="../modules/_ext_cvgraphicalworkbench_.html#cvgraphicalworkbenchpanel" class="tsd-kind-icon">Cv<wbr>Graphical<wbr>Workbench<wbr>Panel</a>
 					</li>
 				</ul>
 			</nav>

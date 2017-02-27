@@ -16,8 +16,12 @@
     "url": "https://github.com/catavolt-oss/catreact-examples.git"
   },
   "dependencies": {
-    "catreact-html": "2.0.0",
-    "react-router": "^2.0.0"
+    "catavolt-sdk": "1.1.11",
+    "catreact": "2.0.24",
+    "catreact-html": "2.0.20",
+    "react": "~15.3.2",
+    "react-dom": "~15.3.2",
+    "react-router": "2.8.1"
   },
   "devDependencies": {
     "babelify": "^7.2.0",

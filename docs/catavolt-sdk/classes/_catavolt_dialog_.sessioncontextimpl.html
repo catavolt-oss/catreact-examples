@@ -108,12 +108,12 @@
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#_gatewayhost" class="tsd-kind-icon">_gateway<wbr>Host</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#_password" class="tsd-kind-icon">_password</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#_remotesession" class="tsd-kind-icon">_remote<wbr>Session</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#_tenantid" class="tsd-kind-icon">_tenant<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#_userid" class="tsd-kind-icon">_user<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#currentdivision" class="tsd-kind-icon">current<wbr>Division</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#serverversion" class="tsd-kind-icon">server<wbr>Version</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#sessionhandle" class="tsd-kind-icon">session<wbr>Handle</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#systemcontext" class="tsd-kind-icon">system<wbr>Context</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#username" class="tsd-kind-icon">user<wbr>Name</a></li>
 							</ul>
 						</section>
@@ -126,7 +126,6 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#isremotesession" class="tsd-kind-icon">is<wbr>Remote<wbr>Session</a></li>
 								<li class="tsd-kind-set-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#online" class="tsd-kind-icon">online</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#password" class="tsd-kind-icon">password</a></li>
-								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.sessioncontextimpl.html#userid" class="tsd-kind-icon">user<wbr>Id</a></li>
 							</ul>
 						</section>
@@ -146,13 +145,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Session<wbr>Context<wbr>Impl<span class="tsd-signature-symbol">(</span>sessionHandle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, currentDivision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, serverVersion<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, systemContext<span class="tsd-signature-symbol">: </span><a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.sessioncontextimpl.html" class="tsd-signature-type">SessionContextImpl</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Session<wbr>Context<wbr>Impl<span class="tsd-signature-symbol">(</span>sessionHandle<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, userName<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, currentDivision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, serverVersion<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, systemContext<span class="tsd-signature-symbol">: </span><a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.sessioncontextimpl.html" class="tsd-signature-type">SessionContextImpl</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6518</li>
+									<li>Defined in catavolt/dialog.ts:6757</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -172,6 +171,9 @@
 								<li>
 									<h5>systemContext: <a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a></h5>
 								</li>
+								<li>
+									<h5>tenantId: <span class="tsd-signature-type">string</span></h5>
+								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_catavolt_dialog_.sessioncontextimpl.html" class="tsd-signature-type">SessionContextImpl</a></h4>
 						</li>
@@ -186,7 +188,7 @@
 					<div class="tsd-signature tsd-kind-icon">_client<wbr>Type<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6479</li>
+							<li>Defined in catavolt/dialog.ts:6717</li>
 						</ul>
 					</aside>
 				</section>
@@ -196,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">_gateway<wbr>Host<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6480</li>
+							<li>Defined in catavolt/dialog.ts:6718</li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +208,7 @@
 					<div class="tsd-signature tsd-kind-icon">_password<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6481</li>
+							<li>Defined in catavolt/dialog.ts:6719</li>
 						</ul>
 					</aside>
 				</section>
@@ -216,17 +218,7 @@
 					<div class="tsd-signature tsd-kind-icon">_remote<wbr>Session<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6482</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
-					<a name="_tenantid" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _tenant<wbr>Id</h3>
-					<div class="tsd-signature tsd-kind-icon">_tenant<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in catavolt/dialog.ts:6483</li>
+							<li>Defined in catavolt/dialog.ts:6720</li>
 						</ul>
 					</aside>
 				</section>
@@ -236,7 +228,7 @@
 					<div class="tsd-signature tsd-kind-icon">_user<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6484</li>
+							<li>Defined in catavolt/dialog.ts:6721</li>
 						</ul>
 					</aside>
 				</section>
@@ -247,7 +239,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#currentdivision">currentDivision</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6486</li>
+							<li>Defined in catavolt/dialog.ts:6723</li>
 						</ul>
 					</aside>
 				</section>
@@ -258,7 +250,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#serverversion">serverVersion</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6487</li>
+							<li>Defined in catavolt/dialog.ts:6724</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +261,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#sessionhandle">sessionHandle</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6488</li>
+							<li>Defined in catavolt/dialog.ts:6725</li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +272,18 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#systemcontext">systemContext</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6489</li>
+							<li>Defined in catavolt/dialog.ts:6726</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="tenantid" class="tsd-anchor"></a>
+					<h3>tenant<wbr>Id</h3>
+					<div class="tsd-signature tsd-kind-icon">tenant<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#tenantid">tenantId</a></p>
+						<ul>
+							<li>Defined in catavolt/dialog.ts:6727</li>
 						</ul>
 					</aside>
 				</section>
@@ -291,7 +294,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_ws_.sessioncontext.html">SessionContext</a>.<a href="../interfaces/_catavolt_ws_.sessioncontext.html#username">userName</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:6490</li>
+							<li>Defined in catavolt/dialog.ts:6728</li>
 						</ul>
 					</aside>
 				</section>
@@ -308,7 +311,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6534</li>
+									<li>Defined in catavolt/dialog.ts:6775</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -325,7 +328,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6538</li>
+									<li>Defined in catavolt/dialog.ts:6779</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -342,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6542</li>
+									<li>Defined in catavolt/dialog.ts:6783</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -359,7 +362,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6546</li>
+									<li>Defined in catavolt/dialog.ts:6787</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
@@ -376,7 +379,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6562</li>
+									<li>Defined in catavolt/dialog.ts:6799</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -399,24 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6550</li>
-								</ul>
-							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
-					<a name="tenantid" class="tsd-anchor"></a>
-					<h3>tenant<wbr>Id</h3>
-					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> tenantId<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in catavolt/dialog.ts:6554</li>
+									<li>Defined in catavolt/dialog.ts:6791</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -433,7 +419,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6558</li>
+									<li>Defined in catavolt/dialog.ts:6795</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -453,7 +439,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6503</li>
+									<li>Defined in catavolt/dialog.ts:6743</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -482,13 +468,13 @@
 					<a name="fromwscreatesessionresult" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagStatic">Static</span> fromWSCreate<wbr>Session<wbr>Result</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">fromWSCreate<wbr>Session<wbr>Result<span class="tsd-signature-symbol">(</span>jsonObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, systemContext<span class="tsd-signature-symbol">: </span><a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">fromWSCreate<wbr>Session<wbr>Result<span class="tsd-signature-symbol">(</span>jsonObject<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span>, systemContext<span class="tsd-signature-symbol">: </span><a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a>, tenantId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:6492</li>
+									<li>Defined in catavolt/dialog.ts:6730</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -503,6 +489,9 @@
 								</li>
 								<li>
 									<h5>systemContext: <a href="../interfaces/_catavolt_ws_.systemcontext.html" class="tsd-signature-type">SystemContext</a></h5>
+								</li>
+								<li>
+									<h5>tenantId: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -531,6 +520,9 @@
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_fp_.html">"catavolt/fp"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_print_.html">"catavolt/print"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
@@ -563,9 +555,6 @@
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#_remotesession" class="tsd-kind-icon">_remote<wbr>Session</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
-								<a href="_catavolt_dialog_.sessioncontextimpl.html#_tenantid" class="tsd-kind-icon">_tenant<wbr>Id</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#_userid" class="tsd-kind-icon">_user<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
@@ -579,6 +568,9 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#systemcontext" class="tsd-kind-icon">system<wbr>Context</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.sessioncontextimpl.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#username" class="tsd-kind-icon">user<wbr>Name</a>
@@ -600,9 +592,6 @@
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#password" class="tsd-kind-icon">password</a>
-							</li>
-							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
-								<a href="_catavolt_dialog_.sessioncontextimpl.html#tenantid" class="tsd-kind-icon">tenant<wbr>Id</a>
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.sessioncontextimpl.html#userid" class="tsd-kind-icon">user<wbr>Id</a>
