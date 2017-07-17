@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -100,7 +99,8 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_appcontextstate" class="tsd-kind-icon">_app<wbr>Context<wbr>State</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_appwindeftry" class="tsd-kind-icon">_app<wbr>Win<wbr>Def<wbr>Try</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_deviceprops" class="tsd-kind-icon">_device<wbr>Props</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_devicepropsdynamic" class="tsd-kind-icon">_device<wbr>Props<wbr>Dynamic</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_devicepropsstatic" class="tsd-kind-icon">_device<wbr>Props<wbr>Static</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_sessioncontexttry" class="tsd-kind-icon">_session<wbr>Context<wbr>Try</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#_tenantsettingstry" class="tsd-kind-icon">_tenant<wbr>Settings<wbr>Try</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#lastmaintenancetime" class="tsd-kind-icon">last<wbr>Maintenance<wbr>Time</a></li>
@@ -126,9 +126,12 @@
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#adddynamicdeviceprop" class="tsd-kind-icon">add<wbr>Dynamic<wbr>Device<wbr>Prop</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#addstaticdeviceprop" class="tsd-kind-icon">add<wbr>Static<wbr>Device<wbr>Prop</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#finalizecontext" class="tsd-kind-icon">finalize<wbr>Context</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#getredirforlaunchaction" class="tsd-kind-icon">get<wbr>Redir<wbr>For<wbr>Launch<wbr>Action</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#getworkbench" class="tsd-kind-icon">get<wbr>Workbench</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#isfeaturesetavailable" class="tsd-kind-icon">is<wbr>Feature<wbr>Set<wbr>Available</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#login" class="tsd-kind-icon">login</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#logindirectly" class="tsd-kind-icon">login<wbr>Directly</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.appcontext.html#loginfromsystemcontext" class="tsd-kind-icon">login<wbr>From<wbr>System<wbr>Context</a></li>
@@ -159,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3735</li>
+									<li>Defined in catavolt/dialog.ts:3987</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -181,7 +184,7 @@
 					<div class="tsd-signature tsd-kind-icon">_app<wbr>Context<wbr>State<span class="tsd-signature-symbol">:</span> <a href="../enums/_catavolt_dialog_.appcontextstate.html" class="tsd-signature-type">AppContextState</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3716</li>
+							<li>Defined in catavolt/dialog.ts:3967</li>
 						</ul>
 					</aside>
 				</section>
@@ -191,17 +194,27 @@
 					<div class="tsd-signature tsd-kind-icon">_app<wbr>Win<wbr>Def<wbr>Try<span class="tsd-signature-symbol">:</span> <a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.appwindef.html" class="tsd-signature-type">AppWinDef</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3717</li>
+							<li>Defined in catavolt/dialog.ts:3968</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
-					<a name="_deviceprops" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _device<wbr>Props</h3>
-					<div class="tsd-signature tsd-kind-icon">_device<wbr>Props<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<a name="_devicepropsdynamic" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _device<wbr>Props<wbr>Dynamic</h3>
+					<div class="tsd-signature tsd-kind-icon">_device<wbr>Props<wbr>Dynamic<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3718</li>
+							<li>Defined in catavolt/dialog.ts:3969</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+					<a name="_devicepropsstatic" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _device<wbr>Props<wbr>Static</h3>
+					<div class="tsd-signature tsd-kind-icon">_device<wbr>Props<wbr>Static<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in catavolt/dialog.ts:3970</li>
 						</ul>
 					</aside>
 				</section>
@@ -211,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">_session<wbr>Context<wbr>Try<span class="tsd-signature-symbol">:</span> <a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3719</li>
+							<li>Defined in catavolt/dialog.ts:3971</li>
 						</ul>
 					</aside>
 				</section>
@@ -221,17 +234,17 @@
 					<div class="tsd-signature tsd-kind-icon">_tenant<wbr>Settings<wbr>Try<span class="tsd-signature-symbol">:</span> <a href="_catavolt_fp_.try.html" class="tsd-signature-type">Try</a><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3720</li>
+							<li>Defined in catavolt/dialog.ts:3972</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
 					<a name="lastmaintenancetime" class="tsd-anchor"></a>
 					<h3>last<wbr>Maintenance<wbr>Time</h3>
-					<div class="tsd-signature tsd-kind-icon">last<wbr>Maintenance<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
+					<div class="tsd-signature tsd-kind-icon">last<wbr>Maintenance<wbr>Time<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span><span class="tsd-signature-symbol"> =&nbsp;new Date(0)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3715</li>
+							<li>Defined in catavolt/dialog.ts:3966</li>
 						</ul>
 					</aside>
 				</section>
@@ -241,7 +254,7 @@
 					<div class="tsd-signature tsd-kind-icon">ONE_<wbr>HOUR_<wbr>IN_<wbr>MILLIS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> =&nbsp;60 * 60 * 1000</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3713</li>
+							<li>Defined in catavolt/dialog.ts:3964</li>
 						</ul>
 					</aside>
 				</section>
@@ -251,7 +264,7 @@
 					<div class="tsd-signature tsd-kind-icon">_singleton<span class="tsd-signature-symbol">:</span> <a href="_catavolt_dialog_.appcontext.html" class="tsd-signature-type">AppContext</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:3711</li>
+							<li>Defined in catavolt/dialog.ts:3962</li>
 						</ul>
 					</aside>
 				</section>
@@ -268,7 +281,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3755</li>
+									<li>Defined in catavolt/dialog.ts:4017</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -290,7 +303,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3780</li>
+									<li>Defined in catavolt/dialog.ts:4064</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -313,7 +326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3763</li>
+									<li>Defined in catavolt/dialog.ts:4025</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +348,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3771</li>
+									<li>Defined in catavolt/dialog.ts:4055</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -357,7 +370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3793</li>
+									<li>Defined in catavolt/dialog.ts:4077</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -379,7 +392,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3986</li>
+									<li>Defined in catavolt/dialog.ts:4270</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -401,7 +414,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3801</li>
+									<li>Defined in catavolt/dialog.ts:4085</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -423,7 +436,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3994</li>
+									<li>Defined in catavolt/dialog.ts:4278</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -445,7 +458,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3722</li>
+									<li>Defined in catavolt/dialog.ts:3974</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -462,7 +475,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3730</li>
+									<li>Defined in catavolt/dialog.ts:3982</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,6 +490,64 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="adddynamicdeviceprop" class="tsd-anchor"></a>
+					<h3>add<wbr>Dynamic<wbr>Device<wbr>Prop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Dynamic<wbr>Device<wbr>Prop<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/dialog.ts:4005</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>prop: <span class="tsd-signature-type">function</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-siganture">
+											<ul class="tsd-signatures tsd-kind-type-literal tsd-is-not-exported">
+												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+											</ul>
+											<ul class="tsd-descriptions">
+												<li class="tsd-description">
+													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="addstaticdeviceprop" class="tsd-anchor"></a>
+					<h3>add<wbr>Static<wbr>Device<wbr>Prop</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">add<wbr>Static<wbr>Device<wbr>Prop<span class="tsd-signature-symbol">(</span>prop<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/dialog.ts:4009</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>prop: <span class="tsd-signature-type">string</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="finalizecontext" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> finalize<wbr>Context</h3>
@@ -487,7 +558,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3998</li>
+									<li>Defined in catavolt/dialog.ts:4282</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -513,7 +584,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3810</li>
+									<li>Defined in catavolt/dialog.ts:4094</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +612,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3821</li>
+									<li>Defined in catavolt/dialog.ts:4105</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -563,6 +634,39 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="isfeaturesetavailable" class="tsd-anchor"></a>
+					<h3>is<wbr>Feature<wbr>Set<wbr>Available</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Feature<wbr>Set<wbr>Available<span class="tsd-signature-symbol">(</span>featureSet<span class="tsd-signature-symbol">: </span><a href="../modules/_catavolt_dialog_.html#featureset" class="tsd-signature-type">FeatureSet</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/dialog.ts:4039</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Check for the availability of the given featureSet</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>see</dt>
+									<dd><p>FeatureSet</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>featureSet: <a href="../modules/_catavolt_dialog_.html#featureset" class="tsd-signature-type">FeatureSet</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">boolean</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
 					<a name="login" class="tsd-anchor"></a>
 					<h3>login</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
@@ -572,7 +676,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3837</li>
+									<li>Defined in catavolt/dialog.ts:4121</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -612,7 +716,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3868</li>
+									<li>Defined in catavolt/dialog.ts:4152</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -652,7 +756,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:4032</li>
+									<li>Defined in catavolt/dialog.ts:4316</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -690,7 +794,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:4017</li>
+									<li>Defined in catavolt/dialog.ts:4301</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -728,7 +832,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3891</li>
+									<li>Defined in catavolt/dialog.ts:4175</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -750,7 +854,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3916</li>
+									<li>Defined in catavolt/dialog.ts:4200</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -793,7 +897,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3933</li>
+									<li>Defined in catavolt/dialog.ts:4217</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -824,7 +928,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3950</li>
+									<li>Defined in catavolt/dialog.ts:4234</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -855,7 +959,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3959</li>
+									<li>Defined in catavolt/dialog.ts:4243</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -883,7 +987,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:4047</li>
+									<li>Defined in catavolt/dialog.ts:4331</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -909,7 +1013,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:3972</li>
+									<li>Defined in catavolt/dialog.ts:4256</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -937,7 +1041,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:4056</li>
+									<li>Defined in catavolt/dialog.ts:4340</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -960,7 +1064,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:4063</li>
+									<li>Defined in catavolt/dialog.ts:4347</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
@@ -997,6 +1101,9 @@
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_version_.html">"catavolt/version"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_ws_.html">"catavolt/ws"</a>
 					</li>
 				</ul>
@@ -1018,7 +1125,10 @@
 								<a href="_catavolt_dialog_.appcontext.html#_appwindeftry" class="tsd-kind-icon">_app<wbr>Win<wbr>Def<wbr>Try</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
-								<a href="_catavolt_dialog_.appcontext.html#_deviceprops" class="tsd-kind-icon">_device<wbr>Props</a>
+								<a href="_catavolt_dialog_.appcontext.html#_devicepropsdynamic" class="tsd-kind-icon">_device<wbr>Props<wbr>Dynamic</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
+								<a href="_catavolt_dialog_.appcontext.html#_devicepropsstatic" class="tsd-kind-icon">_device<wbr>Props<wbr>Static</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_catavolt_dialog_.appcontext.html#_sessioncontexttry" class="tsd-kind-icon">_session<wbr>Context<wbr>Try</a>
@@ -1065,6 +1175,12 @@
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_catavolt_dialog_.appcontext.html#singleton" class="tsd-kind-icon">singleton</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.appcontext.html#adddynamicdeviceprop" class="tsd-kind-icon">add<wbr>Dynamic<wbr>Device<wbr>Prop</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.appcontext.html#addstaticdeviceprop" class="tsd-kind-icon">add<wbr>Static<wbr>Device<wbr>Prop</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external">
 								<a href="_catavolt_dialog_.appcontext.html#finalizecontext" class="tsd-kind-icon">finalize<wbr>Context</a>
 							</li>
@@ -1073,6 +1189,9 @@
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.appcontext.html#getworkbench" class="tsd-kind-icon">get<wbr>Workbench</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.appcontext.html#isfeaturesetavailable" class="tsd-kind-icon">is<wbr>Feature<wbr>Set<wbr>Available</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.appcontext.html#login" class="tsd-kind-icon">login</a>
@@ -1182,7 +1301,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

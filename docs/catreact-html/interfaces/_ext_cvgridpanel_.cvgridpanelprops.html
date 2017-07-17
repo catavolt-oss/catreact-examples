@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -95,12 +94,15 @@
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#catavolt" class="tsd-kind-icon">catavolt</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#eventregistry" class="tsd-kind-icon">event<wbr>Registry</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#formcontext" class="tsd-kind-icon">form<wbr>Context</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#gridlistener" class="tsd-kind-icon">grid<wbr>Listener</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#initialfirstvisiblerow" class="tsd-kind-icon">initial<wbr>First<wbr>Visible<wbr>Row</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#initialselecteditems" class="tsd-kind-icon">initial<wbr>Selected<wbr>Items</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#listcontext" class="tsd-kind-icon">list<wbr>Context</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#navigationlisteners" class="tsd-kind-icon">navigation<wbr>Listeners</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#numinitialrows" class="tsd-kind-icon">num<wbr>Initial<wbr>Rows</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#paneref" class="tsd-kind-icon">pane<wbr>Ref</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#renderer" class="tsd-kind-icon">renderer</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#searchable" class="tsd-kind-icon">searchable</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#selectionlistener" class="tsd-kind-icon">selection<wbr>Listener</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-external"><a href="_ext_cvgridpanel_.cvgridpanelprops.html#statechangelisteners" class="tsd-kind-icon">state<wbr>Change<wbr>Listeners</a></li>
 							</ul>
 						</section>
@@ -115,7 +117,7 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:63</li>
+							<li>Defined in ext/CvGridPanel.tsx:80</li>
 						</ul>
 					</aside>
 				</section>
@@ -125,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">action<wbr>Provider<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CvValueProvider</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">CvActionHandlerParams</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:66</li>
+							<li>Defined in ext/CvGridPanel.tsx:83</li>
 						</ul>
 					</aside>
 				</section>
@@ -136,7 +138,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from CvProps.catavolt</p>
 						<ul>
-							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:15</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/tsd/core/CvReact.d.ts:15</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -153,7 +155,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from CvProps.eventRegistry</p>
 						<ul>
-							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:20</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/tsd/core/CvReact.d.ts:20</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,7 +171,37 @@
 					<div class="tsd-signature tsd-kind-icon">form<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">FormContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:60</li>
+							<li>Defined in ext/CvGridPanel.tsx:77</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="gridlistener" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> grid<wbr>Listener</h3>
+					<div class="tsd-signature tsd-kind-icon">grid<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CvValueListener</span><span class="tsd-signature-symbol">&lt;</span><a href="_ext_cvgridpanel_.cvgridevent.html" class="tsd-signature-type">CvGridEvent</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGridPanel.tsx:81</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="initialfirstvisiblerow" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> initial<wbr>First<wbr>Visible<wbr>Row</h3>
+					<div class="tsd-signature tsd-kind-icon">initial<wbr>First<wbr>Visible<wbr>Row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGridPanel.tsx:87</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="initialselecteditems" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> initial<wbr>Selected<wbr>Items</h3>
+					<div class="tsd-signature tsd-kind-icon">initial<wbr>Selected<wbr>Items<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGridPanel.tsx:85</li>
 						</ul>
 					</aside>
 				</section>
@@ -179,7 +211,7 @@
 					<div class="tsd-signature tsd-kind-icon">list<wbr>Context<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ListContext</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:61</li>
+							<li>Defined in ext/CvGridPanel.tsx:78</li>
 						</ul>
 					</aside>
 				</section>
@@ -189,7 +221,17 @@
 					<div class="tsd-signature tsd-kind-icon">navigation<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:62</li>
+							<li>Defined in ext/CvGridPanel.tsx:79</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+					<a name="numinitialrows" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> num<wbr>Initial<wbr>Rows</h3>
+					<div class="tsd-signature tsd-kind-icon">num<wbr>Initial<wbr>Rows<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvGridPanel.tsx:86</li>
 						</ul>
 					</aside>
 				</section>
@@ -199,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">pane<wbr>Ref<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:59</li>
+							<li>Defined in ext/CvGridPanel.tsx:76</li>
 						</ul>
 					</aside>
 				</section>
@@ -210,7 +252,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from CvProps.renderer</p>
 						<ul>
-							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/js/core/CvReact.d.ts:27</li>
+							<li>Defined in /opt/catavolt/catreact-html/node_modules/catreact/src/tsd/core/CvReact.d.ts:27</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -226,7 +268,7 @@
 						<ul class="tsd-parameters">
 							<li class="tsd-parameter-siganture">
 								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-property tsd-is-not-exported">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cvContext<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CvContext</span>, callbackObj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">object</span></li>
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>cvContext<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CvContext</span>, callbackObj<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">__type</span></li>
 								</ul>
 								<ul class="tsd-descriptions">
 									<li class="tsd-description">
@@ -239,9 +281,7 @@
 												<h5><span class="tsd-flag ts-flagOptional">Optional</span> callbackObj: <span class="tsd-signature-type">any</span></h5>
 											</li>
 										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">object</span></h4>
-										<ul class="tsd-parameters">
-										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">__type</span></h4>
 									</li>
 								</ul>
 							</li>
@@ -254,17 +294,7 @@
 					<div class="tsd-signature tsd-kind-icon">searchable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:67</li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-					<a name="selectionlistener" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagOptional">Optional</span> selection<wbr>Listener</h3>
-					<div class="tsd-signature tsd-kind-icon">selection<wbr>Listener<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">CvValueListener</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:64</li>
+							<li>Defined in ext/CvGridPanel.tsx:84</li>
 						</ul>
 					</aside>
 				</section>
@@ -274,7 +304,7 @@
 					<div class="tsd-signature tsd-kind-icon">state<wbr>Change<wbr>Listeners<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">function</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvGridPanel.tsx:65</li>
+							<li>Defined in ext/CvGridPanel.tsx:82</li>
 						</ul>
 					</aside>
 				</section>
@@ -293,8 +323,14 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-enum tsd-parent-kind-external-module tsd-is-external">
+						<a href="../enums/_ext_cvgridpanel_.cvgrideventtype.html" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Event<wbr>Type</a>
+					</li>
 					<li class=" tsd-kind-class tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
 						<a href="../classes/_ext_cvgridpanel_.cvgriddatasource.html" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Data<wbr>Source</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-has-type-parameter tsd-is-external">
+						<a href="_ext_cvgridpanel_.cvgridevent.html" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Event</a>
 					</li>
 				</ul>
 				<ul class="current">
@@ -317,10 +353,22 @@
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#formcontext" class="tsd-kind-icon">form<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#gridlistener" class="tsd-kind-icon">grid<wbr>Listener</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#initialfirstvisiblerow" class="tsd-kind-icon">initial<wbr>First<wbr>Visible<wbr>Row</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#initialselecteditems" class="tsd-kind-icon">initial<wbr>Selected<wbr>Items</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#listcontext" class="tsd-kind-icon">list<wbr>Context</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#navigationlisteners" class="tsd-kind-icon">navigation<wbr>Listeners</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
+								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#numinitialrows" class="tsd-kind-icon">num<wbr>Initial<wbr>Rows</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#paneref" class="tsd-kind-icon">pane<wbr>Ref</a>
@@ -330,9 +378,6 @@
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#searchable" class="tsd-kind-icon">searchable</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
-								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#selectionlistener" class="tsd-kind-icon">selection<wbr>Listener</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-external">
 								<a href="_ext_cvgridpanel_.cvgridpanelprops.html#statechangelisteners" class="tsd-kind-icon">state<wbr>Change<wbr>Listeners</a>
@@ -353,8 +398,20 @@
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
 						<a href="../modules/_ext_cvgridpanel_.html#cv_grid_page_size" class="tsd-kind-icon">CV_<wbr>GRID_<wbr>PAGE_<wbr>SIZE</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_ext_cvgridpanel_.html#cv_grid_row_overflow_size" class="tsd-kind-icon">CV_<wbr>GRID_<wbr>ROW_<wbr>OVERFLOW_<wbr>SIZE</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_ext_cvgridpanel_.html#cv_grid_scroll_buffer_rows" class="tsd-kind-icon">CV_<wbr>GRID_<wbr>SCROLL_<wbr>BUFFER_<wbr>ROWS</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_ext_cvgridpanel_.html#cv_grid_visible_rows" class="tsd-kind-icon">CV_<wbr>GRID_<wbr>VISIBLE_<wbr>ROWS</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 						<a href="../modules/_ext_cvgridpanel_.html#cvgridpanel" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Panel</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="../modules/_ext_cvgridpanel_.html#cvgridpanel_dot_repl" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Panel_<wbr>DOT_<wbr>REPL</a>
 					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 						<a href="../modules/_ext_cvgridpanel_.html#cvgridtable" class="tsd-kind-icon">Cv<wbr>Grid<wbr>Table</a>
@@ -433,7 +490,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -91,10 +90,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvhtmlprop" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Html<wbr>Prop</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Html<wbr>Prop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvhtmlprop_.cvhtmlpropprops.html" class="tsd-signature-type">CvHtmlPropProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvHtmlPropProps, CvState&gt;({mixins: [CvBaseMixin],getDefaultProps: function () {return {propName: null,defaultValue: null,handler: null,isVisible: null,entityRec: null,wrapperElemName: &#x27;span&#x27;,wrapperElemProps: null,overrideValue: null,currencySymbol: &#x27;$&#x27;,percentageSymbol: &#x27;%&#x27;,boolTrueClassName:&#x27;cv-icon cv-bool-true&#x27;,boolFalseClassName: &#x27;cv-icon cv-bool-false&#x27;,imageClassName: null,imageStyle: null,style: null,className: null,renderer: null,dataPropNames:[]}},render: function () {/* We can&#x27;t do ES7 style rest destructuring in Typescript yet... */const passthroughProps &#x3D; {propName: this.props.propName,defaultValue: this.props.defaultValue,handler: this.props.handler,isVisible: this.props.isVisible,entityRec: this.props.entityRec,wrapperElemName: this.props.wrapperElemName,wrapperElemProps: this.props.wrapperElemProps,overrideValue: this.props.overrideValue,currencySymbol: this.props.currencySymbol,percentageSymbol: this.props.percentageSymbol,style: this.props.style,className: this.props.className,dataPropNames: this.props.dataPropNames,renderer: this.props.renderer}return &lt;CvProp {...passthroughProps}booleanRenderer&#x3D;{(boolVal)&#x3D;&gt;{return boolVal ? &lt;span className&#x3D;{this.props.boolTrueClassName}/&gt; : &lt;span className&#x3D;{this.props.boolFalseClassName}/&gt;}}binaryRenderer&#x3D;{(binaryUrl)&#x3D;&gt;{const style &#x3D; this.props.imageStyle ? this.props.imageStyle : this.props.style;const className &#x3D; this.props.imageClassName ? this.props.imageClassName : this.props.className;return binaryUrl ? &lt;img style&#x3D;{style} src&#x3D;{binaryUrl} className&#x3D;{className}/&gt; : null;}}/&gt;}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Html<wbr>Prop<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvhtmlprop_.cvhtmlpropprops.html" class="tsd-signature-type">CvHtmlPropProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvHtmlPropProps, CvState&gt;({mixins: [CvBaseMixin],getDefaultProps: function () {return {propName: null,defaultValue: null,handler: null,isVisible: null,entityRec: null,paneContext: null,wrapperElemName: &#x27;span&#x27;,wrapperElemProps: null,overrideValue: null,currencySymbol: &#x27;$&#x27;,percentageSymbol: &#x27;%&#x27;,boolTrueClassName:&#x27;cv-icon cv-bool-true&#x27;,boolFalseClassName: &#x27;cv-icon cv-bool-false&#x27;,imageActions:null,imageClassName: null,imageStyle: null,imageReadOnly: null,style: null,className: null,renderer: null,dataPropNames:[]}},render: function () {/* We can&#x27;t do ES7 style rest destructuring in Typescript yet... */const passthroughProps &#x3D; {propName: this.props.propName,defaultValue: this.props.defaultValue,handler: this.props.handler,isVisible: this.props.isVisible,entityRec: this.props.entityRec,paneContext: this.props.paneContext,wrapperElemName: this.props.wrapperElemName,wrapperElemProps: this.props.wrapperElemProps,overrideValue: this.props.overrideValue,currencySymbol: this.props.currencySymbol,percentageSymbol: this.props.percentageSymbol,style: this.props.style,className: this.props.className,dataPropNames: this.props.dataPropNames,renderer: this.props.renderer}return &lt;CvProp {...passthroughProps}booleanRenderer&#x3D;{(boolVal)&#x3D;&gt;{return boolVal ? &lt;span className&#x3D;{this.props.boolTrueClassName}/&gt; : &lt;span className&#x3D;{this.props.boolFalseClassName}/&gt;}}binaryRenderer&#x3D;{(binaryUrl)&#x3D;&gt;{const style &#x3D; this.props.imageStyle ? this.props.imageStyle : this.props.style;return &lt;CvImage style&#x3D;{style} src&#x3D;{binaryUrl} className&#x3D;{this.props.className} imageClassName&#x3D;{this.props.imageClassName}actions&#x3D;{this.props.imageActions} readOnly&#x3D;{this.props.imageReadOnly}/&gt;}}/&gt;}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvHtmlProp.tsx:92</li>
+							<li>Defined in ext/CvHtmlProp.tsx:102</li>
 						</ul>
 					</aside>
 				</section>
@@ -184,7 +183,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

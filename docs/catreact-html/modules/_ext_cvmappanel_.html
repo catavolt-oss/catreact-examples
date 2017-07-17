@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -76,12 +75,24 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvmappanel_.cvmappanelprops.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel<wbr>Props</a></li>
 								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvmappanel_.cvmappanelstate.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel<wbr>State</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvmappanel_.cvmapprops.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>Props</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvmappanel_.cvmapstate.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>State</a></li>
+								<li class="tsd-kind-interface tsd-parent-kind-external-module tsd-is-external"><a href="../interfaces/_ext_cvmappanel_.cvmarker.html" class="tsd-kind-icon">Cv<wbr>Marker</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-external">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_ext_cvmappanel_.html#cvmap" class="tsd-kind-icon">Cv<wbr>Map</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external"><a href="_ext_cvmappanel_.html#cvmappanel" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_ext_cvmappanel_.html#cvwrappedmap" class="tsd-kind-icon">Cv<wbr>Wrapped<wbr>Map</a></li>
+								<li class="tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_ext_cvmappanel_.html#searchbox" class="tsd-kind-icon">Search<wbr>Box</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external tsd-is-not-exported">
+							<h3>Object literals</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported"><a href="_ext_cvmappanel_.html#cvmappanel_input_style" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel_<wbr>INPUT_<wbr>STYLE</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,15 +100,178 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
 				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="cvmap" class="tsd-anchor"></a>
+					<h3>Cv<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvmappanel_.cvmapprops.html" class="tsd-signature-type">CvMapProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMapProps, CvMapState&gt;({mixins: [CvBaseMixin],componentWillMount: function() {this.setState({persistentMarkers: this._generatePersistentMarkers()});},componentWillReceiveProps: function(nextProps, nextState) {if(nextProps.lastRefreshTime &amp;&amp; (nextProps.lastRefreshTime.getTime() &gt; this.props.lastRefreshTime.getTime())){this.setState({persistentMarkers: this._generatePersistentMarkers()});}},getDefaultProps: function () {return {paneRef: null,formContext: null,mapContext: null,lastRefreshTime: null,navigationListeners: [],selectionListener: null,stateChangeListeners: [],actionListeners: [],navTarget: null,actionProvider: null}},getInitialState: function () {return {currentSelection: null, previousSelection: null, openMarker: null, openMenu: null, directions: null, persistentMarkers: [], searchMarkers:[], userMarkers:[]}},render: function () {const {currentSelection, previousSelection, directions, openMenu, openMarker} &#x3D; this.state;const mapContext &#x3D; this.props.mapContext;const markers:Array&lt;CvMarker&gt; &#x3D; this._getAllMarkers();return (&lt;GoogleMapdefaultZoom&#x3D;{7}defaultCenter&#x3D;{{lat: 39.144973, lng: -100.019531}}defaultOptions&#x3D;{{fullscreenControl: true, disableDoubleClickZoom: true}}onClick&#x3D;{this._handleMapClick}onDblClick&#x3D;{this._handleMapDoubleClick}ref&#x3D;{(map)&#x3D;&gt;{if(map){ this._initMap(map, markers)}}}&gt;&lt;SearchBoxcontrolPosition&#x3D;{google.maps.ControlPosition.TOP_LEFT}onPlacesChanged&#x3D;{this._onPlacesChanged}inputPlaceholder&#x3D;&quot;Search Places&quot;inputStyle&#x3D;{CvMapPanel_INPUT_STYLE}bounds&#x3D;{this._gMap ? this._gMap.getBounds() : null}ref&#x3D;{ref&#x3D;&gt;this._searchBox &#x3D; ref}/&gt;{directions ? &lt;DirectionsRenderer directions&#x3D;{directions}options&#x3D;{{suppressMarkers:true}}/&gt; : null}{markers.map((marker:CvMarker, index:number)&#x3D;&gt;{const menuDef &#x3D; (mapContext.menuDefs &amp;&amp; mapContext.menuDefs.length &gt; 0) ? mapContext.menuDefs[0].findContextMenuDef() : null;const selectionAdapter:CvValueAdapter&lt;Array&lt;string&gt;&gt; &#x3D; new CvValueAdapter&lt;Array&lt;string&gt;&gt;();selectionAdapter.getDelegateValueListener()([marker.id]);/*Note:We have to explicitly pass every prop to the CvDropdownMenu component that might normally be found in the contextbecause the &#x27;GoogleMap&#x27; react library interferes with the context*/return (&lt;MarkerdefaultPosition&#x3D;{{lat: marker.lat, lng: marker.lng}}defaultAnimation&#x3D;{google.maps.Animation.DROP}key&#x3D;{marker.id}icon&#x3D;{marker.imgUrl ? {url:marker.imgUrl, scaledSize:new google.maps.Size(30, 30)} : null}title&#x3D;{marker.tipText}draggable&#x3D;{marker.draggable}onMouseOver&#x3D;{this._handleMarkerOver.bind(this, marker)}onClick&#x3D;{this._handleMarkerClick.bind(this, marker)}onRightClick&#x3D;{this._handleMarkerRightClick.bind(this, marker)}onDblClick&#x3D;{this._handleMarkerDoubleClick.bind(this, marker)}onDragEnd&#x3D;{this._handleDragEnd.bind(this, marker)}&gt;{openMarker &amp;&amp; openMarker.id &#x3D;&#x3D;&#x3D; marker.id ?this._getInfoDisplay(directions, marker, currentSelection) : null}{openMenu &amp;&amp; openMenu.id &#x3D;&#x3D;&#x3D; marker.id ?&lt;OverlayViewposition&#x3D;{{ lat: marker.lat, lng: marker.lng }}mapPaneName&#x3D;{OverlayView.OVERLAY_MOUSE_TARGET}getPixelPositionOffset&#x3D;{this._getPixelPositionOffset}&gt;&lt;CvDropdownMenu paneContext&#x3D;{mapContext}menuDef&#x3D;{menuDef}navigationListeners&#x3D;{this.props.navigationListeners}actionListeners&#x3D;{[this._actionFired.bind(this, marker)]}stateChangeListeners&#x3D;{this.props.stateChangeListeners}navTarget&#x3D;{this.props.navTarget}selectionProvider&#x3D;{selectionAdapter}catavolt&#x3D;{this.catavolt()}initOpen&#x3D;{true}launchMenuElement&#x3D;{&lt;span/&gt;}eventRegistry&#x3D;{this.eventRegistry()}/&gt;&lt;/OverlayView&gt;: null}&lt;/Marker&gt;);})}&lt;/GoogleMap&gt;);},_actionFired: function (marker:any, event:CvEvent&lt;CvActionFiredResult&gt;) {},_getAllMarkers: function():Array&lt;CvMarker&gt; {return [...this.state.persistentMarkers, ...this.state.searchMarkers, ...this.state.userMarkers];},/*Use info window to display directions*/_getInfoDisplay: function(directions, marker:CvMarker, targetMarker:CvMarker) {if(!directions) {return &lt;InfoWindow onCloseClick&#x3D;{this._handleInfoClose.bind(this, marker)}&gt;&lt;div&gt;{marker.desc}&lt;/div&gt;&lt;/InfoWindow&gt;} else {if(marker.id &#x3D;&#x3D; targetMarker.id) {const leg &#x3D; directions.routes[0].legs[0];return &lt;InfoWindow onCloseClick&#x3D;{this._handleInfoClose.bind(this, marker)}&gt;&lt;div&gt;&lt;span className&#x3D;&quot;cv-icon cv-map-info pull-right&quot; aria-hidden&#x3D;&quot;true&quot;/&gt;&lt;div&gt;&lt;strong&gt;{&#x27;To: &#x27;}&lt;/strong&gt;{marker.desc}&lt;/div&gt;&lt;div&gt;{leg.end_address}&lt;/div&gt;&lt;div&gt;{leg.distance ? leg.distance.text : null}&lt;/div&gt;&lt;div&gt;{leg.duration ? leg.duration.text : null}&lt;/div&gt;&lt;/div&gt;&lt;/InfoWindow&gt;}}return null;},/*Create the markers that are included in the ListContext*/_generatePersistentMarkers: function():Array&lt;CvMarker&gt; {const mapContext &#x3D; this.props.mapContext;const mapDef:MapDef &#x3D; mapContext.mapDef;const records:Array&lt;EntityRec&gt; &#x3D; ArrayUtil.copy&lt;EntityRec&gt;(mapContext.scroller.buffer);const markers:Array&lt;CvMarker&gt; &#x3D; records.map((record:EntityRec)&#x3D;&gt;{return {id: record.objectId,lat: record.propAtName(mapDef.latitudePropName).value,lng: record.propAtName(mapDef.longitudePropName).value,desc: record.propAtName(mapDef.descriptionPropName).value,imgUrl: record.imageName,tipText: record.tipText,imagePlc: record.imagePlacement}});return markers;},_getPixelPositionOffset: function(width, height) {return { x: -(width / 2), y: -(height / 2) };},/*Update the position and info of the User-placed Marker, when dragged*/_handleDragEnd: function(marker:CvMarker, e) {const currentUserMarkers &#x3D; this.state.userMarkers;currentUserMarkers.splice(currentUserMarkers.indexOf(marker), 1);const nextMarker &#x3D; ObjUtil.addAllProps(marker, {});const lat &#x3D; e.latLng.lat();const lng &#x3D; e.latLng.lng();nextMarker.lat &#x3D; lat;nextMarker.lng &#x3D; lng;nextMarker.desc &#x3D; lat + &#x27;, &#x27; + lng;currentUserMarkers.push(nextMarker);this._reverseGeolocate(lat, lng, ((address)&#x3D;&gt;{nextMarker.desc &#x3D; address;this.setState({userMarkers: currentUserMarkers});}));},/*Clicking on an empty area of the map should reset selected markers, directions, etc.*/_handleMapClick: function(e) {if(!this.state.openMenu) {this.setState({openMarker: null,directions: null,currentSelection: null,previousSelection: null});}},/*Place a User Marker, where double-clicked*/_handleMapDoubleClick: function(e) {const lat &#x3D; e.latLng.lat();const lng &#x3D; e.latLng.lng();const userMarkers:Array&lt;CvMarker&gt; &#x3D; [...this.state.userMarkers];const marker &#x3D; {id: &#x27;user_&#x27; + userMarkers.length,lat: lat,lng: lng,desc: &#x27;Dropped Pin&#x27;,tipText: lat + &#x27;, &#x27; + lng,draggable: true}this._reverseGeolocate(lat, lng, (address&#x3D;&gt;marker.desc &#x3D; address));userMarkers.push(marker);this.setState({userMarkers: userMarkers});},/*Remove a User Marker when double-clicked*/_handleMarkerDoubleClick: function(marker:CvMarker, e) {const currentUserMarkers &#x3D; this.state.userMarkers;currentUserMarkers.splice(currentUserMarkers.indexOf(marker), 1);this.setState({userMarkers: currentUserMarkers,openMarker: null,directions: null,currentSelection: null,previousSelection: null});},/*Show marker info when moused over*/_handleMarkerOver: function (marker, e) {if(!this.state.directions) {this.setState({openMarker: marker,openMenu: null});}},/*When marker is clicked, make it the current selection and check for a previously clicked markerfrom which to route directions*/_handleMarkerClick: function (marker, e) {if (this.props.selectionListener) this.props.selectionListener([marker.id]);const previousSelection &#x3D; this.state.currentSelection;const currentSelection &#x3D; marker;if(previousSelection &amp;&amp; currentSelection.id !&#x3D;&#x3D; previousSelection.id) {const ds &#x3D; new google.maps.DirectionsService();ds.route({origin: new google.maps.LatLng(previousSelection.lat, previousSelection.lng),destination: new google.maps.LatLng(currentSelection.lat, currentSelection.lng),travelMode: google.maps.TravelMode.DRIVING,provideRouteAlternatives: true}, (result, status) &#x3D;&gt; {if (status &#x3D;&#x3D;&#x3D; google.maps.DirectionsStatus.OK) {this.setState({directions: result,currentSelection: currentSelection,previousSelection: previousSelection,openMarker: marker,openMenu: null});} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x60;error fetching directions ${ result }&#x60;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Error retrieving directions&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}});} else {this.setState({currentSelection: currentSelection,previousSelection: previousSelection,openMenu: null,directions: null});}},/*Show context menu when a Persistent Marker is right-clicked*/_handleMarkerRightClick: function(marker, e) {if (this.props.selectionListener) this.props.selectionListener([marker.id]);this.setState({previousSelection: this.state.currentSelection,currentSelection: marker,openMenu: marker});},/*Close the info window*/_handleInfoClose: function (marker, e) {this.setState({openMarker: null});},/*Initialize the map and set bounds*/_initMap: function (map:any, latLng:Array&lt;{lat; lng;}&gt;) {if (!this._gMap &amp;&amp; latLng &amp;&amp; latLng.length &gt; 0) {this._gMap &#x3D; map;this._setBounds(map, latLng);CvActionBase._publishActionFinished(&#x27;#loadMap&#x27;, this.props.mapContext, this.props.actionListeners, this.eventRegistry());}},_setBounds: function(map:any, latLng:Array&lt;{lat; lng;}&gt;) {const latLngBounds &#x3D; new google.maps.LatLngBounds();for (var i &#x3D; 0; i &lt; latLng.length; i++) {latLngBounds.extend(new google.maps.LatLng(latLng[i].lat, latLng[i].lng));}map.fitBounds(latLngBounds);},_geoLocate: function(callback:(pos:{lat; lng;})&#x3D;&gt;void) {if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(function(position) {var pos &#x3D; {lat: position.coords.latitude,lng: position.coords.longitude};callback(pos);}, function() {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Geolocation failed&#x27;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Geolocation failed&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);});} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Geolocation not supported (or disabled)&#x27;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Geolocation not supported (or disabled)&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}},/*Handle search results*/_onPlacesChanged: function() {const markers &#x3D; [];this._searchBox.getPlaces().forEach((place)&#x3D;&gt;{markers.push({id: place.place_id,lat: place.geometry.location.lat(),lng: place.geometry.location.lng(),desc: place.formatted_address,imgUrl: place.icon,tipText: place.name,});});this._setBounds(this._gMap, [...markers, ...this.state.userMarkers, ...this.state.persistentMarkers]);this.setState({searchMarkers: markers});},_reverseGeolocate: function(lat, lng, callback:(address:string)&#x3D;&gt;void) {var geocoder &#x3D; new google.maps.Geocoder;geocoder.geocode({&#x27;location&#x27;: {lat: lat, lng: lng}}, (results, status) &#x3D;&gt; {if (status &#x3D;&#x3D; google.maps.GeocoderStatus.OK) {if (results[0]) {callback(results[0].formatted_address)}} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Reverse Geolocation failed&#x27;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Reverse Geolocation failed&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}});}})</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvMapPanel.tsx:177</li>
+						</ul>
+					</aside>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvmappanel" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Map<wbr>Panel</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Map<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvmappanel_.cvmappanelprops.html" class="tsd-signature-type">CvMapPanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMapPanelProps, CvMapPanelState&gt;({mixins: [CvBaseMixin],componentDidMount: function () {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Map Tip: Click on multiple markers to see route and distance. Right-click for a context menu.&#x27;, type:CvMessageType.INFO}}this.eventRegistry().publish(event, false);CvActionBase._publishActionStarted(&#x27;#loadMap&#x27;, this.props.mapContext, true, this.props.actionListeners, this.eventRegistry());},getDefaultProps: function () {return {paneRef: null,formContext: null,mapContext: null,navigationListeners: [],selectionListener: null,stateChangeListeners: [],actionListeners: [],navTarget: null,containerProps: null,actionProvider: null}},getInitialState: function () {return {currentSelection: null, previousSelection: null, openMarker: null, openMenu: null, directions: null}},render: function () {const {currentSelection, previousSelection, directions, openMenu, openMarker} &#x3D; this.state;const mapPaneProps &#x3D; {paneRef: this.props.paneRef,formContext: this.props.formContext,queryContext: this.props.mapContext,stateChangeListeners: this.props.stateChangeListeners,actionListeners: this.props.actionListeners,actionProvider: this.props.actionProvider}const mapContainerProps &#x3D; ObjUtil.addAllProps(this.props.containerProps, {className: &#x27;cv-map-container&#x27;})/*Note:We have to explicitly pass every prop to the CvDropdownMenu component that might normally be found in the contextbecause the &#x27;GoogleMap&#x27; react library interferes with the context*/return (&lt;CvQueryPane {...mapPaneProps} queryRenderer&#x3D;{(cvContext:CvContext, callback:CvQueryPaneCallback)&#x3D;&gt;{const mapContext:MapContext &#x3D; cvContext.scopeCtx.scopeObj;const mapDef:MapDef &#x3D; mapContext.mapDef;const records:Array&lt;EntityRec&gt; &#x3D; ArrayUtil.copy&lt;EntityRec&gt;(mapContext.scroller.buffer);const markers &#x3D; records.map((record:EntityRec)&#x3D;&gt;{return {id: record.objectId,lat: record.propAtName(mapDef.latitudePropName).value,lng: record.propAtName(mapDef.longitudePropName).value,desc: record.propAtName(mapDef.descriptionPropName).value,imgUrl: record.imageName,tipText: record.tipText,imagePlc: record.imagePlacement}});return (&lt;GoogleMapLoadercontainerElement&#x3D;{ &lt;div {...mapContainerProps}/&gt; }googleMapElement&#x3D;{&lt;GoogleMapdefaultZoom&#x3D;{7}defaultCenter&#x3D;{{lat: 39.144973, lng: -100.019531}}defaultOptions&#x3D;{{fullscreenControl: true}}onClick&#x3D;{this._handleMapClick}ref&#x3D;{(map)&#x3D;&gt;{if(map){ this._initMap(map, markers)}}}&gt;{directions ? &lt;DirectionsRenderer directions&#x3D;{directions}options&#x3D;{{suppressMarkers:true}}/&gt; : null}{markers.map((marker, index)&#x3D;&gt;{const menuDef &#x3D; (mapContext.menuDefs &amp;&amp; mapContext.menuDefs.length &gt; 0) ? mapContext.menuDefs[0].findContextMenuDef() : null;const selectionAdapter:CvValueAdapter&lt;Array&lt;string&gt;&gt; &#x3D; new CvValueAdapter&lt;Array&lt;string&gt;&gt;();selectionAdapter.createValueListener()([marker.id]);return (&lt;MarkerdefaultPosition&#x3D;{{lat: marker.lat, lng: marker.lng}}defaultAnimation&#x3D;{google.maps.Animation.DROP}key&#x3D;{marker.id}icon&#x3D;{{url:marker.imgUrl, scaledSize:new google.maps.Size(30, 30)}}title&#x3D;{marker.tipText}onMouseover&#x3D;{this._handleMarkerOver.bind(this, marker)}onClick&#x3D;{this._handleMarkerClick.bind(this, marker)}onRightclick&#x3D;{this._handleMarkerRightClick.bind(this, marker)}&gt;{openMarker &amp;&amp; openMarker.id &#x3D;&#x3D;&#x3D; marker.id ?this._getInfoDisplay(directions, marker, currentSelection) : null}{openMenu &amp;&amp; openMenu.id &#x3D;&#x3D;&#x3D; marker.id ?&lt;OverlayViewposition&#x3D;{{ lat: marker.lat, lng: marker.lng }}mapPaneName&#x3D;{OverlayView.OVERLAY_MOUSE_TARGET}getPixelPositionOffset&#x3D;{this._getPixelPositionOffset}&gt;&lt;CvDropdownMenu paneContext&#x3D;{mapContext}menuDef&#x3D;{menuDef}navigationListeners&#x3D;{this.props.navigationListeners}actionListeners&#x3D;{[this._actionFired.bind(this, marker)]}stateChangeListeners&#x3D;{this.props.stateChangeListeners}navTarget&#x3D;{this.props.navTarget}selectionProvider&#x3D;{selectionAdapter}catavolt&#x3D;{this.catavolt()}initOpen&#x3D;{true}launchMenuElement&#x3D;{&lt;span/&gt;}eventRegistry&#x3D;{this.eventRegistry()}/&gt;&lt;/OverlayView&gt;: null}&lt;/Marker&gt;);})}&lt;/GoogleMap&gt;}/&gt;);}}/&gt;);},_actionFired: function (marker:any, event:CvEvent&lt;CvActionFiredResult&gt;) {},_getInfoDisplay: function(directions, marker, targetMarker) {if(!directions) {return &lt;InfoWindow onCloseclick&#x3D;{this._handleInfoClose.bind(this, marker)}&gt;{marker.desc}&lt;/InfoWindow&gt;} else {if(marker.id &#x3D;&#x3D; targetMarker.id) {const leg &#x3D; directions.routes[0].legs[0];return &lt;InfoWindow onCloseclick&#x3D;{this._handleInfoClose.bind(this, marker)}&gt;&lt;div&gt;&lt;span className&#x3D;&quot;cv-icon cv-map-info pull-right&quot; aria-hidden&#x3D;&quot;true&quot;/&gt;&lt;div&gt;&lt;strong&gt;{&#x27;To: &#x27;}&lt;/strong&gt;{marker.desc}&lt;/div&gt;&lt;div&gt;{leg.end_address}&lt;/div&gt;&lt;div&gt;{leg.distance ? leg.distance.text : null}&lt;/div&gt;&lt;div&gt;{leg.duration ? leg.duration.text : null}&lt;/div&gt;&lt;/div&gt;&lt;/InfoWindow&gt;}}return null;},_getPixelPositionOffset: function(width, height) {return { x: -(width / 2), y: -(height / 2) };},_handleMapClick: function(e) {if(!this.state.openMenu) {this.setState({openMarker: null,directions: null,currentSelection: null,previousSelection: null});}},_handleMarkerOver: function (marker, e) {if(!this.state.directions) {this.setState({openMarker: marker,openMenu: null});}},_handleMarkerClick: function (marker, e) {if (this.props.selectionListener) this.props.selectionListener([marker.id]);const previousSelection &#x3D; this.state.currentSelection;const currentSelection &#x3D; marker;if(previousSelection &amp;&amp; currentSelection.id !&#x3D;&#x3D; previousSelection.id) {const ds &#x3D; new google.maps.DirectionsService();ds.route({origin: new google.maps.LatLng(previousSelection.lat, previousSelection.lng),destination: new google.maps.LatLng(currentSelection.lat, currentSelection.lng),travelMode: google.maps.TravelMode.DRIVING,provideRouteAlternatives: true}, (result, status) &#x3D;&gt; {if (status &#x3D;&#x3D;&#x3D; google.maps.DirectionsStatus.OK) {this.setState({directions: result,currentSelection: currentSelection,previousSelection: previousSelection,openMarker: marker,openMenu: null});} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x60;error fetching directions ${ result }&#x60;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Error retrieving directions&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}});} else {this.setState({currentSelection: currentSelection,previousSelection: previousSelection,openMenu: null,directions: null});}},_handleMarkerRightClick: function(marker, e) {if (this.props.selectionListener) this.props.selectionListener([marker.id]);this.setState({previousSelection: this.state.currentSelection,currentSelection: marker,openMenu: marker});},_handleInfoClose: function (marker, e) {this.setState({openMarker: null});},_initMap: function (map:any, latLng:Array&lt;{lat; lng;}&gt;) {if (!this._gMap &amp;&amp; latLng &amp;&amp; latLng.length &gt; 0) {this._gMap &#x3D; map;var latLngBounds &#x3D; new google.maps.LatLngBounds();for (var i &#x3D; 0; i &lt; latLng.length; i++) {latLngBounds.extend(new google.maps.LatLng(latLng[i].lat, latLng[i].lng));}map.fitBounds(latLngBounds);CvActionBase._publishActionFinished(&#x27;#loadMap&#x27;, this.props.mapContext, this.props.actionListeners, this.eventRegistry());}},_geoLocate: function(callback:(pos:{lat; lng;})&#x3D;&gt;void) {if (navigator.geolocation) {navigator.geolocation.getCurrentPosition(function(position) {var pos &#x3D; {lat: position.coords.latitude,lng: position.coords.longitude};callback(pos);}, function() {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Geolocation failed&#x27;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Geolocation failed&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);});} else {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Geolocation not supported (or disabled)&#x27;,messageObj:new DialogException(&#x27;&#x27;, &#x27;Geolocation not supported (or disabled)&#x27;), type:CvMessageType.ERROR}}this.eventRegistry().publish(event, false);}}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Map<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvmappanel_.cvmappanelprops.html" class="tsd-signature-type">CvMapPanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMapPanelProps, CvMapPanelState&gt;({mixins: [CvBaseMixin],componentDidMount: function () {const event:CvEvent&lt;CvMessage&gt; &#x3D; {type:CvEventType.MESSAGE,eventObj:{message: &#x27;Map Tip: Click on multiple markers to see route and distance. Right-click for a context menu.&#x27;, type:CvMessageType.INFO}}this.eventRegistry().publish(event, false);CvActionBase._publishActionStarted(&#x27;#loadMap&#x27;, this.props.mapContext, true, this.props.actionListeners, this.eventRegistry());},getDefaultProps: function () {return {paneRef: null,formContext: null,mapContext: null,navigationListeners: [],selectionListener: null,stateChangeListeners: [],actionListeners: [],navTarget: null,containerProps: null,actionProvider: null}},getInitialState: function () {return {currentSelection: null, previousSelection: null, openMarker: null, openMenu: null, directions: null}},render: function () {const queryPaneProps &#x3D; {paneRef: this.props.paneRef,formContext: this.props.formContext,queryContext: this.props.mapContext,stateChangeListeners: this.props.stateChangeListeners,actionListeners: this.props.actionListeners,actionProvider: this.props.actionProvider}return &lt;CvQueryPane {...queryPaneProps} queryRenderer&#x3D;{(cvContext:CvContext, callback:CvQueryPaneCallback)&#x3D;&gt;{const mapContext:MapContext &#x3D; cvContext.scopeCtx.scopeObj;const passthroughProps &#x3D; {paneRef: this.props.paneRef,formContext:this.props.formContext,mapContext: mapContext,lastRefreshTime:  mapContext.lastRefreshTime,navigationListeners:this.props.navigationListeners,selectionListener:this.props.selectionListener,stateChangeListeners:this.props.stateChangeListeners,actionListeners:this.props.actionListeners,navTarget:this.props.navTarget,actionProvider:this.props.actionProvider}const mapContainerProps &#x3D; ObjUtil.addAllProps(this.props.containerProps, {className: &#x27;cv-map-container&#x27;})return (&lt;CvWrappedMapcontainerElement&#x3D;{ &lt;div {...mapContainerProps}/&gt; }mapElement&#x3D;{ &lt;div style&#x3D;{{ height: &#x60;100%&#x60; }} /&gt; }{...passthroughProps}/&gt;);}}/&gt;}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in ext/CvMapPanel.tsx:61</li>
+							<li>Defined in ext/CvMapPanel.tsx:56</li>
 						</ul>
 					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="cvwrappedmap" class="tsd-anchor"></a>
+					<h3>Cv<wbr>Wrapped<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Wrapped<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;withGoogleMap(props &#x3D;&gt; (&lt;CvMap {...props}/&gt;))</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvMapPanel.tsx:581</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="searchbox" class="tsd-anchor"></a>
+					<h3>Search<wbr>Box</h3>
+					<div class="tsd-signature tsd-kind-icon">Search<wbr>Box<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol"> =&nbsp;SearchBoxMod.default</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvMapPanel.tsx:8</li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external tsd-is-not-exported">
+				<h2>Object literals</h2>
+				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+					<a name="cvmappanel_input_style" class="tsd-anchor"></a>
+					<h3>Cv<wbr>Map<wbr>Panel_<wbr>INPUT_<wbr>STYLE</h3>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Map<wbr>Panel_<wbr>INPUT_<wbr>STYLE<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in ext/CvMapPanel.tsx:161</li>
+						</ul>
+					</aside>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.mozboxsizing" class="tsd-anchor"></a>
+						<h3>Moz<wbr>Box<wbr>Sizing</h3>
+						<div class="tsd-signature tsd-kind-icon">Moz<wbr>Box<wbr>Sizing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;border-box&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:163</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.border" class="tsd-anchor"></a>
+						<h3>border</h3>
+						<div class="tsd-signature tsd-kind-icon">border<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;1px solid transparent&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:164</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.borderradius" class="tsd-anchor"></a>
+						<h3>border<wbr>Radius</h3>
+						<div class="tsd-signature tsd-kind-icon">border<wbr>Radius<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;1px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:169</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.boxshadow" class="tsd-anchor"></a>
+						<h3>box<wbr>Shadow</h3>
+						<div class="tsd-signature tsd-kind-icon">box<wbr>Shadow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;0 2px 6px rgba(0, 0, 0, 0.3)&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:170</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.boxsizing" class="tsd-anchor"></a>
+						<h3>box<wbr>Sizing</h3>
+						<div class="tsd-signature tsd-kind-icon">box<wbr>Sizing<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;border-box&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:162</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.fontsize" class="tsd-anchor"></a>
+						<h3>font<wbr>Size</h3>
+						<div class="tsd-signature tsd-kind-icon">font<wbr>Size<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;14px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:171</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.height" class="tsd-anchor"></a>
+						<h3>height</h3>
+						<div class="tsd-signature tsd-kind-icon">height<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;32px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:166</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.margintop" class="tsd-anchor"></a>
+						<h3>margin<wbr>Top</h3>
+						<div class="tsd-signature tsd-kind-icon">margin<wbr>Top<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;27px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:167</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.outline" class="tsd-anchor"></a>
+						<h3>outline</h3>
+						<div class="tsd-signature tsd-kind-icon">outline<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;none&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:172</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.padding" class="tsd-anchor"></a>
+						<h3>padding</h3>
+						<div class="tsd-signature tsd-kind-icon">padding<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;0 12px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:168</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.textoverflow" class="tsd-anchor"></a>
+						<h3>text<wbr>Overflow</h3>
+						<div class="tsd-signature tsd-kind-icon">text<wbr>Overflow<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;ellipses&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:173</li>
+							</ul>
+						</aside>
+					</section>
+					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal tsd-is-external tsd-is-not-exported">
+						<a name="cvmappanel_input_style.width" class="tsd-anchor"></a>
+						<h3>width</h3>
+						<div class="tsd-signature tsd-kind-icon">width<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> =&nbsp;&#x60;240px&#x60;</span></div>
+						<aside class="tsd-sources">
+							<ul>
+								<li>Defined in ext/CvMapPanel.tsx:165</li>
+							</ul>
+						</aside>
+					</section>
 				</section>
 			</section>
 		</div>
@@ -120,8 +294,29 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
 						<a href="../interfaces/_ext_cvmappanel_.cvmappanelstate.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel<wbr>State</a>
 					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvmappanel_.cvmapprops.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>Props</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvmappanel_.cvmapstate.html" class="tsd-kind-icon">Cv<wbr>Map<wbr>State</a>
+					</li>
+					<li class=" tsd-kind-interface tsd-parent-kind-external-module tsd-is-external">
+						<a href="../interfaces/_ext_cvmappanel_.cvmarker.html" class="tsd-kind-icon">Cv<wbr>Marker</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_ext_cvmappanel_.html#cvmap" class="tsd-kind-icon">Cv<wbr>Map</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 						<a href="_ext_cvmappanel_.html#cvmappanel" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_ext_cvmappanel_.html#cvwrappedmap" class="tsd-kind-icon">Cv<wbr>Wrapped<wbr>Map</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_ext_cvmappanel_.html#searchbox" class="tsd-kind-icon">Search<wbr>Box</a>
+					</li>
+					<li class=" tsd-kind-object-literal tsd-parent-kind-external-module tsd-is-external tsd-is-not-exported">
+						<a href="_ext_cvmappanel_.html#cvmappanel_input_style" class="tsd-kind-icon">Cv<wbr>Map<wbr>Panel_<wbr>INPUT_<wbr>STYLE</a>
 					</li>
 				</ul>
 			</nav>
@@ -188,7 +383,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

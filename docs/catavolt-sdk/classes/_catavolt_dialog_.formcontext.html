@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -144,6 +143,7 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#panetitle" class="tsd-kind-icon">pane<wbr>Title</a></li>
 								<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#parentcontext" class="tsd-kind-icon">parent<wbr>Context</a></li>
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#sessioncontext" class="tsd-kind-icon">session<wbr>Context</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#viewdescs" class="tsd-kind-icon">view<wbr>Descs</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-external">
@@ -154,7 +154,9 @@
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#findmenudefat" class="tsd-kind-icon">find<wbr>Menu<wbr>Def<wbr>At</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#formatforread" class="tsd-kind-icon">format<wbr>For<wbr>Read</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#formatforwrite" class="tsd-kind-icon">format<wbr>For<wbr>Write</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#initialize" class="tsd-kind-icon">initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#getselectedviewid" class="tsd-kind-icon">get<wbr>Selected<wbr>View<wbr>Id</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#initialize" class="tsd-kind-icon">initialize</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#openview" class="tsd-kind-icon">open<wbr>View</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#parsevalue" class="tsd-kind-icon">parse<wbr>Value</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#performmenuaction" class="tsd-kind-icon">perform<wbr>Menu<wbr>Action</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private tsd-is-external"><a href="_catavolt_dialog_.formcontext.html#processnavrequestfordestroyed" class="tsd-kind-icon">process<wbr>Nav<wbr>Request<wbr>For<wbr>Destroyed</a></li>
@@ -181,9 +183,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1003</li>
+									<li>Defined in catavolt/dialog.ts:1080</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -229,7 +231,7 @@
 					<div class="tsd-signature tsd-kind-icon">_action<wbr>Source<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_catavolt_dialog_.actionsource.html" class="tsd-signature-type">ActionSource</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1015</li>
+							<li>Defined in catavolt/dialog.ts:1092</li>
 						</ul>
 					</aside>
 				</section>
@@ -239,7 +241,7 @@
 					<div class="tsd-signature tsd-kind-icon">_children<wbr>Contexts<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.panecontext.html" class="tsd-signature-type">PaneContext</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1016</li>
+							<li>Defined in catavolt/dialog.ts:1093</li>
 						</ul>
 					</aside>
 				</section>
@@ -249,7 +251,7 @@
 					<div class="tsd-signature tsd-kind-icon">_destroyed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> =&nbsp;false</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1002</li>
+							<li>Defined in catavolt/dialog.ts:1079</li>
 						</ul>
 					</aside>
 				</section>
@@ -259,7 +261,7 @@
 					<div class="tsd-signature tsd-kind-icon">_dialog<wbr>Redirection<span class="tsd-signature-symbol">:</span> <a href="_catavolt_dialog_.dialogredirection.html" class="tsd-signature-type">DialogRedirection</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1015</li>
+							<li>Defined in catavolt/dialog.ts:1092</li>
 						</ul>
 					</aside>
 				</section>
@@ -269,7 +271,7 @@
 					<div class="tsd-signature tsd-kind-icon">_form<wbr>Def<span class="tsd-signature-symbol">:</span> <a href="_catavolt_dialog_.formdef.html" class="tsd-signature-type">FormDef</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1016</li>
+							<li>Defined in catavolt/dialog.ts:1093</li>
 						</ul>
 					</aside>
 				</section>
@@ -279,7 +281,7 @@
 					<div class="tsd-signature tsd-kind-icon">_offline<wbr>Capable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1016</li>
+							<li>Defined in catavolt/dialog.ts:1093</li>
 						</ul>
 					</aside>
 				</section>
@@ -289,7 +291,7 @@
 					<div class="tsd-signature tsd-kind-icon">_offline<wbr>Data<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1017</li>
+							<li>Defined in catavolt/dialog.ts:1094</li>
 						</ul>
 					</aside>
 				</section>
@@ -299,7 +301,7 @@
 					<div class="tsd-signature tsd-kind-icon">_offline<wbr>Props<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_catavolt_util_.stringdictionary.html" class="tsd-signature-type">StringDictionary</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1003</li>
+							<li>Defined in catavolt/dialog.ts:1080</li>
 						</ul>
 					</aside>
 				</section>
@@ -309,7 +311,7 @@
 					<div class="tsd-signature tsd-kind-icon">_session<wbr>Context<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:1017</li>
+							<li>Defined in catavolt/dialog.ts:1094</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -324,7 +326,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#binary_chunk_size">BINARY_CHUNK_SIZE</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:201</li>
+							<li>Defined in catavolt/dialog.ts:207</li>
 						</ul>
 					</aside>
 				</section>
@@ -340,9 +342,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#actionsource">actionSource</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#actionsource">actionSource</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1029</li>
+									<li>Defined in catavolt/dialog.ts:1106</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -364,7 +366,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1037</li>
+									<li>Defined in catavolt/dialog.ts:1114</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,7 +389,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#dialogalias">dialogAlias</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:288</li>
+									<li>Defined in catavolt/dialog.ts:294</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,9 +410,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#dialogredirection">dialogRedirection</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#dialogredirection">dialogRedirection</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1053</li>
+									<li>Defined in catavolt/dialog.ts:1130</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -431,9 +433,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#entityrecdef">entityRecDef</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#entityrecdef">entityRecDef</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1061</li>
+									<li>Defined in catavolt/dialog.ts:1138</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -456,7 +458,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#error">error</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:349</li>
+									<li>Defined in catavolt/dialog.ts:363</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -477,9 +479,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#formdef">formDef</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#formdef">formDef</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1069</li>
+									<li>Defined in catavolt/dialog.ts:1146</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -502,7 +504,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#haserror">hasError</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:341</li>
+									<li>Defined in catavolt/dialog.ts:355</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -524,7 +526,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1076</li>
+									<li>Defined in catavolt/dialog.ts:1153</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -543,7 +545,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1154</li>
+									<li>Defined in catavolt/dialog.ts:1253</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -561,9 +563,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#isdestroyed">isDestroyed</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#isdestroyed">isDestroyed</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1102</li>
+									<li>Defined in catavolt/dialog.ts:1193</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -586,7 +588,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#isrefreshneeded">isRefreshNeeded</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:361</li>
+									<li>Defined in catavolt/dialog.ts:375</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -610,7 +612,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#lastrefreshtime">lastRefreshTime</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:369</li>
+									<li>Defined in catavolt/dialog.ts:383</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -624,7 +626,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#lastrefreshtime">lastRefreshTime</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:376</li>
+									<li>Defined in catavolt/dialog.ts:390</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,14 +657,14 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#menudefs">menuDefs</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#menudefs">menuDefs</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1118</li>
+									<li>Defined in catavolt/dialog.ts:1209</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Get the all <a href="_catavolt_dialog_.menudef.html">MenuDef</a>&#39;s associated with this Pane</p>
+									<p>Get the all <a href="_catavolt_dialog_.menudef.html">MenuDef</a>&#39;s associated with this Form</p>
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.menudef.html" class="tsd-signature-type">MenuDef</a><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -678,9 +680,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#offlinecapable">offlineCapable</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#offlinecapable">offlineCapable</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1110</li>
+									<li>Defined in catavolt/dialog.ts:1201</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -699,7 +701,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1126</li>
+									<li>Defined in catavolt/dialog.ts:1217</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -717,9 +719,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#panedef">paneDef</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#panedef">paneDef</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1134</li>
+									<li>Defined in catavolt/dialog.ts:1225</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -743,7 +745,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#paneref">paneRef</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:413</li>
+									<li>Defined in catavolt/dialog.ts:427</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -758,7 +760,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#paneref">paneRef</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:417</li>
+									<li>Defined in catavolt/dialog.ts:431</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -788,7 +790,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#panetitle">paneTitle</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:425</li>
+									<li>Defined in catavolt/dialog.ts:439</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -812,7 +814,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#parentcontext">parentContext</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:433</li>
+									<li>Defined in catavolt/dialog.ts:447</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -826,7 +828,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#parentcontext">parentContext</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:476</li>
+									<li>Defined in catavolt/dialog.ts:451</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,9 +855,9 @@
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#sessioncontext">sessionContext</a></p>
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#sessioncontext">sessionContext</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1142</li>
+									<li>Defined in catavolt/dialog.ts:1233</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -864,6 +866,29 @@
 								</div>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_catavolt_ws_.sessioncontext.html" class="tsd-signature-type">SessionContext</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="viewdescs" class="tsd-anchor"></a>
+					<h3>view<wbr>Descs</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> viewDescs<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.viewdesc.html" class="tsd-signature-type">ViewDesc</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#viewdescs">viewDescs</a></p>
+								<ul>
+									<li>Defined in catavolt/dialog.ts:1241</li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the all <a href="_catavolt_dialog_.viewdesc.html">ViewDesc</a>&#39;s associated with this Form</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.viewdesc.html" class="tsd-signature-type">ViewDesc</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -881,7 +906,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#binaryat">binaryAt</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:261</li>
+									<li>Defined in catavolt/dialog.ts:267</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -912,7 +937,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1045</li>
+									<li>Defined in catavolt/dialog.ts:1122</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -935,7 +960,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#findmenudefat">findMenuDefAt</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:297</li>
+									<li>Defined in catavolt/dialog.ts:311</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -964,7 +989,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#formatforread">formatForRead</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:314</li>
+									<li>Defined in catavolt/dialog.ts:328</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -996,7 +1021,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#formatforwrite">formatForWrite</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:324</li>
+									<li>Defined in catavolt/dialog.ts:338</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1017,10 +1042,28 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="getselectedviewid" class="tsd-anchor"></a>
+					<h3>get<wbr>Selected<wbr>View<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Selected<wbr>View<wbr>Id<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.viewid.html" class="tsd-signature-type">ViewId</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#getselectedviewid">getSelectedViewId</a></p>
+								<ul>
+									<li>Defined in catavolt/dialog.ts:1284</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.viewid.html" class="tsd-signature-type">ViewId</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 					<a name="initialize" class="tsd-anchor"></a>
-					<h3>initialize</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+					<h3><span class="tsd-flag ts-flagProtected">Protected</span> initialize</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 						<li class="tsd-signature tsd-kind-icon">initialize<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
@@ -1028,10 +1071,34 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#initialize">initialize</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:473</li>
+									<li>Defined in catavolt/dialog.ts:565</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+					<a name="openview" class="tsd-anchor"></a>
+					<h3>open<wbr>View</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">open<wbr>View<span class="tsd-signature-symbol">(</span>targetViewDesc<span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.viewdesc.html" class="tsd-signature-type">ViewDesc</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_fp_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.panecontext.html" class="tsd-signature-type">PaneContext</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_catavolt_dialog_.navrequest.html" class="tsd-signature-type">NavRequest</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<p>Overrides <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#openview">openView</a></p>
+								<ul>
+									<li>Defined in catavolt/dialog.ts:1157</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>targetViewDesc: <a href="_catavolt_dialog_.viewdesc.html" class="tsd-signature-type">ViewDesc</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_fp_.future.html" class="tsd-signature-type">Future</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_fp_.either.html" class="tsd-signature-type">Either</a><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.panecontext.html" class="tsd-signature-type">PaneContext</a><span class="tsd-signature-symbol">, </span><a href="../interfaces/_catavolt_dialog_.navrequest.html" class="tsd-signature-type">NavRequest</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -1046,7 +1113,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#parsevalue">parseValue</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:443</li>
+									<li>Defined in catavolt/dialog.ts:462</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1077,7 +1144,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1085</li>
+									<li>Defined in catavolt/dialog.ts:1176</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1105,7 +1172,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:1167</li>
+									<li>Defined in catavolt/dialog.ts:1266</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1133,7 +1200,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#propdefatname">propDefAtName</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:452</li>
+									<li>Defined in catavolt/dialog.ts:471</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1162,7 +1229,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#readbinaries">readBinaries</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:486</li>
+									<li>Defined in catavolt/dialog.ts:480</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1191,7 +1258,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#readbinary">readBinary</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:543</li>
+									<li>Defined in catavolt/dialog.ts:567</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1218,7 +1285,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#writeattachment">writeAttachment</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:496</li>
+									<li>Defined in catavolt/dialog.ts:498</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1242,7 +1309,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#writeattachments">writeAttachments</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:500</li>
+									<li>Defined in catavolt/dialog.ts:502</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1266,7 +1333,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#writebinaries">writeBinaries</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:516</li>
+									<li>Defined in catavolt/dialog.ts:526</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1295,7 +1362,7 @@
 							<aside class="tsd-sources">
 								<p>Inherited from <a href="_catavolt_dialog_.panecontext.html">PaneContext</a>.<a href="_catavolt_dialog_.panecontext.html#resolvesettingsfromnavrequest">resolveSettingsFromNavRequest</a></p>
 								<ul>
-									<li>Defined in catavolt/dialog.ts:221</li>
+									<li>Defined in catavolt/dialog.ts:227</li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1344,6 +1411,9 @@
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_version_.html">"catavolt/version"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_ws_.html">"catavolt/ws"</a>
@@ -1453,6 +1523,9 @@
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
 								<a href="_catavolt_dialog_.formcontext.html#sessioncontext" class="tsd-kind-icon">session<wbr>Context</a>
 							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="_catavolt_dialog_.formcontext.html#viewdescs" class="tsd-kind-icon">view<wbr>Descs</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="_catavolt_dialog_.formcontext.html#binaryat" class="tsd-kind-icon">binary<wbr>At</a>
 							</li>
@@ -1468,8 +1541,14 @@
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="_catavolt_dialog_.formcontext.html#formatforwrite" class="tsd-kind-icon">format<wbr>For<wbr>Write</a>
 							</li>
-							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="_catavolt_dialog_.formcontext.html#getselectedviewid" class="tsd-kind-icon">get<wbr>Selected<wbr>View<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-protected tsd-is-external">
 								<a href="_catavolt_dialog_.formcontext.html#initialize" class="tsd-kind-icon">initialize</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
+								<a href="_catavolt_dialog_.formcontext.html#openview" class="tsd-kind-icon">open<wbr>View</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-inherited tsd-is-external">
 								<a href="_catavolt_dialog_.formcontext.html#parsevalue" class="tsd-kind-icon">parse<wbr>Value</a>
@@ -1570,7 +1649,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

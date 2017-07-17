@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -118,6 +117,17 @@
 								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#y" class="tsd-kind-icon">y</a></li>
 							</ul>
 						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#singleheightnum" class="tsd-kind-icon">single<wbr>Height<wbr>Num</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#singleheightrichnum" class="tsd-kind-icon">single<wbr>Height<wbr>Rich<wbr>Num</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#singlewidthnum" class="tsd-kind-icon">single<wbr>Width<wbr>Num</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#singlewidthrichnum" class="tsd-kind-icon">single<wbr>Width<wbr>Rich<wbr>Num</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#sumofheights" class="tsd-kind-icon">sum<wbr>OfHeights</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-external"><a href="_catavolt_print_.layout.html#sumofwidths" class="tsd-kind-icon">sum<wbr>OfWidths</a></li>
+							</ul>
+						</section>
 					</div>
 				</section>
 			</section>
@@ -127,20 +137,38 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Layout<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.layout.html" class="tsd-signature-type">Layout</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Layout<span class="tsd-signature-symbol">(</span>node<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Node</span>, x<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, y<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, width<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, height<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, row<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, col<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.layout.html" class="tsd-signature-type">Layout</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overwrites <a href="_catavolt_print_.spec.html">Spec</a>.<a href="_catavolt_print_.spec.html#constructor">constructor</a></p>
+								<p>Overrides <a href="_catavolt_print_.spec.html">Spec</a>.<a href="_catavolt_print_.spec.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in catavolt/print.ts:406</li>
+									<li>Defined in catavolt/print.ts:715</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>node: <span class="tsd-signature-type">Node</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> x: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> y: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> width: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> height: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> row: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> col: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_catavolt_print_.layout.html" class="tsd-signature-type">Layout</a></h4>
@@ -156,17 +184,17 @@
 					<div class="tsd-signature tsd-kind-icon">_column<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:405</li>
+							<li>Defined in catavolt/print.ts:714</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="_heights" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _heights</h3>
-					<div class="tsd-signature tsd-kind-icon">_heights<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_heights<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:401</li>
+							<li>Defined in catavolt/print.ts:710</li>
 						</ul>
 					</aside>
 				</section>
@@ -176,7 +204,7 @@
 					<div class="tsd-signature tsd-kind-icon">_row<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:406</li>
+							<li>Defined in catavolt/print.ts:715</li>
 						</ul>
 					</aside>
 				</section>
@@ -186,17 +214,17 @@
 					<div class="tsd-signature tsd-kind-icon">_uom<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:400</li>
+							<li>Defined in catavolt/print.ts:709</li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-private tsd-is-external">
 					<a name="_widths" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> _widths</h3>
-					<div class="tsd-signature tsd-kind-icon">_widths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-signature tsd-kind-icon">_widths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:402</li>
+							<li>Defined in catavolt/print.ts:711</li>
 						</ul>
 					</aside>
 				</section>
@@ -206,7 +234,7 @@
 					<div class="tsd-signature tsd-kind-icon">_x<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:403</li>
+							<li>Defined in catavolt/print.ts:712</li>
 						</ul>
 					</aside>
 				</section>
@@ -216,7 +244,7 @@
 					<div class="tsd-signature tsd-kind-icon">_y<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/print.ts:404</li>
+							<li>Defined in catavolt/print.ts:713</li>
 						</ul>
 					</aside>
 				</section>
@@ -227,7 +255,7 @@
 					<aside class="tsd-sources">
 						<p>Inherited from <a href="_catavolt_print_.spec.html">Spec</a>.<a href="_catavolt_print_.spec.html#nodechilddict">nodeChildDict</a></p>
 						<ul>
-							<li>Defined in catavolt/print.ts:101</li>
+							<li>Defined in catavolt/print.ts:112</li>
 						</ul>
 					</aside>
 				</section>
@@ -244,7 +272,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:434</li>
+									<li>Defined in catavolt/print.ts:762</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -255,16 +283,16 @@
 					<a name="heights" class="tsd-anchor"></a>
 					<h3>heights</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> heights<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> heights<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:430</li>
+									<li>Defined in catavolt/print.ts:758</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -278,7 +306,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:435</li>
+									<li>Defined in catavolt/print.ts:763</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -295,7 +323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:429</li>
+									<li>Defined in catavolt/print.ts:757</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
@@ -306,16 +334,16 @@
 					<a name="widths" class="tsd-anchor"></a>
 					<h3>widths</h3>
 					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> widths<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> widths<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">[]</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:431</li>
+									<li>Defined in catavolt/print.ts:759</li>
 								</ul>
 							</aside>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a><span class="tsd-signature-symbol">[]</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -329,7 +357,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:432</li>
+									<li>Defined in catavolt/print.ts:760</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
@@ -346,9 +374,120 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/print.ts:433</li>
+									<li>Defined in catavolt/print.ts:761</li>
 								</ul>
 							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="singleheightnum" class="tsd-anchor"></a>
+					<h3>single<wbr>Height<wbr>Num</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Height<wbr>Num<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:765</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="singleheightrichnum" class="tsd-anchor"></a>
+					<h3>single<wbr>Height<wbr>Rich<wbr>Num</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Height<wbr>Rich<wbr>Num<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:772</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="singlewidthnum" class="tsd-anchor"></a>
+					<h3>single<wbr>Width<wbr>Num</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Width<wbr>Num<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:781</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="singlewidthrichnum" class="tsd-anchor"></a>
+					<h3>single<wbr>Width<wbr>Rich<wbr>Num</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">single<wbr>Width<wbr>Rich<wbr>Num<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:788</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_print_.richnum.html" class="tsd-signature-type">RichNum</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="sumofheights" class="tsd-anchor"></a>
+					<h3>sum<wbr>OfHeights</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">sum<wbr>OfHeights<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:797</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-external">
+					<a name="sumofwidths" class="tsd-anchor"></a>
+					<h3>sum<wbr>OfWidths</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon">sum<wbr>OfWidths<span class="tsd-signature-symbol">(</span>parentSize<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/print.ts:813</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>parentSize: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
 						</li>
 					</ul>
@@ -381,6 +520,9 @@
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_version_.html">"catavolt/version"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_ws_.html">"catavolt/ws"</a>
@@ -441,6 +583,24 @@
 							</li>
 							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_print_.layout.html#y" class="tsd-kind-icon">y</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#singleheightnum" class="tsd-kind-icon">single<wbr>Height<wbr>Num</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#singleheightrichnum" class="tsd-kind-icon">single<wbr>Height<wbr>Rich<wbr>Num</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#singlewidthnum" class="tsd-kind-icon">single<wbr>Width<wbr>Num</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#singlewidthrichnum" class="tsd-kind-icon">single<wbr>Width<wbr>Rich<wbr>Num</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#sumofheights" class="tsd-kind-icon">sum<wbr>OfHeights</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_print_.layout.html#sumofwidths" class="tsd-kind-icon">sum<wbr>OfWidths</a>
 							</li>
 						</ul>
 					</li>
@@ -511,7 +671,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

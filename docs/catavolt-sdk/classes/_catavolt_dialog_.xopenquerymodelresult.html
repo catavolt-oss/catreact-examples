@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -103,7 +102,15 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#defaultactionid" class="tsd-kind-icon">default<wbr>Action<wbr>Id</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#entityrecdef" class="tsd-kind-icon">entity<wbr>Rec<wbr>Def</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#formmodel" class="tsd-kind-icon">form<wbr>Model</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#sortpropertydef" class="tsd-kind-icon">sort<wbr>Property<wbr>Def</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section tsd-is-external">
+							<h3>Accessors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#formpaneid" class="tsd-kind-icon">form<wbr>Pane<wbr>Id</a></li>
+								<li class="tsd-kind-get-signature tsd-parent-kind-class tsd-is-external"><a href="_catavolt_dialog_.xopenquerymodelresult.html#formredirection" class="tsd-kind-icon">form<wbr>Redirection</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section tsd-is-external">
@@ -121,13 +128,13 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-external">
-						<li class="tsd-signature tsd-kind-icon">new XOpen<wbr>Query<wbr>Model<wbr>Result<span class="tsd-signature-symbol">(</span>entityRecDef<span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.entityrecdef.html" class="tsd-signature-type">EntityRecDef</a>, sortPropertyDef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.sortpropdef.html" class="tsd-signature-type">SortPropDef</a><span class="tsd-signature-symbol">&gt;</span>, defaultActionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.xopenquerymodelresult.html" class="tsd-signature-type">XOpenQueryModelResult</a></li>
+						<li class="tsd-signature tsd-kind-icon">new XOpen<wbr>Query<wbr>Model<wbr>Result<span class="tsd-signature-symbol">(</span>entityRecDef<span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.entityrecdef.html" class="tsd-signature-type">EntityRecDef</a>, sortPropertyDef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.sortpropdef.html" class="tsd-signature-type">SortPropDef</a><span class="tsd-signature-symbol">&gt;</span>, defaultActionId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, formModel<span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.xformmodel.html" class="tsd-signature-type">XFormModel</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.xopenquerymodelresult.html" class="tsd-signature-type">XOpenQueryModelResult</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:7589</li>
+									<li>Defined in catavolt/dialog.ts:8114</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -140,6 +147,9 @@
 								</li>
 								<li>
 									<h5>defaultActionId: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>formModel: <a href="_catavolt_dialog_.xformmodel.html" class="tsd-signature-type">XFormModel</a></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <a href="_catavolt_dialog_.xopenquerymodelresult.html" class="tsd-signature-type">XOpenQueryModelResult</a></h4>
@@ -155,7 +165,7 @@
 					<div class="tsd-signature tsd-kind-icon">default<wbr>Action<wbr>Id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:7593</li>
+							<li>Defined in catavolt/dialog.ts:8118</li>
 						</ul>
 					</aside>
 				</section>
@@ -166,7 +176,18 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_catavolt_dialog_.xopendialogmodelresult.html">XOpenDialogModelResult</a>.<a href="../interfaces/_catavolt_dialog_.xopendialogmodelresult.html#entityrecdef">entityRecDef</a></p>
 						<ul>
-							<li>Defined in catavolt/dialog.ts:7591</li>
+							<li>Defined in catavolt/dialog.ts:8116</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-external">
+					<a name="formmodel" class="tsd-anchor"></a>
+					<h3>form<wbr>Model</h3>
+					<div class="tsd-signature tsd-kind-icon">form<wbr>Model<span class="tsd-signature-symbol">:</span> <a href="_catavolt_dialog_.xformmodel.html" class="tsd-signature-type">XFormModel</a></div>
+					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_catavolt_dialog_.xopendialogmodelresult.html">XOpenDialogModelResult</a>.<a href="../interfaces/_catavolt_dialog_.xopendialogmodelresult.html#formmodel">formModel</a></p>
+						<ul>
+							<li>Defined in catavolt/dialog.ts:8119</li>
 						</ul>
 					</aside>
 				</section>
@@ -176,9 +197,46 @@
 					<div class="tsd-signature tsd-kind-icon">sort<wbr>Property<wbr>Def<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="_catavolt_dialog_.sortpropdef.html" class="tsd-signature-type">SortPropDef</a><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in catavolt/dialog.ts:7592</li>
+							<li>Defined in catavolt/dialog.ts:8117</li>
 						</ul>
 					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group tsd-is-external">
+				<h2>Accessors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+					<a name="formpaneid" class="tsd-anchor"></a>
+					<h3>form<wbr>Pane<wbr>Id</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> formPaneId<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/dialog.ts:8122</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+					<a name="formredirection" class="tsd-anchor"></a>
+					<h3>form<wbr>Redirection</h3>
+					<ul class="tsd-signatures tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+						<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">get</span> formRedirection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_catavolt_dialog_.dialogredirection.html" class="tsd-signature-type">DialogRedirection</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in catavolt/dialog.ts:8126</li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="_catavolt_dialog_.dialogredirection.html" class="tsd-signature-type">DialogRedirection</a></h4>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group tsd-is-external">
@@ -193,7 +251,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in catavolt/dialog.ts:7576</li>
+									<li>Defined in catavolt/dialog.ts:8093</li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -239,6 +297,9 @@
 						<a href="../modules/_catavolt_util_.html">"catavolt/util"</a>
 					</li>
 					<li class=" tsd-kind-external-module tsd-is-external">
+						<a href="../modules/_catavolt_version_.html">"catavolt/version"</a>
+					</li>
+					<li class=" tsd-kind-external-module tsd-is-external">
 						<a href="../modules/_catavolt_ws_.html">"catavolt/ws"</a>
 					</li>
 				</ul>
@@ -260,7 +321,16 @@
 								<a href="_catavolt_dialog_.xopenquerymodelresult.html#entityrecdef" class="tsd-kind-icon">entity<wbr>Rec<wbr>Def</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.xopenquerymodelresult.html#formmodel" class="tsd-kind-icon">form<wbr>Model</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-external">
 								<a href="_catavolt_dialog_.xopenquerymodelresult.html#sortpropertydef" class="tsd-kind-icon">sort<wbr>Property<wbr>Def</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.xopenquerymodelresult.html#formpaneid" class="tsd-kind-icon">form<wbr>Pane<wbr>Id</a>
+							</li>
+							<li class=" tsd-kind-get-signature tsd-parent-kind-class tsd-is-external">
+								<a href="_catavolt_dialog_.xopenquerymodelresult.html#formredirection" class="tsd-kind-icon">form<wbr>Redirection</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-static tsd-is-external">
 								<a href="_catavolt_dialog_.xopenquerymodelresult.html#fromws" class="tsd-kind-icon">fromWS</a>
@@ -334,7 +404,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

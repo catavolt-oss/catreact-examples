@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -98,10 +97,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvmenuitem" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Menu<wbr>Item</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-signature-type">CvMenuItemProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMenuItemProps, CvMenuItemState&gt;({mixins: [CvBaseMixin, CvActionBase, CvMenuItemBase],componentDidMount: function() {this._componentDidMount();},getDefaultProps: function () {return {actionId: null,fireOnLoad:null,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners:[],parentMenuItem: null,subMenuItemRenderer: null,selectionProvider: null,renderer:null,wrapperElemName:&#x27;span&#x27;,wrapperElemProps:{},wrapperEventHandlerName:&#x27;onClick&#x27;,actionHandler:null}},parentMenuDef: function() {return this.props.parentMenuItem || this.firstInScope(MenuDef);},render: function() {const menuDef &#x3D; this.menuDef();if(menuDef) {/* render me (this.menuDef) *//* showOnMenu and displayMode values apply here */if(this.props.renderer) {return this._shouldRender(menuDef) ?this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj()) : null;/* render me - the markup with a &#x27;click&#x27; wrapper *//* showOnMenu and displayMode values apply here */} else if(React.Children.count(this.props.children) &gt; 0) {if(this._shouldRender(menuDef)) {const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[this.props.wrapperEventHandlerName] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);} else {return null;}/* render child menuDefs (this.menuDef.menuDefs) */} else if (this.props.subMenuItemRenderer) {let newChildren &#x3D; [];menuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(React.cloneElement(this.props.subMenuItemRenderer(this.getChildContext().cvContext, md), {key:md.name + i}));});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}//render all menuDefs of my parent (i.e. wildcard)}else if(!this.props.actionId &amp;&amp; this.props.renderer) {const parentMenuDef:MenuDef &#x3D; this.parentMenuDef();if(parentMenuDef &amp;&amp; parentMenuDef.menuDefs &amp;&amp; parentMenuDef.menuDefs.length &gt; 0) {let newChildren &#x3D; [];parentMenuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(&lt;CvMenuItem {...this.props} menuDef&#x3D;{md} key&#x3D;{md.actionId + i}/&gt;);});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}} else {return null;}},_shouldRender: function(menuDef:MenuDef):boolean {if(!menuDef.showOnMenu) {return false;}const paneContext &#x3D; this.paneContext();if(paneContext &amp;&amp; paneContext instanceof EditorContext) {if(menuDef.isRead &amp;&amp; menuDef.isWrite) {return true;} else if(menuDef.isRead) {return (paneContext as EditorContext).isReadMode;} else if(menuDef.isWrite){return (paneContext as EditorContext).isWriteMode;} else {return false;}} else {return true;}}})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_core_cvmenuitem_.cvmenuitemprops.html" class="tsd-signature-type">CvMenuItemProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMenuItemProps, CvMenuItemState&gt;({mixins: [CvBaseMixin, CvActionBase, CvMenuItemBase],componentDidMount: function() {this._componentDidMount();},componentWillReceiveProps: function(nextProps) {this._componentWillReceiveProps(nextProps);},getDefaultProps: function () {return {actionId: null,fireOnLoad:null,paneContext: null,navTarget: null,menuDef: null,actionListeners: [],navigationListeners: [],stateChangeListeners:[],parentMenuItem: null,subMenuItemRenderer: null,selectionProvider: null,renderer:null,wrapperElemName:&#x27;span&#x27;,wrapperElemProps:{},wrapperEventHandlerName:&#x27;onClick&#x27;,actionHandler:null}},getInitialState: function() {return this._getInitialState();},parentMenuDef: function() {return this.props.parentMenuItem || this.firstInScope(MenuDef);},render: function() {const menuDef &#x3D; this.menuDef();if(menuDef) {/* render me (this.menuDef) *//* showOnMenu and displayMode values apply here */if(this.props.renderer) {return this._shouldRender(menuDef) ?this.props.renderer(this.getChildContext().cvContext, this._getCallbackObj()) : null;/* render me - the markup with a &#x27;click&#x27; wrapper *//* showOnMenu and displayMode values apply here */} else if(React.Children.count(this.props.children) &gt; 0) {if(this._shouldRender(menuDef)) {const props &#x3D; ObjUtil.addAllProps(this.props.wrapperElemProps, {});props[this.props.wrapperEventHandlerName] &#x3D; this.performAction;return React.createElement(this.props.wrapperElemName, props, this.props.children);} else {return null;}/* render child menuDefs (this.menuDef.menuDefs) */} else if (this.props.subMenuItemRenderer) {let newChildren &#x3D; [];menuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(React.cloneElement(this.props.subMenuItemRenderer(this.getChildContext().cvContext, md), {key:md.name + i}));});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}//render all menuDefs of my parent (i.e. wildcard)}else if(!this.props.actionId &amp;&amp; this.props.renderer) {const parentMenuDef:MenuDef &#x3D; this.parentMenuDef();if(parentMenuDef &amp;&amp; parentMenuDef.menuDefs &amp;&amp; parentMenuDef.menuDefs.length &gt; 0) {let newChildren &#x3D; [];parentMenuDef.menuDefs.forEach((md:MenuDef, i:number)&#x3D;&gt; {newChildren.push(&lt;CvMenuItem {...this.props} menuDef&#x3D;{md} key&#x3D;{md.actionId + i}/&gt;);});return React.createElement(this.props.wrapperElemName, this.props.wrapperElemProps, newChildren);} else {return null;}} else {return null;}},_shouldRender: function(menuDef:MenuDef):boolean {if(!menuDef.showOnMenu) {return false;}const paneContext &#x3D; this.paneContext();if(paneContext &amp;&amp; paneContext instanceof EditorContext) {if(menuDef.isRead &amp;&amp; menuDef.isWrite) {return true;} else if(menuDef.isRead) {return (paneContext as EditorContext).isReadMode;} else if(menuDef.isWrite){return (paneContext as EditorContext).isWriteMode;} else {return false;}} else {return true;}}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvMenuItem.tsx:59</li>
+							<li>Defined in core/CvMenuItem.tsx:60</li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -130,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Menu<wbr>Item<wbr>Base<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in core/CvMenuItem.tsx:10</li>
+							<li>Defined in core/CvMenuItem.tsx:11</li>
 						</ul>
 					</aside>
 					<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-object-literal tsd-is-external">
@@ -143,7 +142,7 @@
 							<li class="tsd-description">
 								<aside class="tsd-sources">
 									<ul>
-										<li>Defined in core/CvMenuItem.tsx:12</li>
+										<li>Defined in core/CvMenuItem.tsx:13</li>
 									</ul>
 								</aside>
 								<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">any</span></h4>
@@ -243,7 +242,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

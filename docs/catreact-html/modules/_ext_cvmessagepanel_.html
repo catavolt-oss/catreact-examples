@@ -7,7 +7,6 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
-	<script src="../assets/js/modernizr.js"></script>
 </head>
 <body>
 <header>
@@ -92,7 +91,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-external-module tsd-is-external">
 					<a name="cvmessagepanel" class="tsd-anchor"></a>
 					<h3>Cv<wbr>Message<wbr>Panel</h3>
-					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Message<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvmessagepanel_.cvmessagepanelprops.html" class="tsd-signature-type">CvMessagePanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMessagePanelProps, CvMessagePanelState&gt;({mixins: [CvBaseMixin],render: function () {return &lt;CvMessagePane messageRenderer&#x3D;{(cvContext:CvContext, message:CvMessage, callback:CvMessagePaneCallback)&#x3D;&gt;{toastr.options.onHidden &#x3D; function(){callback.clear();}if(message.type &#x3D;&#x3D;&#x3D; CvMessageType.ERROR) {if(message.messageObj &amp;&amp; message.messageObj instanceof DialogException) {const dialogException:DialogException &#x3D; message.messageObj as DialogException;const text &#x3D; dialogException.message || dialogException.name;toastr.error(text, dialogException.title, {timeOut: 10000, extendedTimeOut: 3000, closeButton:true,showMethod:&#x27;slideDown&#x27;, hideMethod:&#x27;slideUp&#x27;,progressBar:true, preventDuplicates:true});}Log.error(message.message);Log.error(message.messageObj);} else {toastr.info(message.message, &#x27;&#x27;, {timeOut: 10000, extendedTimeOut: 3000, closeButton:true,showMethod:&#x27;slideDown&#x27;, hideMethod:&#x27;slideUp&#x27;,progressBar:true, preventDuplicates:true});}return null;}}/&gt;},})</span></div>
+					<div class="tsd-signature tsd-kind-icon">Cv<wbr>Message<wbr>Panel<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">ClassicComponentClass</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_ext_cvmessagepanel_.cvmessagepanelprops.html" class="tsd-signature-type">CvMessagePanelProps</a><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> =&nbsp;React.createClass&lt;CvMessagePanelProps, CvMessagePanelState&gt;({mixins: [CvBaseMixin],render: function () {return &lt;CvMessagePane messageRenderer&#x3D;{(cvContext:CvContext, message:CvMessage, callback:CvMessagePaneCallback)&#x3D;&gt;{toastr.options.onHidden &#x3D; function(){callback.clear();}if(message.type &#x3D;&#x3D;&#x3D; CvMessageType.ERROR) {if(message.messageObj &amp;&amp; message.messageObj instanceof DialogException) {const dialogException:DialogException &#x3D; message.messageObj as DialogException;const text &#x3D; this._createUserMessage(dialogException);toastr.error(text, dialogException.title, {timeOut: 10000, extendedTimeOut: 3000, closeButton:true,showMethod:&#x27;slideDown&#x27;, hideMethod:&#x27;slideUp&#x27;,progressBar:true, preventDuplicates:true});}Log.error(message.message);Log.error(message.messageObj);} else {toastr.info(message.message, &#x27;&#x27;, {timeOut: 10000, extendedTimeOut: 3000, closeButton:true,showMethod:&#x27;slideDown&#x27;, hideMethod:&#x27;slideUp&#x27;,progressBar:true, preventDuplicates:true});}return null;}}/&gt;},_createUserMessage: function(dialogException:DialogException) {let text &#x3D; dialogException.message || dialogException.name || &#x27;An Error Occurred&#x27;;if(dialogException.userMessages &amp;&amp; dialogException.userMessages.length &gt; 0) {dialogException.userMessages.forEach((userMessage:UserMessage)&#x3D;&gt;{text +&#x3D; &#x27;&lt;br&gt;&lt;strong&gt;&#x27; + userMessage.message + &#x27;&lt;/strong&gt;&#x27;;});}return text;}})</span></div>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in ext/CvMessagePanel.tsx:30</li>
@@ -188,7 +187,7 @@
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.io" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
